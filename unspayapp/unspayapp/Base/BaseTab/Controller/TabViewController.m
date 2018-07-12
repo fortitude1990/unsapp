@@ -9,6 +9,9 @@
 #import "TabViewController.h"
 #import "TabView.h"
 #import "TabItemModel.h"
+#import "HomePageViewController.h"
+#import "PersonCenterViewController.h"
+#import "BaseNavController.h"
 
 @interface TabViewController ()
 
@@ -83,21 +86,17 @@
     }];
     
     TabItemModel *oneItem = [[TabItemModel alloc] init];
-    oneItem.highlightImageName = @"Group 49";
-    oneItem.normalImageName = @"Group 47";
-    oneItem.title = @"应用中心";
+    oneItem.highlightImageName = @"首页-选中";
+    oneItem.normalImageName = @"首页";
+    oneItem.title = @"首页";
     
     TabItemModel *twoItem = [[TabItemModel alloc] init];
-    twoItem.highlightImageName = @"Group 45";
-    twoItem.normalImageName = @"Group 46";
-    twoItem.title = @"用户中心";
+    twoItem.highlightImageName = @"个人中心-选中";
+    twoItem.normalImageName = @"个人中心";
+    twoItem.title = @"个人中心";
     
-    TabItemModel *threeItem = [[TabItemModel alloc] init];
-    threeItem.highlightImageName = @"Group 44";
-    threeItem.normalImageName = @"Group 43";
-    threeItem.title = @"更多";
     
-    tabView.items = @[oneItem, twoItem, threeItem];
+    tabView.items = @[oneItem, twoItem];
     
     self.tabView = tabView;
     
@@ -156,16 +155,13 @@
 
 - (void)createSubViews{
     
-//    AppCenterViewController *appCenterVC = [[AppCenterViewController alloc] init];
-//    SignNavController *appCenterNavC = [[SignNavController alloc] initWithRootViewController:appCenterVC];
-//    
-//    UserCenterViewController *userCenterVC = [[UserCenterViewController alloc] init];
-//    SignNavController *userCenterNavC = [[SignNavController alloc] initWithRootViewController:userCenterVC];
-//    
-//    OptionViewController *moreVC = [[OptionViewController alloc] init];
-//    SignNavController *moreNavC = [[SignNavController alloc] initWithRootViewController:moreVC];
-//    
-//    self.viewControllers = @[appCenterNavC,userCenterNavC,moreNavC];
+    HomePageViewController *appCenterVC = [[HomePageViewController alloc] init];
+    BaseNavController *appCenterNavC = [[BaseNavController alloc] initWithRootViewController:appCenterVC];
+    
+    PersonCenterViewController *userCenterVC = [[PersonCenterViewController alloc] init];
+    BaseNavController *userCenterNavC = [[BaseNavController alloc] initWithRootViewController:userCenterVC];
+    
+    self.viewControllers = @[appCenterNavC,userCenterNavC];
     
 }
 

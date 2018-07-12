@@ -42,4 +42,8 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 
 #define IOS_VERSION  [[[UIDevice currentDevice] systemVersion] floatValue]
 
+
+typedef void(^CommonBlock)(BOOL flay, NSString *message);
+
+
 #endif /* PrefixHeader_pch */

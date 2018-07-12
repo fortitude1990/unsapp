@@ -8,8 +8,8 @@
 
 #import "TabItemView.h"
 
-#define NomarlColor KHexColor(0xB6B6B8)
-#define HighlightColor KHexColor(0x66C2E8)
+#define NomarlColor KHexColor(0x5f5f5f)
+#define HighlightColor KHexColor(0x0068b7)
 
 
 @interface TabItemView()
@@ -53,12 +53,12 @@
     imageView.frame = CGRectMake(0, 0, 24, 24);
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:imageView];
-    imageView.center = CGPointMake(width / 2.0, height / 2.5);
+    imageView.center = CGPointMake(width / 2.5, height / 2.0);
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.frame = CGRectMake(0, CGRectGetMaxY(imageView.frame) + 2, width, 15);
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont systemFontOfSize:11];
+    titleLabel.frame = CGRectMake(CGRectGetMaxX(imageView.frame) + 5, (CGRectGetHeight(self.frame) - 20)/2.0 , width / 2.0, 20);
+    titleLabel.textAlignment = NSTextAlignmentLeft;
+    titleLabel.font = [UIFont systemFontOfSize:16];
     [self addSubview:titleLabel];
     
     self.myImageView = imageView;

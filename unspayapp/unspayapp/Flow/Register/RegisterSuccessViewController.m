@@ -41,12 +41,25 @@
 
 - (void)createUI{
     
+    
+    
+    self.navigationItem.title = @"注册";
+    
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+    
     self.nextBtn.layer.cornerRadius = 22;
     self.nextBtn.clipsToBounds = YES;
     
 }
 
+- (void)leftBtnAction{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)nextBtnAction:(id)sender {
+    
+    
+    
 }
 
 @end

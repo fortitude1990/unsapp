@@ -112,6 +112,8 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
+    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
+    [self.navigationController pushViewController:successVC animated:YES];
     
     
 }
