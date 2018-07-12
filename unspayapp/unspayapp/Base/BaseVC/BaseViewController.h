@@ -10,4 +10,6 @@
 
 @interface BaseViewController : UIViewController
 
+- (void)leftBtnAction;
+
 @end

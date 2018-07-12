@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterSuccessViewController">
+            <connections>
+                <outlet property="nextBtn" destination="tGu-4W-1Sl" id="akW-Zn-i2W"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="注册成功" translatesAutoresizingMaskIntoConstraints="NO" id="O4K-DR-pLl">
+                    <rect key="frame" x="61" y="94" width="253" height="208"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="O4K-DR-pLl" secondAttribute="height" multiplier="486.7:400" id="9Ys-Fn-XBc"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您完成银生宝钱包的注册！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-2Y-Yq0">
+                    <rect key="frame" x="15" y="317" width="345" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGu-4W-1Sl">
+                    <rect key="frame" x="27.5" y="379" width="320" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="UX8-nO-ed3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="立即登录">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="gQU-lN-JYH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9QD-2Y-Yq0" secondAttribute="trailing" constant="15" id="H9s-gR-UCo"/>
+                <constraint firstItem="9QD-2Y-Yq0" firstAttribute="top" secondItem="O4K-DR-pLl" secondAttribute="bottom" constant="15" id="Qga-Lh-PEO"/>
+                <constraint firstAttribute="trailing" secondItem="tGu-4W-1Sl" secondAttribute="trailing" constant="27.5" id="SQv-DN-TvM"/>
+                <constraint firstItem="O4K-DR-pLl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="aV2-Rf-JoM"/>
+                <constraint firstItem="9QD-2Y-Yq0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="pUh-Z5-OM2"/>
+                <constraint firstItem="tGu-4W-1Sl" firstAttribute="top" secondItem="9QD-2Y-Yq0" secondAttribute="bottom" constant="44" id="rnc-Vf-ZsG"/>
+                <constraint firstItem="O4K-DR-pLl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="61" id="ulR-jZ-lKz"/>
+                <constraint firstItem="tGu-4W-1Sl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27.5" id="v38-Ib-CzN"/>
+                <constraint firstAttribute="trailing" secondItem="O4K-DR-pLl" secondAttribute="trailing" constant="61" id="yNo-3p-88F"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="注册成功" width="243" height="200"/>
+    </resources>
+</document>

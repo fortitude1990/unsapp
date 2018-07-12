@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //此处添加方法会造成子视图页面花屏
+//    [self createUI];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +40,6 @@
 }
 */
 
-#pragma mark - Methods
 
 - (BOOL)shouldAutorotate{
     return YES;
@@ -48,6 +51,19 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return UIInterfaceOrientationPortrait;
+}
+
+#pragma mark - Methods
+
+
+
+- (void)createUI{
+    
+//    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+}
+
+- (void)leftBtnAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
