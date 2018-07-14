@@ -9,13 +9,27 @@
 #import "HomePageViewController.h"
 #import "HomePageCollectionViewCell.h"
 #import "HomePageItemModel.h"
+#import "TabViewController.h"
+#import "MeansView.h"
+#import "SurprisedView.h"
+#import "CheckItem.h"
+#import "ContactView.h"
 
 #define kMargin 15
+
+typedef NS_ENUM(NSInteger, ScrollDirection) {
+    ScrollDirectionNone,
+    ScrollDirectionUp,
+    ScrollDirectionDown
+};
 
 @interface HomePageViewController ()<UIScrollViewDelegate>
 {
     UIImageView *_headImagView;
     UILabel *_nameLabel;
+    ScrollDirection _scrollDirection;
+    CGFloat _currentOffsetY;
+    dispatch_semaphore_t _semaphore;
 }
 
 @property (strong, nonatomic) UIView * naviagtionView;
@@ -32,7 +46,10 @@
 
 @property (strong, nonatomic) UIView * chameleon;
 
-@property (strong, nonatomic) UIView * meansView;
+@property (strong, nonatomic) MeansView * meansView;
+
+@property (strong, nonatomic) UIView * chameleonCover;
+
 
 @end
 
@@ -52,7 +69,12 @@
     
     [self createUI];
     
+    
+    
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,26 +104,66 @@
     [self.scrollView addSubview:self.controlStripView];
     [self.scrollView addSubview:self.chameleon];
     [self.scrollView addSubview:self.meansView];
-
     
+    
+    CheckItem *checkBill = [[CheckItem alloc] init];
+    checkBill.title = @"查看账单记录";
+    [self.scrollView addSubview:checkBill];
+    checkBill.frame = CGRectMake(0, CGRectGetMaxY(self.meansView.frame), kRectWidth, 50);
+    
+    UILabel *billRemindLabel = [[UILabel alloc] init];
+    billRemindLabel.text = @"所有账单都在这里";
+    billRemindLabel.font = [UIFont systemFontOfSize:13];
+    billRemindLabel.textColor = KHexColor(0xb6b6b8);
+    billRemindLabel.textAlignment = NSTextAlignmentCenter;
+    [self.scrollView addSubview:billRemindLabel];
+    billRemindLabel.frame = CGRectMake(0, CGRectGetMaxY(checkBill.frame) + 5, kRectWidth, 18);
+    
+    SurprisedView *surprisedView = [[SurprisedView alloc] init];
+    [self.scrollView addSubview:surprisedView];
+    surprisedView.frame = CGRectMake(0, CGRectGetMaxY(billRemindLabel.frame) + 25, kRectWidth, 25);
+    
+    ContactView *contactView = [[ContactView alloc] init];
+    [self.scrollView addSubview:contactView];
+    contactView.frame = CGRectMake(0, CGRectGetMaxY(surprisedView.frame) + 100, kRectWidth, 30);
+    
+    
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(contactView.frame) + 50);
+
     UIView *meansBackView = [[UIView alloc] init];
     meansBackView.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:meansBackView];
-    meansBackView.frame = CGRectMake(0, CGRectGetMaxY(self.chameleon.frame), kRectWidth, CGRectGetHeight(self.meansView.frame));
+    [self.scrollView insertSubview:meansBackView atIndex:0];
+    meansBackView.frame = CGRectMake(0, CGRectGetMaxY(self.chameleon.frame), kRectWidth, self.scrollView.contentSize.height - CGRectGetMaxY(self.chameleon.frame));
     
-    self.scrollView.contentSize = CGSizeMake(0, 1000);
+    
+    self.leftItemView.alpha = 0;
 
+    
+    [checkBill tapAction:^(BOOL flag, NSString *message) {
+        
+    }];
+    
+    [self.meansView tapAction:^(BOOL flag, NSString *message) {
+        
+    }];
+    
+}
+
+#pragma mark - Set
+
+- (void)setHidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed{
+    
+    [(TabViewController *)self.tabBarController setHiddenTabView:hidesBottomBarWhenPushed];
+    
 }
 
 #pragma mark - Get
 
-- (UIView *)meansView{
+- (MeansView *)meansView{
     if (!_meansView) {
         
-        UIView *meansView = [[UIView alloc] init];
-        meansView.backgroundColor = [UIColor whiteColor];
-        meansView.frame = CGRectMake(kMargin, CGRectGetMaxY(self.controlStripView.frame) + 10, kRectWidth - kMargin * 2, 300);
-        
+        MeansView *meansView = [[MeansView alloc] init];
+        meansView.frame = CGRectMake(kMargin, CGRectGetMaxY(self.controlStripView.frame) + 15, kRectWidth - kMargin * 2, (kRectWidth - kMargin * 2) * 546 / 690.0);
         _meansView = meansView;
         
     }
@@ -111,9 +173,17 @@
 - (UIView *)chameleon{
     
     if (!_chameleon) {
+        
         _chameleon = [[UIView alloc] init];
         _chameleon.backgroundColor = self.controlStripView.backgroundColor;
         _chameleon.frame = CGRectMake(0, CGRectGetMaxY(self.controlStripView.frame), kRectWidth, CGRectGetHeight(self.topBackgroundView.frame) - CGRectGetMaxY(self.controlStripView.frame) - 64);
+        
+        self.chameleonCover = [[UIView alloc] init];
+        self.chameleonCover.backgroundColor = [UIColor whiteColor];
+        self.chameleonCover.alpha = 0;
+        [_chameleon addSubview:self.chameleonCover];
+        self.chameleonCover.frame = _chameleon.bounds;
+        
     }
     
     return _chameleon;
@@ -123,7 +193,7 @@
     if (!_controlStripView) {
         
         _controlStripView = [[UIView alloc] init];
-        _controlStripView.frame = CGRectMake(0, CGRectGetHeight(self.headView.frame), kRectWidth, 80);
+        _controlStripView.frame = CGRectMake(0, CGRectGetHeight(self.headView.frame), kRectWidth, 75);
         
         //透明色不会产生阴影
         _controlStripView.backgroundColor = [KHexColor(0x3083FF) colorWithAlphaComponent:0.34];
@@ -191,7 +261,7 @@
         _headView = [[UIView alloc] init];
         _headView.frame = CGRectMake(0, 64, kRectWidth, 100);
         
-        UIImageView *imageView = [[UIImageView alloc] init];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"默认头像"]];
         imageView.backgroundColor = [UIColor lightGrayColor];
         [_headView addSubview:imageView];
         imageView.frame = CGRectMake((CGRectGetWidth(_headView.frame) - 60) / 2.0,  7, 60, 60);
@@ -203,10 +273,10 @@
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.font = [UIFont systemFontOfSize:16];
-        nameLabel.text = @"***";
+        nameLabel.text = @"李志敬";
         nameLabel.textAlignment = NSTextAlignmentCenter;
         [_headView addSubview:nameLabel];
-        nameLabel.frame = CGRectMake(0, CGRectGetMaxY(imageView.frame) + 15,CGRectGetWidth(_headView.frame), 22.5);
+        nameLabel.frame = CGRectMake(0, CGRectGetMaxY(imageView.frame) + 5,CGRectGetWidth(_headView.frame), 22.5);
         
         _headImagView = imageView;
         _nameLabel = nameLabel;
@@ -318,9 +388,63 @@
 
 #pragma mark - Methods
 
+- (void)startAlphaAnimation{
+    
+    CGFloat offsetY = self.scrollView.contentOffset.y;
+    
+    if (_currentOffsetY < offsetY) {
+        _scrollDirection = ScrollDirectionDown;
+    }else if (_currentOffsetY == offsetY) {
+        _scrollDirection = ScrollDirectionNone;
+    }else{
+        _scrollDirection = ScrollDirectionUp;
+    }
+    
+    _currentOffsetY = offsetY;
+    
+    if (_scrollDirection == ScrollDirectionUp) {
+        self.hidesBottomBarWhenPushed = NO;
+    }
+    
+    if (_scrollDirection == ScrollDirectionDown) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    
+    
+    if (offsetY <= CGRectGetMinY(self.chameleon.frame)) {
+        self.headView.alpha = (CGRectGetHeight(self.headView.frame) - offsetY)/ CGRectGetHeight(self.headView.frame);
+    }
+    
+    if (offsetY >= CGRectGetMinY(self.controlStripView.frame) && offsetY <= CGRectGetMinY(self.chameleon.frame)) {
+        
+        self.controlStripView.alpha = (CGRectGetMaxY(self.controlStripView.frame) - offsetY) / CGRectGetHeight(self.controlStripView.frame);
+        self.leftItemView.alpha = (offsetY - CGRectGetMinY(self.controlStripView.frame)) / CGRectGetHeight(self.controlStripView.frame);
+        self.chameleonCover.alpha = (offsetY - CGRectGetMinY(self.controlStripView.frame)) / CGRectGetHeight(self.controlStripView.frame);
+    }
+    
+    
+    if (offsetY < 5) {
+        self.headView.alpha = 1;
+        self.controlStripView.alpha = 1;
+        self.chameleonCover.alpha = 0;
+        self.leftItemView.alpha = 0;
+    }
+    
+    if (offsetY >= CGRectGetMinY(self.chameleon.frame)) {
+        self.headView.alpha = 0;
+        self.controlStripView.alpha = 0;
+        self.chameleonCover.alpha = 1;
+        self.leftItemView.alpha = 1;
+    }
+    
+    
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+  [self startAlphaAnimation];
     
 }
 
@@ -333,8 +457,23 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
 
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+
+    if (offsetY > 0 && offsetY < CGRectGetMinY(self.chameleon.frame) && !decelerate) {
+        
+        if (_scrollDirection == ScrollDirectionUp) {
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+        
+        if (_scrollDirection == ScrollDirectionDown) {
+            
+        [scrollView setContentOffset:CGPointMake(0, CGRectGetMinY(self.chameleon.frame)) animated:YES];
+        }
+
+    }
+    
     
 }
 
@@ -343,6 +482,25 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    if (offsetY > 0 && offsetY < CGRectGetMinY(self.chameleon.frame)) {
+        
+        if (_scrollDirection == ScrollDirectionUp) {
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+        
+        if (_scrollDirection == ScrollDirectionDown) {
+            
+            [scrollView setContentOffset:CGPointMake(0, CGRectGetMinY(self.chameleon.frame)) animated:YES];
+        }
+
+        
+    }
+    
+
     
 }
 
