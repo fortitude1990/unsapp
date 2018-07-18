@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RealNameAuthViewController">
+            <connections>
+                <outlet property="IDItem" destination="d49-Rf-iYA" id="EFw-rC-O0n"/>
+                <outlet property="IDTypeItem" destination="GKH-ec-UZg" id="Bts-pt-bDo"/>
+                <outlet property="nameItem" destination="eHZ-yj-crJ" id="VRg-QJ-DEk"/>
+                <outlet property="nextBtn" destination="WpR-vP-GVC" id="vsp-dh-zwr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHZ-yj-crJ" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="84" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="X9H-Z6-atL"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKH-ec-UZg" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="144" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="nTn-xY-BOQ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d49-Rf-iYA" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="204" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9Zy-ti-r6y"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpR-vP-GVC" customClass="NextButton">
+                    <rect key="frame" x="20" y="298" width="335" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="FdI-sw-QwJ"/>
+                    </constraints>
+                    <state key="normal" title="开始验证"/>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="TBg-ya-1IH"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GKH-ec-UZg" firstAttribute="top" secondItem="eHZ-yj-crJ" secondAttribute="bottom" constant="10" id="4M1-2a-icM"/>
+                <constraint firstAttribute="trailing" secondItem="eHZ-yj-crJ" secondAttribute="trailing" id="GbH-26-UQs"/>
+                <constraint firstItem="GKH-ec-UZg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jmw-gk-UkW"/>
+                <constraint firstAttribute="trailing" secondItem="d49-Rf-iYA" secondAttribute="trailing" id="MIw-Oa-cba"/>
+                <constraint firstItem="d49-Rf-iYA" firstAttribute="top" secondItem="GKH-ec-UZg" secondAttribute="bottom" constant="10" id="PUX-er-zVK"/>
+                <constraint firstAttribute="trailing" secondItem="GKH-ec-UZg" secondAttribute="trailing" id="bwJ-k8-Bsi"/>
+                <constraint firstItem="d49-Rf-iYA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fJq-ay-wCU"/>
+                <constraint firstItem="eHZ-yj-crJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="ksE-kW-0zm"/>
+                <constraint firstItem="WpR-vP-GVC" firstAttribute="top" secondItem="d49-Rf-iYA" secondAttribute="bottom" constant="44" id="lo3-8G-Zfp"/>
+                <constraint firstItem="WpR-vP-GVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="s60-nW-Duz"/>
+                <constraint firstAttribute="trailing" secondItem="WpR-vP-GVC" secondAttribute="trailing" constant="20" id="vmR-D1-BUK"/>
+                <constraint firstItem="eHZ-yj-crJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zzE-y4-apA"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

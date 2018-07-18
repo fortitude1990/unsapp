@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadIdCardViewController">
+            <connections>
+                <outlet property="IDPhotoTitleLabel" destination="mJY-0G-pTr" id="9Nn-JP-w1k"/>
+                <outlet property="nextBtn" destination="83o-J0-d0r" id="DJ6-hx-YAJ"/>
+                <outlet property="oneView" destination="tPZ-xC-MV5" id="wrj-m1-upx"/>
+                <outlet property="positiveBtn" destination="7TL-Rg-u8o" id="FqI-FE-f1l"/>
+                <outlet property="reverseBtn" destination="UHS-fn-Mka" id="x25-vR-ZoN"/>
+                <outlet property="twoView" destination="4Lk-4h-TgS" id="X3X-fa-Jel"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-xC-MV5">
+                    <rect key="frame" x="0.0" y="84" width="320" height="95"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="证件照" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJY-0G-pTr">
+                            <rect key="frame" x="20" y="39.5" width="40" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHS-fn-Mka">
+                            <rect key="frame" x="189" y="13" width="111" height="69.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="UHS-fn-Mka" secondAttribute="height" multiplier="120:75" id="lxw-Vp-24q"/>
+                            </constraints>
+                            <state key="normal" image="上传身份证-反面"/>
+                            <connections>
+                                <action selector="reverseBtnAction:" destination="-1" eventType="touchUpInside" id="qJq-B0-6a4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TL-Rg-u8o">
+                            <rect key="frame" x="66.5" y="12.5" width="112" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7TL-Rg-u8o" secondAttribute="height" multiplier="120:75" id="KC6-pd-kbB"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="上传身份证-正面"/>
+                            <connections>
+                                <action selector="postitiveBtnAction:" destination="-1" eventType="touchUpInside" id="q7Q-UT-Sdt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="UHS-fn-Mka" firstAttribute="leading" secondItem="7TL-Rg-u8o" secondAttribute="trailing" constant="10" id="2pz-mL-koM"/>
+                        <constraint firstItem="mJY-0G-pTr" firstAttribute="centerY" secondItem="tPZ-xC-MV5" secondAttribute="centerY" id="8An-3i-8uD"/>
+                        <constraint firstAttribute="bottom" secondItem="7TL-Rg-u8o" secondAttribute="bottom" constant="12.5" id="CYo-QT-O0R"/>
+                        <constraint firstItem="7TL-Rg-u8o" firstAttribute="top" secondItem="tPZ-xC-MV5" secondAttribute="top" constant="12.5" id="J1L-SE-urB"/>
+                        <constraint firstAttribute="bottom" secondItem="UHS-fn-Mka" secondAttribute="bottom" constant="12.5" id="b9A-tv-xMA"/>
+                        <constraint firstAttribute="trailing" secondItem="UHS-fn-Mka" secondAttribute="trailing" constant="20" id="cbn-Bc-Zlj"/>
+                        <constraint firstItem="mJY-0G-pTr" firstAttribute="leading" secondItem="tPZ-xC-MV5" secondAttribute="leading" constant="20" id="dL1-n7-5lb"/>
+                        <constraint firstItem="UHS-fn-Mka" firstAttribute="top" secondItem="tPZ-xC-MV5" secondAttribute="top" constant="12.5" id="k2w-PE-6Yh"/>
+                        <constraint firstAttribute="height" constant="95" id="tSN-bd-cmP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-4h-TgS" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="195" width="320" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GfI-7E-9MF"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83o-J0-d0r" customClass="NextButton">
+                    <rect key="frame" x="20" y="317.5" width="280" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="A5e-pU-lZa"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="8jt-84-Z1v"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-kA-Gwt">
+                    <rect key="frame" x="201" y="255" width="99" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="我的有效期是长期"/>
+                    <connections>
+                        <action selector="longTimeSettingBtnAction:" destination="-1" eventType="touchUpInside" id="cT2-az-RmD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JKq-kA-Gwt" firstAttribute="top" secondItem="4Lk-4h-TgS" secondAttribute="bottom" constant="10" id="2o2-W5-Txz"/>
+                <constraint firstItem="tPZ-xC-MV5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="5Ol-YP-7gr"/>
+                <constraint firstItem="4Lk-4h-TgS" firstAttribute="top" secondItem="tPZ-xC-MV5" secondAttribute="bottom" constant="16" id="Kky-ba-9T2"/>
+                <constraint firstAttribute="trailing" secondItem="JKq-kA-Gwt" secondAttribute="trailing" constant="20" id="PYX-cT-qqF"/>
+                <constraint firstItem="4Lk-4h-TgS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WrG-9b-B10"/>
+                <constraint firstAttribute="trailing" secondItem="83o-J0-d0r" secondAttribute="trailing" constant="20" id="bNb-Ni-8pa"/>
+                <constraint firstItem="83o-J0-d0r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="g7o-ZE-kma"/>
+                <constraint firstAttribute="trailing" secondItem="tPZ-xC-MV5" secondAttribute="trailing" id="jff-PT-7kO"/>
+                <constraint firstItem="83o-J0-d0r" firstAttribute="top" secondItem="4Lk-4h-TgS" secondAttribute="bottom" constant="72.5" id="kA3-Rc-adJ"/>
+                <constraint firstItem="tPZ-xC-MV5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m2o-U7-1fS"/>
+                <constraint firstAttribute="trailing" secondItem="4Lk-4h-TgS" secondAttribute="trailing" id="oR9-DZ-iGW"/>
+            </constraints>
+            <point key="canvasLocation" x="24" y="51"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="上传身份证-反面" width="121" height="76"/>
+        <image name="上传身份证-正面" width="121" height="76"/>
+    </resources>
+</document>

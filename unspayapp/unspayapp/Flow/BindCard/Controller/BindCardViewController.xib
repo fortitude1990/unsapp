@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BindCardViewController">
+            <connections>
+                <outlet property="nextBtn" destination="4et-tV-GEI" id="o9m-CE-EeV"/>
+                <outlet property="oneItem" destination="MeO-PU-0P5" id="IQh-KW-2A2"/>
+                <outlet property="twoItem" destination="7d8-b8-Xoz" id="L79-ES-Ane"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeO-PU-0P5" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="115" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ahd-rg-LQz"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7d8-b8-Xoz" customClass="AuthItem">
+                    <rect key="frame" x="0.0" y="175" width="375" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fmN-rT-DYC"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4et-tV-GEI" customClass="NextButton">
+                    <rect key="frame" x="20" y="270" width="335" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="UWC-jQ-3CJ"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="FkA-9M-q35"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MeO-PU-0P5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="115" id="3x1-xT-4kF"/>
+                <constraint firstItem="7d8-b8-Xoz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="414-wW-Lbk"/>
+                <constraint firstItem="MeO-PU-0P5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7RM-Vt-vMJ"/>
+                <constraint firstItem="4et-tV-GEI" firstAttribute="top" secondItem="7d8-b8-Xoz" secondAttribute="bottom" constant="45" id="NdB-ak-kcG"/>
+                <constraint firstAttribute="trailing" secondItem="4et-tV-GEI" secondAttribute="trailing" constant="20" id="ST9-YH-7Ih"/>
+                <constraint firstAttribute="trailing" secondItem="MeO-PU-0P5" secondAttribute="trailing" id="dLk-4j-77S"/>
+                <constraint firstItem="4et-tV-GEI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="pVZ-wb-i9o"/>
+                <constraint firstItem="7d8-b8-Xoz" firstAttribute="top" secondItem="MeO-PU-0P5" secondAttribute="bottom" constant="10" id="wBa-HW-YbY"/>
+                <constraint firstAttribute="trailing" secondItem="7d8-b8-Xoz" secondAttribute="trailing" id="zd0-V4-RZo"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

@@ -14,6 +14,9 @@
 #import "SurprisedView.h"
 #import "CheckItem.h"
 #import "ContactView.h"
+#import "RealNameAuthViewController.h"
+#import "BindCardViewController.h"
+#import "RechargeViewController.h"
 
 #define kMargin 15
 
@@ -61,6 +64,33 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = YES;
+    
+    /*
+    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
+        
+        RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
+        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+        [self presentViewController:navC animated:YES completion:^{
+            
+        }];
+        
+    } of:self];
+    */
+    
+    
+    
+    /*
+    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请绑定银行卡" ok:@"再看看" cancel:@"绑卡" okAction:nil cancelAction:^{
+        
+        BindCardViewController *realVC = [[BindCardViewController alloc] init];
+        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+        [self presentViewController:navC animated:YES completion:^{
+            
+        }];
+        
+    } of:self];
+    */
+    
 }
 
 - (void)viewDidLoad {
@@ -375,6 +405,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (void)rechargeBtnAction{
+    
+    RechargeViewController *rechargeVC = [[RechargeViewController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:rechargeVC animated:YES];
+    
     
 }
 
