@@ -8,6 +8,11 @@
 
 #import "PersonCenterViewController.h"
 #import "AmplificationBtn.h"
+#import "TabViewController.h"
+#import "AccountView.h"
+#import "TotalPropertyView.h"
+#import "BankCardView.h"
+
 
 #define kMargin 15
 
@@ -24,7 +29,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     ScrollDirection _scrollDirection;
     CGFloat _currentOffsetY;
     dispatch_semaphore_t _semaphore;
+    AmplificationBtn *_topAmplificationView;
+    UILabel *_topTitleLabel;
+    
 }
+
 @property (strong, nonatomic) UIView * naviagtionView;
 
 @property (strong, nonatomic) UIView * headView;
@@ -36,6 +45,15 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 @property (strong, nonatomic) UIView * controlStripView;
 
 @property (nonatomic, strong) NSArray *btnsArray;
+
+@property (strong, nonatomic) UIView * topView;
+
+@property (strong, nonatomic) AccountView *accountView;
+
+@property (strong, nonatomic) TotalPropertyView *totalPropertyView;
+
+@property (strong, nonatomic) BankCardView *bankCardView;
+
 
 @end
 
@@ -85,10 +103,85 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.headView];
     [self.scrollView addSubview:self.controlStripView];
+    [self.view addSubview:self.topView];
+
+    self.scrollView.contentSize = CGSizeMake(0, kRectHeight - 63 + CGRectGetHeight(self.headView.frame));
+    
+    
+    UIView *meansBackView = [[UIView alloc] init];
+    meansBackView.backgroundColor = [UIColor whiteColor];
+    [self.scrollView insertSubview:meansBackView atIndex:0];
+    meansBackView.frame = CGRectMake(0, CGRectGetMaxY(self.controlStripView.frame), kRectWidth, self.scrollView.contentSize.height - CGRectGetMaxY(self.controlStripView.frame));
+    
+    AccountView *accountView = [[AccountView alloc] init];
+    [self.scrollView addSubview:accountView];
+    accountView.frame = meansBackView.frame;
+    
+    TotalPropertyView *totalPropertyView = [[TotalPropertyView alloc] init];
+    totalPropertyView.frame = meansBackView.frame;
+
+    BankCardView *bankCardView = [[BankCardView alloc] init];
+    bankCardView.frame = meansBackView.frame;
+    
+    _accountView = accountView;
+    _totalPropertyView = totalPropertyView;
+    _bankCardView = bankCardView;
+    
+}
+
+#pragma mark - Set
+
+- (void)setHidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed{
+    
+    [(TabViewController *)self.tabBarController setHiddenTabView:hidesBottomBarWhenPushed];
     
 }
 
 #pragma mark - Get
+
+- (UIView *)topView{
+    if (!_topView) {
+        
+        UIView *view = [[UIView alloc] init];
+        view.frame = CGRectMake(0, 64, kRectWidth, CGRectGetHeight(self.headView.frame));
+        
+        AmplificationBtn *selectBtn;
+        
+        for (AmplificationBtn *btn in self.btnsArray) {
+            if (btn.selected == YES) {
+                selectBtn = btn;
+                break;
+            }
+        }
+        
+        AmplificationBtn *btn = [[AmplificationBtn alloc] init];
+        btn.title = selectBtn.title;
+        btn.imageName = selectBtn.imageName;
+        btn.selected = NO;
+        [view addSubview:btn];
+        btn.frame = CGRectMake(0, 0, kRectWidth / 3.0, CGRectGetHeight(view.frame));
+        
+        
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(32)];
+        titleLabel.textColor = [UIColor whiteColor];
+        [view addSubview:titleLabel];
+        titleLabel.frame = CGRectMake(CGRectGetMaxX(btn.frame) + 5, 10, 150, kAutoScaleNormal(116));
+        
+        if (_nameLabel) {
+            titleLabel.text = _nameLabel.text;
+        }
+        
+        _topAmplificationView = btn;
+        _topTitleLabel = titleLabel;
+        _topView = view;
+        
+        _topView.alpha = 0;
+    }
+    
+    return _topView;
+}
+
 
 - (UIView *)naviagtionView{
     
@@ -118,7 +211,6 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         messageBtn.frame = CGRectMake(CGRectGetMinX(settingBtn.frame) - itemWidth - kMargin, originY, itemWidth, itemWidth);
         
        
-        
     }
     return _naviagtionView;
 }
@@ -170,6 +262,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.delegate = self;
         _scrollView.bounces = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.frame = CGRectMake(0, 64, kRectWidth, kRectHeight - 64);
     }
     
@@ -216,9 +309,19 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
                 
             }];
             
+            [self changeTopViewValue];
+            
+            [self.scrollView addSubview:self.accountView];
+            if ([self.scrollView.subviews containsObject:self.totalPropertyView]) {
+                [self.totalPropertyView removeFromSuperview];
+            }
+            if ([self.scrollView.subviews containsObject:self.bankCardView]) {
+                [self.bankCardView removeFromSuperview];
+            }
         }];
         
         [twoBtn btnAction:^{
+            
             [self.btnsArray enumerateObjectsUsingBlock:^(AmplificationBtn * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 if (![obj isEqual:twoBtn]) {
@@ -226,9 +329,21 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
                 }
                 
             }];
+            
+            [self changeTopViewValue];
+            
+            [self.scrollView addSubview:self.totalPropertyView];
+            if ([self.scrollView.subviews containsObject:self.accountView]) {
+                [self.accountView removeFromSuperview];
+            }
+            if ([self.scrollView.subviews containsObject:self.bankCardView]) {
+                [self.bankCardView removeFromSuperview];
+            }
+            
         }];
         
         [threeBtn btnAction:^{
+            
             [self.btnsArray enumerateObjectsUsingBlock:^(AmplificationBtn * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 if (![obj isEqual:threeBtn]) {
@@ -236,6 +351,17 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
                 }
                 
             }];
+            
+            [self changeTopViewValue];
+            
+            [self.scrollView addSubview:self.bankCardView];
+            if ([self.scrollView.subviews containsObject:self.accountView]) {
+                [self.accountView removeFromSuperview];
+            }
+            if ([self.scrollView.subviews containsObject:self.totalPropertyView]) {
+                [self.totalPropertyView removeFromSuperview];
+            }
+            
         }];
         
     }
@@ -250,6 +376,126 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (void)messageBtnAction{
+    
+}
+
+#pragma mark - Methods
+
+
+
+- (void)changeTopViewValue{
+    
+    
+    AmplificationBtn *selectBtn;
+    
+    for (AmplificationBtn *btn in self.btnsArray) {
+        if (btn.selected == YES) {
+            selectBtn = btn;
+            break;
+        }
+    }
+    
+    _topAmplificationView.title = selectBtn.title;
+    _topAmplificationView.imageName = selectBtn.imageName;
+    _topTitleLabel.text = _nameLabel.text;
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    if (offsetY > _currentOffsetY) {
+        _scrollDirection = ScrollDirectionDown;
+    }else{
+        _scrollDirection = ScrollDirectionUp;
+    }
+    
+    _currentOffsetY = offsetY;
+    
+    
+    if (_scrollDirection == ScrollDirectionUp) {
+        self.hidesBottomBarWhenPushed = NO;
+    }else{
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    
+    
+    if (offsetY <= CGRectGetMaxY(self.headView.frame)) {
+        
+        self.headView.alpha = (CGRectGetMaxY(self.headView.frame) - offsetY) / CGRectGetMaxY(self.headView.frame);
+        self.controlStripView.alpha = (CGRectGetMaxY(self.headView.frame) - offsetY) / CGRectGetMaxY(self.headView.frame);
+        self.topView.alpha = offsetY / CGRectGetMaxY(self.headView.frame);
+
+        
+    }
+    
+    
+    if (offsetY > 0 && offsetY < CGRectGetMaxY(self.headView.frame) ){
+        _topAmplificationView.selected = NO;
+    }
+    
+    if(offsetY == 0){
+        self.headView.alpha = 1;
+        self.controlStripView.alpha = 1;
+        self.topView.alpha = 0;
+        _topAmplificationView.selected = NO;
+    }
+    
+    if (offsetY >= CGRectGetMaxY(self.headView.frame)) {
+        self.headView.alpha = 0;
+        self.controlStripView.alpha = 0;
+        self.topView.alpha = 1;
+        _topAmplificationView.selected = YES;
+    }
+
+    
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    if (offsetY > 0 && offsetY < CGRectGetMaxY(self.headView.frame) && !decelerate) {
+        
+        if (_scrollDirection == ScrollDirectionUp) {
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+        
+        if (_scrollDirection == ScrollDirectionDown) {
+            
+            [scrollView setContentOffset:CGPointMake(0, CGRectGetMaxY(self.headView.frame) + 1) animated:YES];
+        }
+        
+    }
+    
+    
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    if (offsetY > 0 && offsetY < CGRectGetMaxY(self.headView.frame)) {
+        
+        if (_scrollDirection == ScrollDirectionUp) {
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+        
+        if (_scrollDirection == ScrollDirectionDown) {
+            
+            [scrollView setContentOffset:CGPointMake(0, CGRectGetMaxY(self.headView.frame) + 1) animated:YES];
+        }
+        
+        
+    }
+    
+    
     
 }
 

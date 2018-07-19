@@ -108,7 +108,7 @@
     }];
     
     
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:backBtn];

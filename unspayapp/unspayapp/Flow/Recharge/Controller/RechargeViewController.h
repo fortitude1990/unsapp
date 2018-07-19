@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, TradingType) {
+    TradingTypeRecharge,
+    TradingTypeWithdraw,
+};
+
 @interface RechargeViewController : BaseViewController
+
+@property (nonatomic, assign)TradingType tradingType;
 
 @end

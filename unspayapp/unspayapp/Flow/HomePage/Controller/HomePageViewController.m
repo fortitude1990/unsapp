@@ -161,7 +161,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     if (CGRectGetMaxY(contactView.frame) + 50 < kRectHeight - 64 + CGRectGetMinY(self.chameleon.frame)) {
         self.scrollView.contentSize = CGSizeMake(0, kRectHeight - 64 + CGRectGetMinY(self.chameleon.frame));
     }else{
-        self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(contactView.frame) + 500);
+        self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(contactView.frame) + 50);
     }
     
     
@@ -337,6 +337,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
        _scrollView = [[UIScrollView alloc] init];
         _scrollView.delegate = self;
         _scrollView.bounces = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.frame = CGRectMake(0, 64, kRectWidth, kRectHeight - 64);
     }
     
@@ -424,6 +425,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (void)withdrawBtnAction{
+    
+    RechargeViewController *rechargeVC = [[RechargeViewController alloc] init];
+    rechargeVC.tradingType = TradingTypeWithdraw;
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:rechargeVC animated:YES];
     
 }
 

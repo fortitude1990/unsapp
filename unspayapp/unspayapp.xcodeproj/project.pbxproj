@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
+		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
+		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
+		13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3321005CF500229F9F /* TotalPropertyView.m */; };
+		13CC5B37210067C900229F9F /* BaseMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B36210067C900229F9F /* BaseMessageView.m */; };
+		13CC5B3A2100681100229F9F /* SecuritySettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B392100681100229F9F /* SecuritySettingsView.m */; };
+		13CC5B3D2100682800229F9F /* PaySettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3C2100682800229F9F /* PaySettingsView.m */; };
+		13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B4321007EBD00229F9F /* WithdrawBankListViewController.m */; };
+		13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CC5B4421007EBD00229F9F /* WithdrawBankListViewController.xib */; };
 		13DF1EE120F483A600507BF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DF1EE020F483A600507BF4 /* AppDelegate.m */; };
 		13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DF1EE320F483A600507BF4 /* LoginViewController.m */; };
 		13DF1EE720F483A600507BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13DF1EE520F483A600507BF4 /* Main.storyboard */; };
@@ -116,6 +125,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
+		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
+		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
+		13CC5B2A21005BEF00229F9F /* AccountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountView.m; sourceTree = "<group>"; };
+		13CC5B2F21005C2100229F9F /* BankCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardView.h; sourceTree = "<group>"; };
+		13CC5B3021005C2100229F9F /* BankCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardView.m; sourceTree = "<group>"; };
+		13CC5B3221005CF500229F9F /* TotalPropertyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TotalPropertyView.h; sourceTree = "<group>"; };
+		13CC5B3321005CF500229F9F /* TotalPropertyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotalPropertyView.m; sourceTree = "<group>"; };
+		13CC5B35210067C900229F9F /* BaseMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMessageView.h; sourceTree = "<group>"; };
+		13CC5B36210067C900229F9F /* BaseMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMessageView.m; sourceTree = "<group>"; };
+		13CC5B382100681100229F9F /* SecuritySettingsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecuritySettingsView.h; sourceTree = "<group>"; };
+		13CC5B392100681100229F9F /* SecuritySettingsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecuritySettingsView.m; sourceTree = "<group>"; };
+		13CC5B3B2100682800229F9F /* PaySettingsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaySettingsView.h; sourceTree = "<group>"; };
+		13CC5B3C2100682800229F9F /* PaySettingsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaySettingsView.m; sourceTree = "<group>"; };
+		13CC5B4221007EBD00229F9F /* WithdrawBankListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawBankListViewController.h; sourceTree = "<group>"; };
+		13CC5B4321007EBD00229F9F /* WithdrawBankListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawBankListViewController.m; sourceTree = "<group>"; };
+		13CC5B4421007EBD00229F9F /* WithdrawBankListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawBankListViewController.xib; sourceTree = "<group>"; };
 		13DF1EDC20F483A600507BF4 /* unspayapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unspayapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13DF1EDF20F483A600507BF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13DF1EE020F483A600507BF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -314,6 +340,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CC5B3E210074B200229F9F /* Withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				13CC5B41210074CE00229F9F /* View */,
+				13CC5B40210074C700229F9F /* Model */,
+				13CC5B3F210074C000229F9F /* Controller */,
+			);
+			path = Withdraw;
+			sourceTree = "<group>";
+		};
+		13CC5B3F210074C000229F9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13CC5B4221007EBD00229F9F /* WithdrawBankListViewController.h */,
+				13CC5B4321007EBD00229F9F /* WithdrawBankListViewController.m */,
+				13CC5B4421007EBD00229F9F /* WithdrawBankListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		13CC5B40210074C700229F9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		13CC5B41210074CE00229F9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		13DF1ED320F483A600507BF4 = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +597,7 @@
 		13DF1F5E20F5EA2600507BF4 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				13CC5B3E210074B200229F9F /* Withdraw */,
 				13EC7A0920FF03760002C2CB /* PwdSettings */,
 				13EC79B820FCCFE70002C2CB /* Recharge */,
 				13EC79AA20FCBA140002C2CB /* BindCard */,
@@ -920,10 +981,24 @@
 		13EC7A1120FF12B50002C2CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13CC5B2621005AA900229F9F /* MSCNavigatorView.h */,
+				13CC5B2721005AA900229F9F /* MSCNavigatorView.m */,
 				13EC7A1320FF194D0002C2CB /* AmplificationBtn.h */,
 				13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */,
 				13EC7A1620FF3B7B0002C2CB /* TriangleView.h */,
 				13EC7A1720FF3B7B0002C2CB /* TriangleView.m */,
+				13CC5B2921005BEF00229F9F /* AccountView.h */,
+				13CC5B2A21005BEF00229F9F /* AccountView.m */,
+				13CC5B2F21005C2100229F9F /* BankCardView.h */,
+				13CC5B3021005C2100229F9F /* BankCardView.m */,
+				13CC5B3221005CF500229F9F /* TotalPropertyView.h */,
+				13CC5B3321005CF500229F9F /* TotalPropertyView.m */,
+				13CC5B35210067C900229F9F /* BaseMessageView.h */,
+				13CC5B36210067C900229F9F /* BaseMessageView.m */,
+				13CC5B382100681100229F9F /* SecuritySettingsView.h */,
+				13CC5B392100681100229F9F /* SecuritySettingsView.m */,
+				13CC5B3B2100682800229F9F /* PaySettingsView.h */,
+				13CC5B3C2100682800229F9F /* PaySettingsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1079,6 +1154,7 @@
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
 				13DF1F6920F5F3A800507BF4 /* RegisterViewController.xib in Resources */,
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
+				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
 				13DF1F7620F6110C00507BF4 /* RegisterSuccessViewController.xib in Resources */,
 				13EC79FE20FED6290002C2CB /* RechargeNoneBindCardViewController.xib in Resources */,
 				13EC79A920FCB7AE0002C2CB /* RealNameAuthSuccessViewController.xib in Resources */,
@@ -1193,9 +1269,11 @@
 				13DF1F3420F48E9D00507BF4 /* BaseViewController.m in Sources */,
 				13EC793720F7003F0002C2CB /* PersonCenterViewController.m in Sources */,
 				13EC7A0820FEE11C0002C2CB /* PointView.m in Sources */,
+				13CC5B3D2100682800229F9F /* PaySettingsView.m in Sources */,
 				13DF1F2C20F48CE400507BF4 /* TabItemView.m in Sources */,
 				13DF1F2F20F48CEA00507BF4 /* TabItemModel.m in Sources */,
 				13EC799320FC64910002C2CB /* UILabel+CCFont.m in Sources */,
+				13CC5B37210067C900229F9F /* BaseMessageView.m in Sources */,
 				13DF1F5A20F5DC2C00507BF4 /* PopupAction.m in Sources */,
 				13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */,
 				13EC796820FC44970002C2CB /* UploadIdCardViewController.m in Sources */,
@@ -1203,8 +1281,11 @@
 				13DF1F2320F48CAA00507BF4 /* TabViewController.m in Sources */,
 				13EC795820F8A2CD0002C2CB /* ContactView.m in Sources */,
 				13EC795520F898D80002C2CB /* CheckItem.m in Sources */,
+				13CC5B3A2100681100229F9F /* SecuritySettingsView.m in Sources */,
 				13EC793020F6F4C90002C2CB /* GainLoginMessage.m in Sources */,
+				13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */,
 				13EC793420F6FAA90002C2CB /* HomePageViewController.m in Sources */,
+				13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */,
 				13DF1F5120F5B0BD00507BF4 /* TimerButton.m in Sources */,
 				13EC794220F745440002C2CB /* HomePageItemModel.m in Sources */,
 				13EC79F920FD01D80002C2CB /* PayTypeModel.m in Sources */,
@@ -1214,7 +1295,9 @@
 				13EC799420FC64910002C2CB /* UIView+CCAdditions.m in Sources */,
 				13DF1F6820F5F3A800507BF4 /* RegisterViewController.m in Sources */,
 				13EC799920FC64920002C2CB /* CCTools.m in Sources */,
+				13CC5B3121005C2100229F9F /* BankCardView.m in Sources */,
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,
+				13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */,
 				13EC795220F88F5D0002C2CB /* SurprisedView.m in Sources */,
 				13EC799120FC64910002C2CB /* CCVideoPreview.m in Sources */,
 				13EC795D20FC27400002C2CB /* RealNameAuthViewController.m in Sources */,
@@ -1233,6 +1316,7 @@
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
 				13EC79A820FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m in Sources */,
+				13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */,
 				13EC79B620FCC03A0002C2CB /* BindCardVerificationViewController.m in Sources */,
 				13EC798E20FC64910002C2CB /* CCBaseNavigationController.m in Sources */,
 				13DF1F5920F5DC2C00507BF4 /* PopupViewController.m in Sources */,

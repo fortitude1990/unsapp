@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *amountTF;
 @property (strong, nonatomic) IBOutlet UILabel *serveAmountLabel;
 @property (strong, nonatomic) IBOutlet NextButton *nextBtn;
+@property (strong, nonatomic) IBOutlet UILabel *remindLabel;
+@property (strong, nonatomic) IBOutlet UIButton *allWithdrawBtn;
 
 @end
 
@@ -62,7 +64,19 @@
 
 - (void)createUI{
     
-    self.navigationItem.title = @"账户充值";
+    switch (self.tradingType) {
+        case TradingTypeRecharge:
+            self.navigationItem.title = @"账户充值";
+            self.allWithdrawBtn.hidden = YES;
+            break;
+        case TradingTypeWithdraw:
+            self.navigationItem.title = @"余额提现";
+            self.remindLabel.text = @"可用余额XXXX";
+            break;
+        default:
+            break;
+    }
+    
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     
     self.amountTF.delegate = self;
@@ -75,7 +89,45 @@
 
 #pragma mark - BtnActions
 
+- (IBAction)allWithdrawBtnAction:(id)sender {
+    
+    
+}
+
 - (void)tapGesAction{
+    
+    
+    switch (self.tradingType) {
+        case TradingTypeRecharge:
+            [self rechargeType];
+            break;
+        case TradingTypeWithdraw:
+            [self withdrawType];
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+
+-(void)leftBtnAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (IBAction)nextBtnAction:(id)sender {
+    
+    PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
+    [self.navigationController.view addSubview:passwordView];
+    [passwordView passwordAuthComplete:^(id data) {
+        NSLog(@"%@", data);
+    }];
+}
+
+#pragma mark - Methods
+
+- (void)rechargeType{
     
     PayTypeModel *model = [[PayTypeModel alloc] init];
     model.imageName = @"中国工商银行";
@@ -96,23 +148,12 @@
     }];
     
     [payTypeView show];
-}
-
--(void)leftBtnAction{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-- (IBAction)nextBtnAction:(id)sender {
     
-    PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
-    [self.navigationController.view addSubview:passwordView];
-    [passwordView passwordAuthComplete:^(id data) {
-        NSLog(@"%@", data);
-    }];
 }
 
-#pragma mark - Methods
+- (void)withdrawType{
+    
+}
 
 - (void)textFieldValueChange{
     

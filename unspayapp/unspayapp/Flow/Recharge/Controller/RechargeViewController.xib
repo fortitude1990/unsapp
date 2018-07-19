@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RechargeViewController">
             <connections>
+                <outlet property="allWithdrawBtn" destination="0s8-vN-mgU" id="e5K-Gv-udX"/>
                 <outlet property="amountTF" destination="ThK-Gz-g5d" id="veH-kb-VgJ"/>
                 <outlet property="bankImageView" destination="qF4-Qh-dOj" id="zFL-Ka-ZXa"/>
                 <outlet property="bankItem" destination="r29-Op-frz" id="ZVn-XJ-yEJ"/>
@@ -19,6 +20,7 @@
                 <outlet property="bankNoLabel" destination="sN2-Rr-nih" id="ccR-W2-g5d"/>
                 <outlet property="bankTypeLabel" destination="8OF-q6-IXf" id="fjM-cL-JZH"/>
                 <outlet property="nextBtn" destination="lhv-Zp-9n3" id="ShM-gL-f9G"/>
+                <outlet property="remindLabel" destination="ZEW-gn-vhR" id="aw2-IA-asX"/>
                 <outlet property="serveAmountLabel" destination="O5D-aj-Wdd" id="MTw-O8-QYu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -145,6 +147,14 @@
                         <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="TRu-PM-mVc"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0s8-vN-mgU">
+                    <rect key="frame" x="187" y="164" width="54" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="全部提现"/>
+                    <connections>
+                        <action selector="allWithdrawBtnAction:" destination="-1" eventType="touchUpInside" id="sY6-mt-gEE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -152,6 +162,7 @@
                 <constraint firstItem="O5D-aj-Wdd" firstAttribute="top" secondItem="0Ys-ga-ruX" secondAttribute="bottom" constant="10" id="Apj-tB-A77"/>
                 <constraint firstAttribute="trailing" secondItem="0Ys-ga-ruX" secondAttribute="trailing" id="B0S-Hx-aCT"/>
                 <constraint firstItem="O5D-aj-Wdd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="CgI-Qp-ZgT"/>
+                <constraint firstItem="0s8-vN-mgU" firstAttribute="centerY" secondItem="ZEW-gn-vhR" secondAttribute="centerY" id="Eai-or-iZR"/>
                 <constraint firstAttribute="trailing" secondItem="lhv-Zp-9n3" secondAttribute="trailing" constant="20" id="HNK-K3-tGN"/>
                 <constraint firstItem="r29-Op-frz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Nh7-nm-pQ2"/>
                 <constraint firstItem="0Ys-ga-ruX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OqO-dy-VuE"/>
@@ -159,6 +170,7 @@
                 <constraint firstItem="ZEW-gn-vhR" firstAttribute="top" secondItem="r29-Op-frz" secondAttribute="bottom" constant="15" id="a5B-nc-NNh"/>
                 <constraint firstItem="r29-Op-frz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ajL-RL-48M"/>
                 <constraint firstItem="lhv-Zp-9n3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bUv-re-6Pw"/>
+                <constraint firstItem="0s8-vN-mgU" firstAttribute="leading" secondItem="ZEW-gn-vhR" secondAttribute="trailing" constant="2" id="boW-aW-vSO"/>
                 <constraint firstItem="ZEW-gn-vhR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="dFu-n9-6qA"/>
                 <constraint firstAttribute="trailing" secondItem="r29-Op-frz" secondAttribute="trailing" id="r5g-bg-hJ9"/>
             </constraints>
