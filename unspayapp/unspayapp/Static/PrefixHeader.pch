@@ -44,6 +44,6 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 
 
 typedef void(^CommonBlock)(BOOL flag, NSString *message);
-
+typedef void(^VoidBlock)();
 
 #endif /* PrefixHeader_pch */

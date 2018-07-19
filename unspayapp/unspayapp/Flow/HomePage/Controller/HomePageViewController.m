@@ -157,12 +157,18 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     [self.scrollView addSubview:contactView];
     contactView.frame = CGRectMake(0, CGRectGetMaxY(surprisedView.frame) + 100, kRectWidth, 30);
     
-    
-    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(contactView.frame) + 50);
 
+    if (CGRectGetMaxY(contactView.frame) + 50 < kRectHeight - 64 + CGRectGetMinY(self.chameleon.frame)) {
+        self.scrollView.contentSize = CGSizeMake(0, kRectHeight - 64 + CGRectGetMinY(self.chameleon.frame));
+    }else{
+        self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(contactView.frame) + 500);
+    }
+    
+    
     UIView *meansBackView = [[UIView alloc] init];
     meansBackView.backgroundColor = [UIColor whiteColor];
     [self.scrollView insertSubview:meansBackView atIndex:0];
+    
     meansBackView.frame = CGRectMake(0, CGRectGetMaxY(self.chameleon.frame), kRectWidth, self.scrollView.contentSize.height - CGRectGetMaxY(self.chameleon.frame));
     
     

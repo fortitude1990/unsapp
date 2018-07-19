@@ -10,6 +10,7 @@
 #import "ItemBackView.h"
 #import "NextButton.h"
 #import "PayTypeView.h"
+#import "PasswordView.h"
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -104,7 +105,11 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
-    
+    PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
+    [self.navigationController.view addSubview:passwordView];
+    [passwordView passwordAuthComplete:^(id data) {
+        NSLog(@"%@", data);
+    }];
 }
 
 #pragma mark - Methods

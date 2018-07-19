@@ -87,6 +87,12 @@
 		13EC79F920FD01D80002C2CB /* PayTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79F820FD01D80002C2CB /* PayTypeModel.m */; };
 		13EC79FD20FED6290002C2CB /* RechargeNoneBindCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC79FB20FED6290002C2CB /* RechargeNoneBindCardViewController.m */; };
 		13EC79FE20FED6290002C2CB /* RechargeNoneBindCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EC79FC20FED6290002C2CB /* RechargeNoneBindCardViewController.xib */; };
+		13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0020FEE0F60002C2CB /* PasswordView.m */; };
+		13EC7A0520FEE10D0002C2CB /* KeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0420FEE10D0002C2CB /* KeyboardView.m */; };
+		13EC7A0820FEE11C0002C2CB /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0620FEE11B0002C2CB /* PointView.m */; };
+		13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */; };
+		13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */; };
+		13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1720FF3B7B0002C2CB /* TriangleView.m */; };
 		928CBD9F11C8AB3379FC07B7 /* libPods-unspayapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81406937E7090FB557C59810 /* libPods-unspayapp.a */; };
 		93B2CFAFEB82244D6793F81E /* libPods-unspayappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCEA051B226A80FE075724E /* libPods-unspayappTests.a */; };
 		D0486FE418655A67983785FD /* libPods-unspayappUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F358168C5DB7412228BE8245 /* libPods-unspayappUITests.a */; };
@@ -256,6 +262,18 @@
 		13EC79FA20FED6290002C2CB /* RechargeNoneBindCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeNoneBindCardViewController.h; sourceTree = "<group>"; };
 		13EC79FB20FED6290002C2CB /* RechargeNoneBindCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeNoneBindCardViewController.m; sourceTree = "<group>"; };
 		13EC79FC20FED6290002C2CB /* RechargeNoneBindCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeNoneBindCardViewController.xib; sourceTree = "<group>"; };
+		13EC7A0020FEE0F60002C2CB /* PasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordView.m; sourceTree = "<group>"; };
+		13EC7A0120FEE0F60002C2CB /* PasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordView.h; sourceTree = "<group>"; };
+		13EC7A0320FEE10C0002C2CB /* KeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardView.h; sourceTree = "<group>"; };
+		13EC7A0420FEE10D0002C2CB /* KeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardView.m; sourceTree = "<group>"; };
+		13EC7A0620FEE11B0002C2CB /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
+		13EC7A0720FEE11C0002C2CB /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
+		13EC7A0A20FF03980002C2CB /* Pay_Password_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pay_Password_ViewController.h; sourceTree = "<group>"; };
+		13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pay_Password_ViewController.m; sourceTree = "<group>"; };
+		13EC7A1320FF194D0002C2CB /* AmplificationBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmplificationBtn.h; sourceTree = "<group>"; };
+		13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmplificationBtn.m; sourceTree = "<group>"; };
+		13EC7A1620FF3B7B0002C2CB /* TriangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
+		13EC7A1720FF3B7B0002C2CB /* TriangleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
 		2FA69B8F2F9F420B8A6C99E4 /* Pods-unspayappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unspayappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unspayappTests/Pods-unspayappTests.release.xcconfig"; sourceTree = "<group>"; };
 		4FCEA051B226A80FE075724E /* libPods-unspayappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unspayappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AD66E1D3ECD0814E634B26 /* Pods-unspayappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unspayappUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unspayappUITests/Pods-unspayappUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -519,6 +537,7 @@
 		13DF1F5E20F5EA2600507BF4 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				13EC7A0920FF03760002C2CB /* PwdSettings */,
 				13EC79B820FCCFE70002C2CB /* Recharge */,
 				13EC79AA20FCBA140002C2CB /* BindCard */,
 				13EC795920F8A74E0002C2CB /* RealNameAuth */,
@@ -574,8 +593,9 @@
 		13EC793820F703190002C2CB /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
-				13EC793520F7003F0002C2CB /* PersonCenterViewController.h */,
-				13EC793620F7003F0002C2CB /* PersonCenterViewController.m */,
+				13EC7A1220FF12BB0002C2CB /* Model */,
+				13EC7A1120FF12B50002C2CB /* View */,
+				13EC7A1020FF12A60002C2CB /* Controller */,
 			);
 			path = PersonCenter;
 			sourceTree = "<group>";
@@ -839,6 +859,12 @@
 		13EC79BB20FCD02D0002C2CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13EC7A0720FEE11C0002C2CB /* PointView.h */,
+				13EC7A0620FEE11B0002C2CB /* PointView.m */,
+				13EC7A0320FEE10C0002C2CB /* KeyboardView.h */,
+				13EC7A0420FEE10D0002C2CB /* KeyboardView.m */,
+				13EC7A0120FEE0F60002C2CB /* PasswordView.h */,
+				13EC7A0020FEE0F60002C2CB /* PasswordView.m */,
 				13EC79BC20FCD0AC0002C2CB /* ItemBackView.h */,
 				13EC79BD20FCD0AC0002C2CB /* ItemBackView.m */,
 				13EC79C420FCEB8A0002C2CB /* PayTypeView.h */,
@@ -847,6 +873,66 @@
 				13EC79C820FCEBDF0002C2CB /* PayTypeItem.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		13EC7A0920FF03760002C2CB /* PwdSettings */ = {
+			isa = PBXGroup;
+			children = (
+				13EC7A0F20FF03C20002C2CB /* Model */,
+				13EC7A0E20FF03BC0002C2CB /* View */,
+				13EC7A0D20FF03B20002C2CB /* Controller */,
+			);
+			path = PwdSettings;
+			sourceTree = "<group>";
+		};
+		13EC7A0D20FF03B20002C2CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13EC7A0A20FF03980002C2CB /* Pay_Password_ViewController.h */,
+				13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		13EC7A0E20FF03BC0002C2CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		13EC7A0F20FF03C20002C2CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		13EC7A1020FF12A60002C2CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13EC793520F7003F0002C2CB /* PersonCenterViewController.h */,
+				13EC793620F7003F0002C2CB /* PersonCenterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		13EC7A1120FF12B50002C2CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				13EC7A1320FF194D0002C2CB /* AmplificationBtn.h */,
+				13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */,
+				13EC7A1620FF3B7B0002C2CB /* TriangleView.h */,
+				13EC7A1720FF3B7B0002C2CB /* TriangleView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		13EC7A1220FF12BB0002C2CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		15F2D4247E81EFD806737EFC /* Pods */ = {
@@ -1106,11 +1192,14 @@
 				13EC799720FC64910002C2CB /* CCglCameraViewController.m in Sources */,
 				13DF1F3420F48E9D00507BF4 /* BaseViewController.m in Sources */,
 				13EC793720F7003F0002C2CB /* PersonCenterViewController.m in Sources */,
+				13EC7A0820FEE11C0002C2CB /* PointView.m in Sources */,
 				13DF1F2C20F48CE400507BF4 /* TabItemView.m in Sources */,
 				13DF1F2F20F48CEA00507BF4 /* TabItemModel.m in Sources */,
 				13EC799320FC64910002C2CB /* UILabel+CCFont.m in Sources */,
 				13DF1F5A20F5DC2C00507BF4 /* PopupAction.m in Sources */,
+				13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */,
 				13EC796820FC44970002C2CB /* UploadIdCardViewController.m in Sources */,
+				13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */,
 				13DF1F2320F48CAA00507BF4 /* TabViewController.m in Sources */,
 				13EC795820F8A2CD0002C2CB /* ContactView.m in Sources */,
 				13EC795520F898D80002C2CB /* CheckItem.m in Sources */,
@@ -1140,6 +1229,7 @@
 				13DF1F4D20F5A09F00507BF4 /* VerificationLoginView.m in Sources */,
 				13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */,
 				13EC79A320FCA4560002C2CB /* RealNameAuthStatusViewController.m in Sources */,
+				13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */,
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
 				13EC79A820FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m in Sources */,
@@ -1150,10 +1240,12 @@
 				13DF1EEA20F483A600507BF4 /* unspayapp.xcdatamodeld in Sources */,
 				13EC793E20F744F80002C2CB /* HomePageCollectionViewCell.m in Sources */,
 				13DF1EF220F483A800507BF4 /* main.m in Sources */,
+				13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */,
 				13EC79B120FCBAE40002C2CB /* BindCardViewController.m in Sources */,
 				13DF1F6320F5EB6100507BF4 /* RadioBtn.m in Sources */,
 				13EC79BE20FCD0AC0002C2CB /* ItemBackView.m in Sources */,
 				13DF1EE120F483A600507BF4 /* AppDelegate.m in Sources */,
+				13EC7A0520FEE10D0002C2CB /* KeyboardView.m in Sources */,
 				13DF1F7520F6110C00507BF4 /* RegisterSuccessViewController.m in Sources */,
 				13EC799F20FC884A0002C2CB /* LiDatePicker.m in Sources */,
 			);

@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RechargeNoneBindCardViewController">
             <connections>
+                <outlet property="nextBtn" destination="3ww-RK-J9M" id="Cjq-zS-xiY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +20,40 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="未绑定银行卡" translatesAutoresizingMaskIntoConstraints="NO" id="WIW-ZH-MFb">
+                    <rect key="frame" x="47.5" y="94" width="280" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="WIW-ZH-MFb" secondAttribute="height" multiplier="56:32" id="NAS-Vp-8h0"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-RK-J9M">
+                    <rect key="frame" x="20" y="307" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="oQG-8e-7fS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="去绑卡">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="eq8-57-SLE"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WIW-ZH-MFb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="47.5" id="0Kq-ZV-Dxt"/>
+                <constraint firstItem="WIW-ZH-MFb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="4F6-GD-90M"/>
+                <constraint firstItem="3ww-RK-J9M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="5hT-BE-AGZ"/>
+                <constraint firstAttribute="trailing" secondItem="WIW-ZH-MFb" secondAttribute="trailing" constant="47.5" id="IL4-Hh-tJa"/>
+                <constraint firstItem="3ww-RK-J9M" firstAttribute="top" secondItem="WIW-ZH-MFb" secondAttribute="bottom" constant="53" id="Ohu-Fv-fxQ"/>
+                <constraint firstAttribute="trailing" secondItem="3ww-RK-J9M" secondAttribute="trailing" constant="20" id="RwJ-wF-1nC"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="未绑定银行卡" width="296" height="176"/>
+    </resources>
 </document>
