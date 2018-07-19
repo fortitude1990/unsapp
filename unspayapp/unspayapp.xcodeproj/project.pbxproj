@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131A4B602100AA4600AA44DC /* BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 131A4B5F2100AA4600AA44DC /* BankListModel.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -127,6 +128,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131A4B5E2100AA4600AA44DC /* BankListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankListModel.h; sourceTree = "<group>"; };
+		131A4B5F2100AA4600AA44DC /* BankListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankListModel.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -345,11 +348,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131A4B5D2100AA0F00AA44DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				131A4B5E2100AA4600AA44DC /* BankListModel.h */,
+				131A4B5F2100AA4600AA44DC /* BankListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		13CC5B3E210074B200229F9F /* Withdraw */ = {
 			isa = PBXGroup;
 			children = (
+				131A4B5D2100AA0F00AA44DC /* Model */,
 				13CC5B41210074CE00229F9F /* View */,
-				13CC5B40210074C700229F9F /* Model */,
 				13CC5B3F210074C000229F9F /* Controller */,
 			);
 			path = Withdraw;
@@ -363,13 +375,6 @@
 				13CC5B4421007EBD00229F9F /* WithdrawBankListViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		13CC5B40210074C700229F9F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		13CC5B41210074CE00229F9F /* View */ = {
@@ -1306,6 +1311,7 @@
 				13DF1F6820F5F3A800507BF4 /* RegisterViewController.m in Sources */,
 				13EC799920FC64920002C2CB /* CCTools.m in Sources */,
 				13CC5B3121005C2100229F9F /* BankCardView.m in Sources */,
+				131A4B602100AA4600AA44DC /* BankListModel.m in Sources */,
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,
 				13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */,
 				13EC795220F88F5D0002C2CB /* SurprisedView.m in Sources */,

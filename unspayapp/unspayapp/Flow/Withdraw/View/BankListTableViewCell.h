@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BankListModel.h"
 
 @interface BankListTableViewCell : UITableViewCell
+
+
 @property (strong, nonatomic) IBOutlet UILabel *bankNameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *bankImageView;
 @property (strong, nonatomic) IBOutlet UILabel *bankCardNumLabel;
@@ -16,5 +19,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *bankTypeLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *indicatorImagView;
 @property (strong, nonatomic) IBOutlet UIView *backView;
+
+@property (nonatomic, strong) BankListModel *bankListModel;
+
+@property (nonatomic, assign) BOOL isSelected;
 
 @end

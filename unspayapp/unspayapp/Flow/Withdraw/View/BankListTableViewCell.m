@@ -34,4 +34,27 @@
     
 }
 
+- (void)setBankListModel:(BankListModel *)bankListModel{
+    _bankListModel = bankListModel;
+    
+    if (_bankListModel) {
+        _bankNameLabel.text = _bankListModel.bankName;
+        _bankCardNumLabel.text = _bankListModel.bankCardNo;
+        _bankTypeLabel.text = _bankListModel.bankType;
+        [self setIsSelected:_bankListModel.isSelected];
+    }
+    
+}
+
+- (void)setIsSelected:(BOOL)isSelected{
+    _isSelected = isSelected;
+    if (_isSelected) {
+        _indicatorImagView.hidden = NO;
+    }else{
+        _indicatorImagView.hidden = YES;
+    }
+}
+
+
+
 @end

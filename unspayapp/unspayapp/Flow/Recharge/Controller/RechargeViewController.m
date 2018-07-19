@@ -11,6 +11,7 @@
 #import "NextButton.h"
 #import "PayTypeView.h"
 #import "PasswordView.h"
+#import "WithdrawBankListViewController.h"
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -152,6 +153,10 @@
 }
 
 - (void)withdrawType{
+    
+    WithdrawBankListViewController *bankListVC = [[WithdrawBankListViewController alloc] init];
+    [self.navigationController pushViewController:bankListVC animated:YES];
+    
     
 }
 

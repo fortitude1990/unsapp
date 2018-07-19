@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,7 +62,7 @@
                                     <constraint firstItem="w7M-WV-aNb" firstAttribute="leading" secondItem="3F1-Mh-LIN" secondAttribute="leading" constant="15" id="smN-oP-l6r"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="蓝色对勾" translatesAutoresizingMaskIntoConstraints="NO" id="6K5-Mx-lIC">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="蓝色对勾" translatesAutoresizingMaskIntoConstraints="NO" id="6K5-Mx-lIC">
                                 <rect key="frame" x="260" y="103" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="W1L-Mv-ugD"/>
@@ -70,7 +70,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6K5-Mx-lIC" firstAttribute="centerY" secondItem="G9x-9p-JDX" secondAttribute="centerY" id="1kb-rF-pI2"/>
                             <constraint firstItem="3F1-Mh-LIN" firstAttribute="centerY" secondItem="G9x-9p-JDX" secondAttribute="centerY" id="7ES-TW-SEh"/>
@@ -80,7 +80,6 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="G9x-9p-JDX" secondAttribute="trailing" constant="15" id="Ctn-9M-Cwb"/>
                     <constraint firstAttribute="bottom" secondItem="G9x-9p-JDX" secondAttribute="bottom" constant="6" id="Djr-U1-amO"/>
