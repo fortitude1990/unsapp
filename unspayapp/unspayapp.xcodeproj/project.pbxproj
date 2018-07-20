@@ -17,6 +17,7 @@
 		136747AD2101C7FC0038B989 /* RechargeRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AC2101C7FC0038B989 /* RechargeRecordViewController.m */; };
 		136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */; };
 		136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */; };
+		136747B52101DFD00038B989 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747B42101DFD00038B989 /* RecordModel.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -154,6 +155,8 @@
 		136747AE2101CEEA0038B989 /* RechargeRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeRecordTableViewCell.h; sourceTree = "<group>"; };
 		136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeRecordTableViewCell.m; sourceTree = "<group>"; };
 		136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordTableViewCell.xib; sourceTree = "<group>"; };
+		136747B32101DFD00038B989 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
+		136747B42101DFD00038B989 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -960,6 +963,8 @@
 			children = (
 				13EC79F720FD01D80002C2CB /* PayTypeModel.h */,
 				13EC79F820FD01D80002C2CB /* PayTypeModel.m */,
+				136747B32101DFD00038B989 /* RecordModel.h */,
+				136747B42101DFD00038B989 /* RecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1361,6 +1366,7 @@
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,
 				13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */,
 				13EC795220F88F5D0002C2CB /* SurprisedView.m in Sources */,
+				136747B52101DFD00038B989 /* RecordModel.m in Sources */,
 				13EC799120FC64910002C2CB /* CCVideoPreview.m in Sources */,
 				13EC795D20FC27400002C2CB /* RealNameAuthViewController.m in Sources */,
 				13EC796420FC28AC0002C2CB /* AuthItem.m in Sources */,

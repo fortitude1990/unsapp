@@ -14,6 +14,10 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
 
 @interface RechargeRecordViewController ()<UITableViewDelegate, UITableViewDataSource>;
 
+@property (nonatomic, strong)NSMutableArray *dataArray;
+
+@property (nonatomic, strong)UITableView *tableView;
+
 @end
 
 @implementation RechargeRecordViewController
@@ -58,6 +62,15 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
     [self.view addSubview:tableView];
     
     [tableView registerNib:[UINib nibWithNibName:@"RechargeRecordTableViewCell" bundle: nil] forCellReuseIdentifier:rechargeRecordTableViewCellIdentifier];
+    
+    self.tableView = tableView;
+}
+
+#pragma mark - Methods
+
+- (void)loadData{
+    
+    
     
 }
 
