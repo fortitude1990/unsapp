@@ -8,6 +8,8 @@
 
 #import "RechargeRecordViewController.h"
 #import "RechargeRecordTableViewCell.h"
+#import "RecordModel.h"
+#import "RecordDetailViewController.h"
 
 static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableViewCellIdentifier";
 
@@ -59,6 +61,7 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kRectWidth,kRectHeight - 64 ) style:(UITableViewStylePlain)];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.tableFooterView = [UIView new];
     [self.view addSubview:tableView];
     
     [tableView registerNib:[UINib nibWithNibName:@"RechargeRecordTableViewCell" bundle: nil] forCellReuseIdentifier:rechargeRecordTableViewCellIdentifier];
@@ -93,7 +96,7 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *backView = [[UIView alloc] init];
-//    backView.backgroundColor = [UIColor orangeColor];
+    backView.backgroundColor = KHexColor(0xf8f8f8);
     backView.frame = CGRectMake(0, 0, kRectWidth, 30);
     
     UILabel *titleLabel = [[UILabel alloc] init];
@@ -103,6 +106,13 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
     titleLabel.frame = CGRectMake(20, 0, kRectWidth - 20, 30);
     
     return backView;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    RecordDetailViewController *detailVC = [[RecordDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 
@@ -122,6 +132,7 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
     RechargeRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rechargeRecordTableViewCellIdentifier forIndexPath:indexPath];
     return cell;
 }
+
 
 
 

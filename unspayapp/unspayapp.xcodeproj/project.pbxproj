@@ -18,6 +18,7 @@
 		136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */; };
 		136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */; };
 		136747B52101DFD00038B989 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747B42101DFD00038B989 /* RecordModel.m */; };
+		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -157,6 +158,8 @@
 		136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordTableViewCell.xib; sourceTree = "<group>"; };
 		136747B32101DFD00038B989 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
 		136747B42101DFD00038B989 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
+		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -954,6 +957,8 @@
 				136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */,
 				136747AB2101C7FC0038B989 /* RechargeRecordViewController.h */,
 				136747AC2101C7FC0038B989 /* RechargeRecordViewController.m */,
+				139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */,
+				139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1387,6 +1392,7 @@
 				13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */,
 				13EC79B620FCC03A0002C2CB /* BindCardVerificationViewController.m in Sources */,
 				13EC798E20FC64910002C2CB /* CCBaseNavigationController.m in Sources */,
+				139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */,
 				13DF1F5920F5DC2C00507BF4 /* PopupViewController.m in Sources */,
 				136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */,
 				13DF1F4A20F592CE00507BF4 /* Networking.m in Sources */,
