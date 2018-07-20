@@ -13,6 +13,8 @@
 #import "PasswordView.h"
 #import "WithdrawBankListViewController.h"
 #import "BankImageHelper.h"
+#import "RechargeSuccessViewController.h"
+
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -124,6 +126,11 @@
     [self.navigationController.view addSubview:passwordView];
     [passwordView passwordAuthComplete:^(id data) {
         NSLog(@"%@", data);
+        
+        RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
+        [self.navigationController pushViewController:successVC animated:YES];
+        
+        
     }];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "RechargeSuccessViewController.h"
+#import "RechargeRecordViewController.h"
 
 @interface RechargeSuccessViewController ()
 
@@ -18,9 +19,28 @@
 
 @implementation RechargeSuccessViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.hidden = YES;
+    
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.hidden = NO;
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self createUI];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,9 +57,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (void)createUI{
+    
+    self.nextBtn.layer.cornerRadius = kAutoScaleNormal(6);
+    self.nextBtn.clipsToBounds = YES;
+    
+}
+
 - (IBAction)rechargeRecordBtnAction:(id)sender {
+    
+    RechargeRecordViewController *recordVC = [[RechargeRecordViewController alloc] init];
+    [self.navigationController pushViewController:recordVC animated:YES];
+    
 }
 
 - (IBAction)nextBtnAction:(id)sender {
+    
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 @end
