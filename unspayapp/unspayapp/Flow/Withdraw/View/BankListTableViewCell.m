@@ -41,6 +41,7 @@
         _bankNameLabel.text = _bankListModel.bankName;
         _bankCardNumLabel.text = _bankListModel.bankCardNo;
         _bankTypeLabel.text = _bankListModel.bankType;
+        _bankImageView.image = [UIImage imageNamed:_bankListModel.bankImageName];
         [self setIsSelected:_bankListModel.isSelected];
     }
     
