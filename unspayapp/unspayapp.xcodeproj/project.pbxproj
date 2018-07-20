@@ -10,6 +10,9 @@
 		131A4B602100AA4600AA44DC /* BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 131A4B5F2100AA4600AA44DC /* BankListModel.m */; };
 		135CC71121017E76001F0538 /* WithdrawResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC70F21017E76001F0538 /* WithdrawResultViewController.m */; };
 		135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC71021017E76001F0538 /* WithdrawResultViewController.xib */; };
+		136747A2210189850038B989 /* BankImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A1210189850038B989 /* BankImageHelper.m */; };
+		136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A42101B3D60038B989 /* RechargeSuccessViewController.m */; };
+		136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -135,6 +138,11 @@
 		135CC70E21017E76001F0538 /* WithdrawResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawResultViewController.h; sourceTree = "<group>"; };
 		135CC70F21017E76001F0538 /* WithdrawResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawResultViewController.m; sourceTree = "<group>"; };
 		135CC71021017E76001F0538 /* WithdrawResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawResultViewController.xib; sourceTree = "<group>"; };
+		136747A0210189850038B989 /* BankImageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankImageHelper.h; sourceTree = "<group>"; };
+		136747A1210189850038B989 /* BankImageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankImageHelper.m; sourceTree = "<group>"; };
+		136747A32101B3D60038B989 /* RechargeSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeSuccessViewController.h; sourceTree = "<group>"; };
+		136747A42101B3D60038B989 /* RechargeSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RechargeSuccessViewController.m; sourceTree = "<group>"; };
+		136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeSuccessViewController.xib; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -600,6 +608,8 @@
 			children = (
 				13DF1F5B20F5E35200507BF4 /* ServeForTextField.h */,
 				13DF1F5C20F5E35200507BF4 /* ServeForTextField.m */,
+				136747A0210189850038B989 /* BankImageHelper.h */,
+				136747A1210189850038B989 /* BankImageHelper.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -925,6 +935,9 @@
 				13EC79FA20FED6290002C2CB /* RechargeNoneBindCardViewController.h */,
 				13EC79FB20FED6290002C2CB /* RechargeNoneBindCardViewController.m */,
 				13EC79FC20FED6290002C2CB /* RechargeNoneBindCardViewController.xib */,
+				136747A32101B3D60038B989 /* RechargeSuccessViewController.h */,
+				136747A42101B3D60038B989 /* RechargeSuccessViewController.m */,
+				136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1175,6 +1188,7 @@
 				13CC5B4B21007F4000229F9F /* BankListTableViewCell.xib in Resources */,
 				13EC796920FC44970002C2CB /* UploadIdCardViewController.xib in Resources */,
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
+				136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */,
 				13DF1F6920F5F3A800507BF4 /* RegisterViewController.xib in Resources */,
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
@@ -1301,6 +1315,7 @@
 				13DF1F5A20F5DC2C00507BF4 /* PopupAction.m in Sources */,
 				13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */,
 				13EC796820FC44970002C2CB /* UploadIdCardViewController.m in Sources */,
+				136747A2210189850038B989 /* BankImageHelper.m in Sources */,
 				13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */,
 				13DF1F2320F48CAA00507BF4 /* TabViewController.m in Sources */,
 				135CC71121017E76001F0538 /* WithdrawResultViewController.m in Sources */,
@@ -1346,6 +1361,7 @@
 				13EC79B620FCC03A0002C2CB /* BindCardVerificationViewController.m in Sources */,
 				13EC798E20FC64910002C2CB /* CCBaseNavigationController.m in Sources */,
 				13DF1F5920F5DC2C00507BF4 /* PopupViewController.m in Sources */,
+				136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */,
 				13DF1F4A20F592CE00507BF4 /* Networking.m in Sources */,
 				13DF1EEA20F483A600507BF4 /* unspayapp.xcdatamodeld in Sources */,
 				13EC793E20F744F80002C2CB /* HomePageCollectionViewCell.m in Sources */,

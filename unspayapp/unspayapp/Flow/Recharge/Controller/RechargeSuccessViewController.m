@@ -1,21 +1,22 @@
 //
-//  WithdrawResultViewController.m
+//  RechargeSuccessViewController.m
 //  unspayapp
 //
 //  Created by 李志敬 on 2018/7/20.
 //  Copyright © 2018年 李志敬. All rights reserved.
 //
 
-#import "WithdrawResultViewController.h"
+#import "RechargeSuccessViewController.h"
 
-@interface WithdrawResultViewController ()
+@interface RechargeSuccessViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *applicationTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dealTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
 @end
 
-@implementation WithdrawResultViewController
+@implementation RechargeSuccessViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,5 +37,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)rechargeRecordBtnAction:(id)sender {
+}
 
+- (IBAction)nextBtnAction:(id)sender {
+}
 @end
