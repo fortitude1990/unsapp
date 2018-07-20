@@ -12,6 +12,9 @@
 #import "PayTypeView.h"
 #import "PasswordView.h"
 #import "WithdrawBankListViewController.h"
+#import "BankImageHelper.h"
+#import "RechargeSuccessViewController.h"
+
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -123,6 +126,11 @@
     [self.navigationController.view addSubview:passwordView];
     [passwordView passwordAuthComplete:^(id data) {
         NSLog(@"%@", data);
+        
+        RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
+        [self.navigationController pushViewController:successVC animated:YES];
+        
+        
     }];
 }
 
@@ -131,14 +139,19 @@
 - (void)rechargeType{
     
     PayTypeModel *model = [[PayTypeModel alloc] init];
-    model.imageName = @"中国工商银行";
     model.title = @"中国工商银行(6442)";
+    model.imageName = [BankImageHelper gainRealImageName:@"中国工商银行"];
     
     PayTypeModel *model1 = [[PayTypeModel alloc] init];
-    model1.imageName = @"宁波银行";
-    model1.title = @"宁波银行(9996)";
+    model1.imageName =[BankImageHelper gainRealImageName:@"上海银行"];
+    model1.title = @"上海银行(9996)";
     
-    NSArray *array = @[model,model1];
+    PayTypeModel *model2 = [[PayTypeModel alloc] init];
+    model2.imageName =[BankImageHelper gainRealImageName:@"上海浦东发展银行"];
+    model2.title = @"上海浦东发展银行(9996)";
+
+    
+    NSArray *array = @[model,model1,model2];
     
     
     PayTypeView *payTypeView = [[PayTypeView alloc] init];

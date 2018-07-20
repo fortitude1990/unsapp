@@ -10,6 +10,9 @@
 
 @interface WithdrawResultViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *applicationTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dealTimeLabel;
+
 @end
 
 @implementation WithdrawResultViewController
