@@ -22,7 +22,7 @@
     
     //此处添加方法会造成子视图页面花屏
 //    [self createUI];
-    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)didReceiveMemoryWarning {

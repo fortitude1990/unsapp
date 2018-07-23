@@ -14,7 +14,7 @@
 #import "WithdrawBankListViewController.h"
 #import "BankImageHelper.h"
 #import "RechargeSuccessViewController.h"
-
+#import "WithdrawResultViewController.h"
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -100,6 +100,7 @@
 
 - (void)tapGesAction{
     
+    [self.view endEditing:YES];
     
     switch (self.tradingType) {
         case TradingTypeRecharge:
@@ -122,13 +123,34 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
+    [self.view endEditing:YES];
+    
     PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
     [self.navigationController.view addSubview:passwordView];
+    
+    __weak typeof(self) weakSelf = self;
+    
     [passwordView passwordAuthComplete:^(id data) {
         NSLog(@"%@", data);
         
-        RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
-        [self.navigationController pushViewController:successVC animated:YES];
+        switch (weakSelf.tradingType) {
+            case TradingTypeRecharge:
+            {
+                RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
+                [weakSelf.navigationController pushViewController:successVC animated:YES];
+                break;
+            }
+            case TradingTypeWithdraw:
+            {
+                WithdrawResultViewController *withdrawResultVc = [[WithdrawResultViewController alloc] init];
+                [weakSelf.navigationController pushViewController:withdrawResultVc animated:YES];
+                break;
+            }
+            default:
+                break;
+        }
+        
+
         
         
     }];

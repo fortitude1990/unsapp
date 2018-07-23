@@ -7,8 +7,15 @@
 //
 
 #import "RecordDetailViewController.h"
+#import "RecordModel.h"
 
 @interface RecordDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong)NSMutableArray *dataArray;
+
+@property (nonatomic, strong)UITableView *tableView;
+
+@property (nonatomic, strong)NSArray *titleArray;
 
 @end
 
@@ -21,7 +28,7 @@
     // Do any additional setup after loading the view.
     
     [self createUI];
-    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +84,7 @@
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     
+    self.tableView = tableView;
     
 }
 
@@ -84,11 +92,54 @@
 
 - (void)loadData{
     
+    
+    RecordModel *model1 = [[RecordModel alloc] init];
+    model1.amount = @"11.22";
+    model1.date = @"2011-22-03 15:22:25";
+    model1.status = @"交易成功";
+    
+    self.dataArray = [NSMutableArray array];
+    [self.dataArray addObject:model1];
+    
+    [self.tableView reloadData];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+    
+    switch (self.recordType) {
+        case RecordTypeRecharge:
+        {
+            self.titleArray = @[@"用户名称",
+                                @"支付方式",
+                                @"交易时间",
+                                @"交易单号",
+                                @"商户单号",
+                                @"交易类型"];
+            self.navigationItem.title = @"充值详情";
+            break;
+        }
+        case RecordTypeTransferAccount:{
+            self.titleArray = @[@"姓名",
+                                @"支付方式",
+                                @"交易时间",
+                                @"交易单号",
+                                @"商户单号",
+                                @"交易类型"];
+            self.navigationItem.title = @"转账详情";
+            break;
+        }
+        default:
+            break;
+    }
+    
 }
 
 #pragma mark - BtnActions
 
 - (void)leftBtnAction{
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -102,7 +153,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.titleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -120,7 +171,7 @@
     cell.detailTextLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(30)];
     cell.detailTextLabel.textColor = [UIColor blackColor];
     
-    cell.textLabel.text = @"用户名称";
+    cell.textLabel.text = self.titleArray[indexPath.row];
     cell.detailTextLabel.text = @"张三疯";
     
     return cell;

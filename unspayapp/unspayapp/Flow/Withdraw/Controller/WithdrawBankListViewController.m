@@ -52,6 +52,7 @@ static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdent
 - (void)createUI{
     
     self.navigationItem.title = @"选择银行卡";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(rightBtnAction)];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];

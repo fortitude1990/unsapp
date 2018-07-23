@@ -53,6 +53,7 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
 
 - (void)createUI{
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"充值记录";
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -74,12 +75,13 @@ static NSString *rechargeRecordTableViewCellIdentifier = @"RechargeRecordTableVi
 - (void)loadData{
     
     
-    
 }
 
 #pragma mark - BtnActions
 
 - (void)leftBtnAction{
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

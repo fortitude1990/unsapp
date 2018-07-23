@@ -1,32 +1,22 @@
 //
-//  WithdrawResultViewController.m
+//  PwdSettingSuccessViewController.m
 //  unspayapp
 //
-//  Created by 李志敬 on 2018/7/20.
+//  Created by 李志敬 on 2018/7/23.
 //  Copyright © 2018年 李志敬. All rights reserved.
 //
 
-#import "WithdrawResultViewController.h"
+#import "PwdSettingSuccessViewController.h"
 
-@interface WithdrawResultViewController ()
-
-@property (weak, nonatomic) IBOutlet UILabel *applicationTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dealTimeLabel;
-@property (strong, nonatomic) IBOutlet UIButton *nextBtn;
+@interface PwdSettingSuccessViewController ()
 
 @end
 
-@implementation WithdrawResultViewController
+@implementation PwdSettingSuccessViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    
-    self.navigationController.navigationBar.hidden = YES;
-    self.nextBtn.layer.cornerRadius = kAutoScaleNormal(6);
-    self.nextBtn.clipsToBounds = YES;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,8 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)nextBtnAction:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 @end

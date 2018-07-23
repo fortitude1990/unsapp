@@ -17,6 +17,9 @@
 #import "RealNameAuthViewController.h"
 #import "BindCardViewController.h"
 #import "RechargeViewController.h"
+#import "Pay_Password_ViewController.h"
+
+
 
 #define kMargin 15
 
@@ -90,6 +93,20 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         
     } of:self];
     */
+    
+    
+     [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
+     
+     Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
+         realVC.passwordInputType = PasswordInputTypeSimpleSetting;
+     BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+     [self presentViewController:navC animated:YES completion:^{
+     
+     }];
+     
+     } of:self];
+     
+    
     
 }
 

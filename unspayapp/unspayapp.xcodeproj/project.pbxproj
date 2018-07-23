@@ -10,6 +10,8 @@
 		131A4B602100AA4600AA44DC /* BankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 131A4B5F2100AA4600AA44DC /* BankListModel.m */; };
 		135CC71121017E76001F0538 /* WithdrawResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC70F21017E76001F0538 /* WithdrawResultViewController.m */; };
 		135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC71021017E76001F0538 /* WithdrawResultViewController.xib */; };
+		135CC7162105793D001F0538 /* PwdSettingSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */; };
+		135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */; };
 		136747A2210189850038B989 /* BankImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A1210189850038B989 /* BankImageHelper.m */; };
 		136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A42101B3D60038B989 /* RechargeSuccessViewController.m */; };
 		136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */; };
@@ -144,6 +146,9 @@
 		135CC70E21017E76001F0538 /* WithdrawResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WithdrawResultViewController.h; sourceTree = "<group>"; };
 		135CC70F21017E76001F0538 /* WithdrawResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WithdrawResultViewController.m; sourceTree = "<group>"; };
 		135CC71021017E76001F0538 /* WithdrawResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawResultViewController.xib; sourceTree = "<group>"; };
+		135CC7132105793D001F0538 /* PwdSettingSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdSettingSuccessViewController.h; sourceTree = "<group>"; };
+		135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdSettingSuccessViewController.m; sourceTree = "<group>"; };
+		135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdSettingSuccessViewController.xib; sourceTree = "<group>"; };
 		136747A0210189850038B989 /* BankImageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankImageHelper.h; sourceTree = "<group>"; };
 		136747A1210189850038B989 /* BankImageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankImageHelper.m; sourceTree = "<group>"; };
 		136747A32101B3D60038B989 /* RechargeSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeSuccessViewController.h; sourceTree = "<group>"; };
@@ -1013,6 +1018,9 @@
 			children = (
 				13EC7A0A20FF03980002C2CB /* Pay_Password_ViewController.h */,
 				13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */,
+				135CC7132105793D001F0538 /* PwdSettingSuccessViewController.h */,
+				135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */,
+				135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1222,6 +1230,7 @@
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
 				13DF1F7620F6110C00507BF4 /* RegisterSuccessViewController.xib in Resources */,
+				135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */,
 				13EC79FE20FED6290002C2CB /* RechargeNoneBindCardViewController.xib in Resources */,
 				13EC79A920FCB7AE0002C2CB /* RealNameAuthSuccessViewController.xib in Resources */,
 			);
@@ -1398,6 +1407,7 @@
 				13DF1F4A20F592CE00507BF4 /* Networking.m in Sources */,
 				13DF1EEA20F483A600507BF4 /* unspayapp.xcdatamodeld in Sources */,
 				13EC793E20F744F80002C2CB /* HomePageCollectionViewCell.m in Sources */,
+				135CC7162105793D001F0538 /* PwdSettingSuccessViewController.m in Sources */,
 				13DF1EF220F483A800507BF4 /* main.m in Sources */,
 				13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */,
 				13EC79B120FCBAE40002C2CB /* BindCardViewController.m in Sources */,
