@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RechargeSuccessViewController">
             <connections>
                 <outlet property="amountLabel" destination="2Oe-Ft-wcf" id="Nus-2N-Ws6"/>
+                <outlet property="amountTitleLabel" destination="qpe-1X-hIW" id="vKI-kA-QXy"/>
                 <outlet property="bankNameLabel" destination="cUh-Gl-jNn" id="4VC-ko-g6m"/>
+                <outlet property="bankTitleLabel" destination="JFv-6X-AKV" id="PDc-Ao-XCT"/>
                 <outlet property="nextBtn" destination="qrw-mp-Gqz" id="tZn-74-gEH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -18,6 +18,7 @@
 #import "BindCardViewController.h"
 #import "RechargeViewController.h"
 #import "Pay_Password_ViewController.h"
+#import "TransferAccountsViewController.h"
 
 
 
@@ -94,7 +95,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     } of:self];
     */
     
-    
+    /*
      [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
      
      Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
@@ -105,7 +106,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
      }];
      
      } of:self];
-     
+     */
     
     
 }
@@ -438,6 +439,10 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (void)transferAccountsBtnAction{
+    
+    self.hidesBottomBarWhenPushed = YES;
+    TransferAccountsViewController *transferAccountVC = [[TransferAccountsViewController alloc] init];
+    [self.navigationController pushViewController:transferAccountVC animated:YES];
     
 }
 

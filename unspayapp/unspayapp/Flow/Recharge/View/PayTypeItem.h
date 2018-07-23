@@ -16,6 +16,7 @@ typedef void(^PayTypeItemBlock)(NSInteger index);
 
 @property (nonatomic, strong)NSString *imageName;
 @property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *attributeTitle;
 @property (nonatomic, strong)NSString *selectImageName;
 @property (nonatomic, assign)BOOL hiddenBottomLine;
 @property (nonatomic, assign)NSInteger index;

@@ -13,4 +13,8 @@
 @property (nonatomic, strong)UILabel *titleLabel;
 @property (nonatomic, strong)UITextField *textField;
 
+@property (nonatomic, assign)BOOL hiddenTop;
+
+@property (nonatomic, assign)BOOL hiddenBottom;
+
 @end

@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, SuccessType) {
+    SuccessTypePay,
+    SuccessTypeTransferAccount,
+};
+
 @interface RechargeSuccessViewController : BaseViewController
+
+@property (nonatomic, assign)SuccessType type;
 
 @end

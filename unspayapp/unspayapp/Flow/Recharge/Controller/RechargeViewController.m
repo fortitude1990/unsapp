@@ -173,7 +173,13 @@
     model2.title = @"上海浦东发展银行(9996)";
 
     
-    NSArray *array = @[model,model1,model2];
+    PayTypeModel *payType = [[PayTypeModel alloc] init];
+    payType.imageName = @"添加新卡";
+    payType.title = @"使用新银行卡";
+    payType.selectImageName = @"右箭头";
+    payType.type = PayTypeModelTypeUseNewBank;
+    
+    NSArray *array = @[model,model1,model2,payType];
     
     
     PayTypeView *payTypeView = [[PayTypeView alloc] init];

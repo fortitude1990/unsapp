@@ -10,6 +10,14 @@
 
 #define kMargin 20
 
+@interface AuthItem()
+{
+    UIView *_topLine;
+    UIView *_bottomLine;
+}
+@end
+
+
 @implementation AuthItem
 
 /*
@@ -81,6 +89,26 @@
     
     self.titleLabel = titleLabel;
     self.textField = textField;
+    _topLine = topLine;
+    _bottomLine = bottomLine;
+}
+
+- (void)setHiddenTop:(BOOL)hiddenTop{
+    _hiddenTop = hiddenTop;
+    if (_hiddenTop) {
+        _topLine.hidden = YES;
+    }else{
+        _topLine.hidden = NO;
+    }
+}
+
+- (void)setHiddenBottom:(BOOL)hiddenBottom{
+    _hiddenBottom = hiddenBottom;
+    if (_hiddenBottom) {
+        _bottomLine.hidden = YES;
+    }else{
+        _bottomLine.hidden = NO;
+    }
 }
 
 @end

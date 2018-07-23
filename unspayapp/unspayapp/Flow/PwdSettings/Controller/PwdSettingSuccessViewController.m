@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.title = @"设置支付密码";
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +37,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)leftBtnAction{
+    
+}
 
 @end

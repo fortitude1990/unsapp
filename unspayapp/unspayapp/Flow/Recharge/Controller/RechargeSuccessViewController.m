@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (strong, nonatomic) IBOutlet UILabel *bankTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *amountTitleLabel;
 
 @end
 
@@ -22,7 +24,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.hidden = YES;
+    if (self.type == SuccessTypePay) {
+        self.navigationController.navigationBar.hidden = YES;
+    }
+    
     
 }
 
@@ -31,7 +36,9 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    self.navigationController.navigationBar.hidden = NO;
+    if (self.type == SuccessTypePay) {
+        self.navigationController.navigationBar.hidden = NO;
+    }
     
 }
 
@@ -65,6 +72,17 @@
     self.nextBtn.layer.cornerRadius = kAutoScaleNormal(6);
     self.nextBtn.clipsToBounds = YES;
     
+    switch (self.type) {
+        case SuccessTypeTransferAccount:
+            self.navigationItem.title = @"转账详情";
+//            self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
 }
 
 - (IBAction)rechargeRecordBtnAction:(id)sender {
@@ -80,4 +98,9 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
+
+- (void)leftBtnAction{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end

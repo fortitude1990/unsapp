@@ -59,7 +59,7 @@
         [self.backView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(@0);
             make.top.equalTo(self.mas_bottom);
-            make.height.equalTo(@((self.elementsArray.count + 2) * kItemHeight));
+            make.height.equalTo(@((self.elementsArray.count + 1) * kItemHeight));
         }];
         
         [self.backView.superview layoutIfNeeded];
@@ -108,8 +108,9 @@
     }];
     
     
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [backBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+    backBtn.tintColor = [UIColor lightGrayColor];
     [backBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -142,11 +143,7 @@
     
     NSMutableArray *array = [NSMutableArray arrayWithArray:self.elementsArray];
     
-    PayTypeModel *payType = [[PayTypeModel alloc] init];
-    payType.imageName = @"添加新卡";
-    payType.title = @"使用新银行卡";
-    payType.selectImageName = @"右箭头";
-    [array addObject:payType];
+ 
     
   
     
@@ -156,11 +153,16 @@
 
         PayTypeItem *payTypeItem = [[PayTypeItem alloc] init];
         payTypeItem.imageName = obj.imageName;
-        payTypeItem.title = obj.title;
-
-        
         payTypeItem.selectImageName = obj.selectImageName;
         payTypeItem.index = i;
+        
+        if (obj.type == PayTypeModelTypeBalanceShow) {
+            payTypeItem.userInteractionEnabled = NO;
+            payTypeItem.attributeTitle = obj.title;
+        }else{
+            payTypeItem.title = obj.title;
+        }
+        
         [self.backView addSubview:payTypeItem];
         [payTypeItem mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(@0);
@@ -172,7 +174,34 @@
         
         [payTypeItem callBack:^(NSInteger index) {
             
+            [self dismiss];
+            
+            PayTypeModel *model = array[i];
+            
+            switch (model.type) {
+                case PayTypeModelTypeDefault:
+                {
+                    for (int i = 0; i < self.itemsArray.count - 1; i++) {
+                        PayTypeItem *item = self.itemsArray[i];
+                        if (item.index == index) {
+                            item.selected = YES;
+                        }else{
+                            item.selected = NO;
+                        }
+                    }
+                    break;
+                }
+                case PayTypeModelTypeUseNewBank:{
+                    
+                    break;
+                }
+                default:
+                    break;
+            }
+            
 
+            
+            /*
             if(index == self.itemsArray.count - 1){
                 
                 [self dismiss];
@@ -187,7 +216,7 @@
                     }
                 }
             }
-            
+            */
 
             
         }];
@@ -204,7 +233,7 @@
             [self.backView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.equalTo(@0);
                 make.bottom.equalTo(@0);
-                make.height.equalTo(@((self.elementsArray.count + 2) * kItemHeight));
+                make.height.equalTo(@((self.elementsArray.count + 1) * kItemHeight));
             }];
             
             [self.backView.superview layoutIfNeeded];

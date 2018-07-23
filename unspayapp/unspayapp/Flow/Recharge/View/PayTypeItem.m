@@ -52,10 +52,11 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(30)];
     titleLabel.textColor = KHexColor(0x24242d);
+    titleLabel.numberOfLines = 0;
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView.mas_right).offset(kAutoScaleNormal(30));
-        make.height.equalTo(@(kAutoScaleNormal(45)));
+        make.height.equalTo(@(kAutoScaleNormal(80)));
         make.centerY.equalTo(self);
     }];
     
@@ -144,6 +145,36 @@
     }else{
         _bottomLine.hidden = NO;
     }
+}
+
+- (void)setAttributeTitle:(NSString *)attributeTitle{
+    _attributeTitle = attributeTitle;
+
+    if (_attributeTitle.length > 0) {
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:_attributeTitle];
+        
+        NSArray *array = [_attributeTitle componentsSeparatedByString:@"\n"];
+        
+        NSString *firstStr = array.firstObject;
+        [string addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kAutoScaleNormal(30)],
+                                NSForegroundColorAttributeName : KHexColor(0xd1d1d3)
+                                } range:NSMakeRange(0, firstStr.length)];
+        if (array.count > 1) {
+            NSString *secondStr = array[1];
+            
+            [string addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kAutoScaleNormal(26)],
+                                    NSForegroundColorAttributeName : KHexColor(0xd1d1d3)
+                                    } range:[[string string] rangeOfString:secondStr]];
+        }
+        
+        _titleLabel.text = nil;
+        _titleLabel.attributedText = string;
+        
+    }
+    
+
+    
 }
 
 @end

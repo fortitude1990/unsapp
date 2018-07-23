@@ -12,6 +12,11 @@
 		135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC71021017E76001F0538 /* WithdrawResultViewController.xib */; };
 		135CC7162105793D001F0538 /* PwdSettingSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */; };
 		135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */; };
+		135CC71C2105807F001F0538 /* TransferAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC71B2105807F001F0538 /* TransferAccountsViewController.m */; };
+		135CC7202105A450001F0538 /* TransferAccountToWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC71E2105A450001F0538 /* TransferAccountToWalletViewController.m */; };
+		135CC7212105A450001F0538 /* TransferAccountToWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC71F2105A450001F0538 /* TransferAccountToWalletViewController.xib */; };
+		135CC7252105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135CC7232105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m */; };
+		135CC7262105B2E7001F0538 /* TransferAccountToWalletMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CC7242105B2E7001F0538 /* TransferAccountToWalletMessageViewController.xib */; };
 		136747A2210189850038B989 /* BankImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A1210189850038B989 /* BankImageHelper.m */; };
 		136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747A42101B3D60038B989 /* RechargeSuccessViewController.m */; };
 		136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747A52101B3D60038B989 /* RechargeSuccessViewController.xib */; };
@@ -149,6 +154,14 @@
 		135CC7132105793D001F0538 /* PwdSettingSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdSettingSuccessViewController.h; sourceTree = "<group>"; };
 		135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdSettingSuccessViewController.m; sourceTree = "<group>"; };
 		135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdSettingSuccessViewController.xib; sourceTree = "<group>"; };
+		135CC71A2105807F001F0538 /* TransferAccountsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferAccountsViewController.h; sourceTree = "<group>"; };
+		135CC71B2105807F001F0538 /* TransferAccountsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferAccountsViewController.m; sourceTree = "<group>"; };
+		135CC71D2105A450001F0538 /* TransferAccountToWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferAccountToWalletViewController.h; sourceTree = "<group>"; };
+		135CC71E2105A450001F0538 /* TransferAccountToWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferAccountToWalletViewController.m; sourceTree = "<group>"; };
+		135CC71F2105A450001F0538 /* TransferAccountToWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferAccountToWalletViewController.xib; sourceTree = "<group>"; };
+		135CC7222105B2E7001F0538 /* TransferAccountToWalletMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferAccountToWalletMessageViewController.h; sourceTree = "<group>"; };
+		135CC7232105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferAccountToWalletMessageViewController.m; sourceTree = "<group>"; };
+		135CC7242105B2E7001F0538 /* TransferAccountToWalletMessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferAccountToWalletMessageViewController.xib; sourceTree = "<group>"; };
 		136747A0210189850038B989 /* BankImageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankImageHelper.h; sourceTree = "<group>"; };
 		136747A1210189850038B989 /* BankImageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankImageHelper.m; sourceTree = "<group>"; };
 		136747A32101B3D60038B989 /* RechargeSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RechargeSuccessViewController.h; sourceTree = "<group>"; };
@@ -390,6 +403,29 @@
 				131A4B5F2100AA4600AA44DC /* BankListModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		135CC71821057E4D001F0538 /* TransferAccounts */ = {
+			isa = PBXGroup;
+			children = (
+				135CC71921057E61001F0538 /* Controller */,
+			);
+			path = TransferAccounts;
+			sourceTree = "<group>";
+		};
+		135CC71921057E61001F0538 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				135CC71A2105807F001F0538 /* TransferAccountsViewController.h */,
+				135CC71B2105807F001F0538 /* TransferAccountsViewController.m */,
+				135CC71D2105A450001F0538 /* TransferAccountToWalletViewController.h */,
+				135CC71E2105A450001F0538 /* TransferAccountToWalletViewController.m */,
+				135CC71F2105A450001F0538 /* TransferAccountToWalletViewController.xib */,
+				135CC7222105B2E7001F0538 /* TransferAccountToWalletMessageViewController.h */,
+				135CC7232105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m */,
+				135CC7242105B2E7001F0538 /* TransferAccountToWalletMessageViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		13CC5B3E210074B200229F9F /* Withdraw */ = {
@@ -650,6 +686,7 @@
 		13DF1F5E20F5EA2600507BF4 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				135CC71821057E4D001F0538 /* TransferAccounts */,
 				13CC5B3E210074B200229F9F /* Withdraw */,
 				13EC7A0920FF03760002C2CB /* PwdSettings */,
 				13EC79B820FCCFE70002C2CB /* Recharge */,
@@ -1214,6 +1251,7 @@
 				13DF1EEF20F483A800507BF4 /* LaunchScreen.storyboard in Resources */,
 				13EC795E20FC27400002C2CB /* RealNameAuthViewController.xib in Resources */,
 				13EC799B20FC64920002C2CB /* 汉仪细行楷简.ttf in Resources */,
+				135CC7262105B2E7001F0538 /* TransferAccountToWalletMessageViewController.xib in Resources */,
 				13EC79C320FCD12E0002C2CB /* RechargeViewController.xib in Resources */,
 				136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */,
 				13EC79F620FCFAF10002C2CB /* Assets.xcassets in Resources */,
@@ -1229,6 +1267,7 @@
 				13DF1F6920F5F3A800507BF4 /* RegisterViewController.xib in Resources */,
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
+				135CC7212105A450001F0538 /* TransferAccountToWalletViewController.xib in Resources */,
 				13DF1F7620F6110C00507BF4 /* RegisterSuccessViewController.xib in Resources */,
 				135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */,
 				13EC79FE20FED6290002C2CB /* RechargeNoneBindCardViewController.xib in Resources */,
@@ -1338,6 +1377,7 @@
 				13DF1F4220F4B1B600507BF4 /* LoginRadioItemView.m in Sources */,
 				136747AD2101C7FC0038B989 /* RechargeRecordViewController.m in Sources */,
 				13EC79FD20FED6290002C2CB /* RechargeNoneBindCardViewController.m in Sources */,
+				135CC71C2105807F001F0538 /* TransferAccountsViewController.m in Sources */,
 				13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */,
 				13EC79C220FCD12E0002C2CB /* RechargeViewController.m in Sources */,
 				13DF1F4520F590E200507BF4 /* PWDLoginView.m in Sources */,
@@ -1362,6 +1402,7 @@
 				13EC795520F898D80002C2CB /* CheckItem.m in Sources */,
 				13CC5B3A2100681100229F9F /* SecuritySettingsView.m in Sources */,
 				13EC793020F6F4C90002C2CB /* GainLoginMessage.m in Sources */,
+				135CC7202105A450001F0538 /* TransferAccountToWalletViewController.m in Sources */,
 				13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */,
 				13EC793420F6FAA90002C2CB /* HomePageViewController.m in Sources */,
 				13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */,
@@ -1413,6 +1454,7 @@
 				13EC79B120FCBAE40002C2CB /* BindCardViewController.m in Sources */,
 				13DF1F6320F5EB6100507BF4 /* RadioBtn.m in Sources */,
 				136747AA2101C4460038B989 /* NoneRechargeRecordView.m in Sources */,
+				135CC7252105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m in Sources */,
 				13EC79BE20FCD0AC0002C2CB /* ItemBackView.m in Sources */,
 				13DF1EE120F483A600507BF4 /* AppDelegate.m in Sources */,
 				13EC7A0520FEE10D0002C2CB /* KeyboardView.m in Sources */,
