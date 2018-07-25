@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong)NSMutableArray *itemsArray;
 
+@property (nonatomic, copy)PayTypeViewHandle block;
 
 @end
 
@@ -157,8 +158,14 @@
         payTypeItem.index = i;
         
         if (obj.type == PayTypeModelTypeBalanceShow) {
+            
             payTypeItem.userInteractionEnabled = NO;
-            payTypeItem.attributeTitle = obj.title;
+            payTypeItem.attributeLowLightTitle = obj.title;
+            
+        }else if (obj.type == PayTypeModelTypeUseBalance) {
+            
+            payTypeItem.attributeNomarlTitle = obj.title;
+            
         }else{
             payTypeItem.title = obj.title;
         }
@@ -200,6 +207,10 @@
             }
             
 
+            if (self.block) {
+                self.block(model);
+            }
+            
             
             /*
             if(index == self.itemsArray.count - 1){
@@ -246,6 +257,10 @@
     
 }
 
-
+- (void)callBack:(PayTypeViewHandle)handle{
+    if (handle) {
+        self.block = handle;
+    }
+}
 
 @end

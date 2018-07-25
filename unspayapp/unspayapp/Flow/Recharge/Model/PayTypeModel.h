@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, PayTypeModelType) {
     PayTypeModelTypeDefault,
     PayTypeModelTypeUseNewBank,
     PayTypeModelTypeBalanceShow,
+    PayTypeModelTypeUseBalance,
 };
 
 @interface PayTypeModel : NSObject

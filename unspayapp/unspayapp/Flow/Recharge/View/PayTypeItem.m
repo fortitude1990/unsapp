@@ -147,24 +147,36 @@
     }
 }
 
-- (void)setAttributeTitle:(NSString *)attributeTitle{
-    _attributeTitle = attributeTitle;
+- (void)setAttributeLowLightTitle:(NSString *)attributeLowLightTitle{
+    _attributeLowLightTitle = attributeLowLightTitle;
+    [self settingAttribute:attributeLowLightTitle withColor:KHexColor(0xd1d1d3)];
+}
 
-    if (_attributeTitle.length > 0) {
+
+
+- (void)setAttributeNomarlTitle:(NSString *)attributeNomarlTitle{
+    _attributeNomarlTitle = attributeNomarlTitle;
+    [self settingAttribute:attributeNomarlTitle withColor:[UIColor blackColor]];
+
+}
+
+- (void)settingAttribute:(NSString *)attributeTitle withColor:(UIColor *)color{
+    
+    if (attributeTitle.length > 0) {
         
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:_attributeTitle];
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:attributeTitle];
         
-        NSArray *array = [_attributeTitle componentsSeparatedByString:@"\n"];
+        NSArray *array = [attributeTitle componentsSeparatedByString:@"\n"];
         
         NSString *firstStr = array.firstObject;
         [string addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kAutoScaleNormal(30)],
-                                NSForegroundColorAttributeName : KHexColor(0xd1d1d3)
+                                NSForegroundColorAttributeName : color
                                 } range:NSMakeRange(0, firstStr.length)];
         if (array.count > 1) {
             NSString *secondStr = array[1];
             
             [string addAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kAutoScaleNormal(26)],
-                                    NSForegroundColorAttributeName : KHexColor(0xd1d1d3)
+                                    NSForegroundColorAttributeName : color
                                     } range:[[string string] rangeOfString:secondStr]];
         }
         
@@ -172,8 +184,6 @@
         _titleLabel.attributedText = string;
         
     }
-    
-
     
 }
 

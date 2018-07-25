@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "PayTypeModel.h"
 
+typedef void(^PayTypeViewHandle)(PayTypeModel *payTypeModel);
+
 @interface PayTypeView : UIView
 
 @property (nonatomic, strong)NSArray *elementsArray;
 
 - (void)show;
+
+- (void)callBack:(PayTypeViewHandle)handle;
 
 @end

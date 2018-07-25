@@ -121,6 +121,9 @@
     
     _twoNavigator = twoNavigator;
     _scrollView = scrollView;
+    
+
+    
 }
 
 

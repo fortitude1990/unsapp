@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="applicationTimeLabel" destination="8cW-md-wsj" id="Wb3-8a-C7M"/>
                 <outlet property="dealTimeLabel" destination="8cW-md-wsj" id="oxC-Xo-XYi"/>
+                <outlet property="finalTitleLabel" destination="CKu-IY-QYa" id="VtC-Qz-zPO"/>
+                <outlet property="navigationTitleLabel" destination="cbJ-JJ-fY4" id="mbL-Qh-A12"/>
                 <outlet property="nextBtn" destination="2tV-iV-47S" id="Etg-ZG-PHt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

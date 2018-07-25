@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *applicationTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dealTimeLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nextBtn;
+@property (strong, nonatomic) IBOutlet UILabel *finalTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *navigationTitleLabel;
 
 @end
 
@@ -26,6 +28,12 @@
     self.navigationController.navigationBar.hidden = YES;
     self.nextBtn.layer.cornerRadius = kAutoScaleNormal(6);
     self.nextBtn.clipsToBounds = YES;
+    
+    if(self.resultType == ResultTypeTransferAccount){
+        self.finalTitleLabel.text = @"转账结果";
+        self.navigationTitleLabel.text = @"转账结果";
+    }
+    
     
 }
 

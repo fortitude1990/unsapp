@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, ResultType) {
+    ResultTypeWithdraw,
+    ResultTypeTransferAccount,
+};
+
 @interface WithdrawResultViewController : BaseViewController
+
+@property (nonatomic, assign)ResultType resultType;
 
 @end

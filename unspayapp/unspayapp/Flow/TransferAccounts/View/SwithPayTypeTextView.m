@@ -1,14 +1,17 @@
 //
-//  SecuritySettingsView.m
+//  SwithPayTypeTextView.m
 //  unspayapp
 //
-//  Created by 李志敬 on 2018/7/19.
+//  Created by 李志敬 on 2018/7/24.
 //  Copyright © 2018年 李志敬. All rights reserved.
 //
 
-#import "SecuritySettingsView.h"
+#import "SwithPayTypeView.h"
 
-@implementation SecuritySettingsView
+@interface SwithPayTypeView()
+@end
+
+@implementation SwithPayTypeView
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -18,9 +21,9 @@
 }
 */
 
-- (instancetype)init
+- (instancetype)initWithCoder:(NSCoder *)coder
 {
-    self = [super init];
+    self = [super initWithCoder:coder];
     if (self) {
         [self createUI];
     }
@@ -29,6 +32,7 @@
 
 - (void)createUI{
     
+    UITextView *textView = [[UITextView alloc] init];
     
     
 }

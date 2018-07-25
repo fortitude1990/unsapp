@@ -8,6 +8,8 @@
 
 #import "TransferAccountsViewController.h"
 #import "TransferAccountToWalletViewController.h"
+#import "TransferAccountToBankViewController.h"
+#import "RechargeRecordViewController.h"
 
 @interface TransferAccountsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -80,6 +82,9 @@
 
 - (void)rightBtnAction{
     
+    RechargeRecordViewController *recordVC = [[RechargeRecordViewController alloc] init];
+    [self.navigationController pushViewController:recordVC animated:YES];
+    
 }
 
 #pragma mark - Methods
@@ -93,6 +98,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     switch (indexPath.row) {
         case 0:
         {  TransferAccountToWalletViewController *walletVC = [[TransferAccountToWalletViewController alloc] init];
@@ -100,6 +107,12 @@
             break;
         }
             
+        case 1:
+        {
+            TransferAccountToBankViewController *bankVC = [[TransferAccountToBankViewController alloc] init];
+            [self.navigationController pushViewController:bankVC animated:YES];
+            break;
+        }
         default:
             break;
     }

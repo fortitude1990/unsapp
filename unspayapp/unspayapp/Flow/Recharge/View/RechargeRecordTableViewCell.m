@@ -8,6 +8,16 @@
 
 #import "RechargeRecordTableViewCell.h"
 
+@interface RechargeRecordTableViewCell()
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+
+
+@end
+
 @implementation RechargeRecordTableViewCell
 
 - (void)awakeFromNib {

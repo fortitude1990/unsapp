@@ -13,6 +13,7 @@
 #import "PasswordView.h"
 #import "BankImageHelper.h"
 #import "RechargeSuccessViewController.h"
+#import "BindCardViewController.h"
 
 
 
@@ -53,6 +54,8 @@
 }
 */
 
+#pragma mark - CreateUI
+
 - (void)createUI{
     
     self.navigationItem.title = @"转账到个人钱包账户";
@@ -82,14 +85,10 @@
 
     [self.nextBtn setTitle:@"确认转账" forState:UIControlStateNormal];
     
-    [self.amountItem.textField addTarget:self action:@selector(textfieldValueChange) forControlEvents:UIControlEventTouchUpInside];
-    [self.remarkItem.textField addTarget:self action:@selector(textfieldValueChange) forControlEvents:UIControlEventTouchUpInside];
+    [self.amountItem.textField addTarget:self action:@selector(textfieldValueChange) forControlEvents:UIControlEventEditingChanged];
+    [self.remarkItem.textField addTarget:self action:@selector(textfieldValueChange) forControlEvents:UIControlEventEditingChanged];
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"使用招商银行（1224）付款，更换"];
-    [attributedString addAttribute:NSLinkAttributeName
-                                        value:@"switch://"
-                                        range:[[attributedString string] rangeOfString:@"更换"]];
-    self.switchPayTypeTextView.attributedText = attributedString;
+
     self.switchPayTypeTextView.linkTextAttributes = @{
                                                       NSForegroundColorAttributeName: KHexColor(0x0068b7),
                                                      
@@ -99,15 +98,42 @@
     self.switchPayTypeTextView.delegate = self;
     self.switchPayTypeTextView.editable = NO;
     self.switchPayTypeTextView.scrollEnabled = NO;
-    self.switchPayTypeTextView.textAlignment = NSTextAlignmentCenter;
+    
+    [self settingPayType:@"银行卡（1234）"];
+
 }
 
-- (void)loadData{
-    
-}
+
+
+
+
+
+
+
+
+
+#pragma mark - BtnActions
 
 - (void)leftBtnAction{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (IBAction)nextBtnAction:(id)sender {
+    
+    PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
+    [self.navigationController.view addSubview:passwordView];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [passwordView passwordAuthComplete:^(id data) {
+        
+        RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
+        successVC.type = SuccessTypeTransferAccount;
+        [weakSelf.navigationController pushViewController:successVC animated:YES];
+        
+    }];
+    
 }
 
 - (void)switchBank{
@@ -133,11 +159,16 @@
     payType.type = PayTypeModelTypeUseNewBank;
     
     PayTypeModel *payType1 = [[PayTypeModel alloc] init];
-    payType1.imageName = @"添加新卡";
+    payType1.imageName = @"账户余额灰";
     payType1.title = @"账户余额\n可用余额0.00元";
     payType1.type = PayTypeModelTypeBalanceShow;
     
-    NSArray *array = @[model,model1,model2,payType,payType1];
+    PayTypeModel *payType2 = [[PayTypeModel alloc] init];
+    payType2.imageName = @"账户余额";
+    payType2.title = @"账户余额\n可用余额3999.30元";
+    payType2.type = PayTypeModelTypeUseBalance;
+    
+    NSArray *array = @[model,model1,model2,payType,payType1,payType2];
     
     PayTypeView *payTypeView = [[PayTypeView alloc] init];
     payTypeView.elementsArray = array;
@@ -148,25 +179,55 @@
     
     [payTypeView show];
     
-    
-}
-- (IBAction)nextBtnAction:(id)sender {
-    
-    PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
-    [self.navigationController.view addSubview:passwordView];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [passwordView passwordAuthComplete:^(id data) {
+    [payTypeView callBack:^(PayTypeModel *payTypeModel) {
         
-        RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
-        successVC.type = SuccessTypeTransferAccount;
-        [weakSelf.navigationController pushViewController:successVC animated:YES];
+        switch (payTypeModel.type) {
+            case PayTypeModelTypeUseBalance:
+                [self settingPayType:@"账户余额39.33"];
+                break;
+            case PayTypeModelTypeDefault:
+                [self settingPayType:payTypeModel.title];
+                break;
+            case PayTypeModelTypeUseNewBank:
+                [self toBindBankCard];
+                break;
+            default:
+                break;
+        }
         
     }];
     
 }
 
+
+
+#pragma mark - Methods
+
+- (void)toBindBankCard{
+    BindCardViewController *bindVC = [[BindCardViewController alloc] init];
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:bindVC];
+    [self presentViewController:navC animated:YES completion:^{
+        
+    }];
+}
+
+
+- (void)settingPayType:(NSString *)payType{
+    
+    NSString *string = [NSString stringWithFormat:@"使用%@，更换",payType];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedString addAttribute:NSLinkAttributeName
+                             value:@"switch://"
+                             range:[[attributedString string] rangeOfString:@"更换"]];
+    self.switchPayTypeTextView.attributedText = attributedString;
+    self.switchPayTypeTextView.textAlignment = NSTextAlignmentCenter;
+
+}
+
+- (void)loadData{
+    
+}
 
 - (void)textfieldValueChange{
     
@@ -175,7 +236,6 @@
     }else{
         [self.nextBtn noResponse];
     }
-    
     
 }
 

@@ -10,4 +10,6 @@
 
 @interface BaseMessageView : UIView
 
+- (void)createSubViews;
+
 @end

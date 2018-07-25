@@ -68,6 +68,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = NO;
     
     /*
     [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
