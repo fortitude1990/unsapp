@@ -98,6 +98,8 @@
     cell.textLabel.text = self.titlesArray[indexPath.row];
     cell.detailTextLabel.text = @"射手座";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(30)];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(28)];
     return cell;
 }
 

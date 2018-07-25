@@ -7,6 +7,9 @@
 //
 
 #import "SecuritySettingsView.h"
+#import "SecuritySettingCollectionViewCell.h"
+#import "GradientView.h"
+
 
 @implementation SecuritySettingsView
 
@@ -38,12 +41,95 @@
     [self addSubview:backView];
     [backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);
-        make.edges.equalTo(@10);
+        make.top.equalTo(@10);
         make.right.equalTo(@(-15));
         make.height.equalTo(backView.mas_width).multipliedBy(0.8);
     }];
     
+    SecuritySettingCollectionViewCell *oneItem = [[SecuritySettingCollectionViewCell alloc] init];
+    [backView addSubview:oneItem];
+    [oneItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(@0);
+        make.width.equalTo(backView.mas_width).multipliedBy(0.5);
+        make.height.equalTo(backView.mas_height).multipliedBy(0.5);
+    }];
     
+    SecuritySettingCollectionViewCell *twoItem = [[SecuritySettingCollectionViewCell alloc] init];
+    [backView addSubview:twoItem];
+    [twoItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.top.equalTo(@0);
+        make.width.equalTo(backView.mas_width).multipliedBy(0.5);
+        make.height.equalTo(backView.mas_height).multipliedBy(0.5);
+    }];
+    
+    SecuritySettingCollectionViewCell *threeItem = [[SecuritySettingCollectionViewCell alloc] init];
+    [backView addSubview:threeItem];
+    [threeItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.equalTo(@0);
+        make.width.equalTo(backView.mas_width).multipliedBy(0.5);
+        make.height.equalTo(backView.mas_height).multipliedBy(0.5);
+    }];
+    
+    SecuritySettingItemModel *oneModel = [[SecuritySettingItemModel alloc] init];
+    oneModel.itemImageName = @"登录密码设置";
+    oneModel.title = @"登录密码设置";
+    oneItem.dataSource = oneModel;
+    
+    SecuritySettingItemModel *twoModel = [[SecuritySettingItemModel alloc] init];
+    twoModel.itemImageName = @"支付密码设置";
+    twoModel.title = @"支付密码设置";
+    twoItem.dataSource = twoModel;
+    
+    SecuritySettingItemModel *threeModel = [[SecuritySettingItemModel alloc] init];
+    threeModel.itemImageName = @"手势密码设置";
+    threeModel.title = @"手势密码设置";
+    threeItem.dataSource = threeModel;
+    
+    UITapGestureRecognizer *oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loginPwdSetting)];
+    [oneItem addGestureRecognizer:oneTap];
+    
+    UITapGestureRecognizer *twoTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(payPwdSetting)];
+    [twoItem addGestureRecognizer:twoTap];
+    
+    UITapGestureRecognizer *threeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesturesPwdSetting)];
+    [threeItem addGestureRecognizer:threeTap];
+    
+    GradientView *oneGradientView = [[GradientView alloc] init];
+    [backView addSubview:oneGradientView];
+    [oneGradientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(@0);
+        make.height.equalTo(@0.5);
+        make.top.equalTo(oneItem.mas_bottom).offset(-0.25);
+    }];
+    
+    GradientView *twoGradientView = [[GradientView alloc] init];
+    [backView addSubview:twoGradientView];
+    [twoGradientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(oneItem.mas_right).offset(-0.25);
+        make.width.equalTo(@0.5);
+        make.top.equalTo(@0);
+        make.height.equalTo(backView.mas_height).multipliedBy(0.5);
+    }];
+    
+    GradientView *threeGradientView = [[GradientView alloc] init];
+    [backView addSubview:threeGradientView];
+    [threeGradientView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(oneItem.mas_right).offset(-0.25);
+        make.width.equalTo(@0.5);
+        make.top.equalTo(twoGradientView.mas_bottom);
+        make.height.equalTo(backView.mas_height).multipliedBy(0.5);
+    }];
+    
+}
+
+- (void)loginPwdSetting{
+    
+}
+
+- (void)payPwdSetting{
+    
+}
+- (void)gesturesPwdSetting{
     
 }
 
