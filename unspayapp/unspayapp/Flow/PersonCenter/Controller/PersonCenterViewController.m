@@ -371,6 +371,8 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 #pragma mark - BtnActions
 
+
+
 - (void)settingBtnAction{
     
 }
@@ -381,7 +383,13 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 #pragma mark - Methods
 
-
+- (void)subviewsCanScroll:(CommonBlock)bock{
+    
+    if (bock) {
+        self.myBlock = bock;
+    }
+    
+}
 
 - (void)changeTopViewValue{
     
@@ -404,6 +412,9 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+
+    
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
@@ -451,6 +462,14 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         _topAmplificationView.selected = YES;
     }
 
+    
+    if (self.myBlock) {
+        if (offsetY >= CGRectGetMaxY(self.headView.frame)) {
+            self.myBlock(YES, nil);
+        }else{
+            self.myBlock(NO, nil);
+        }
+    }
     
     
 }

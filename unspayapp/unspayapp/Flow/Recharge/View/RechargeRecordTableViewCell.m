@@ -31,4 +31,23 @@
     // Configure the view for the selected state
 }
 
+- (void)setRecordListType:(RecordListType)recordListType{
+    _recordListType = recordListType;
+    switch (_recordListType) {
+        case RecordListTypeTotalProperty:
+            
+            self.titleLabel.font = [UIFont systemFontOfSize:15];
+            self.dateLabel.font = [UIFont systemFontOfSize:12];
+            self.amountLabel.font = [UIFont systemFontOfSize:15];
+            self.statusLabel.font = [UIFont systemFontOfSize:12];
+            self.statusLabel.textColor = KHexColor(0x0068b7);
+            self.dateLabel.textColor = [UIColor blackColor];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
 @end

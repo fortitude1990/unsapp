@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, RecordListType) {
+    RecordListTypeRecharge,
+    RecordListTypeTotalProperty,
+};
+
 @interface RechargeRecordTableViewCell : UITableViewCell
+
+@property (nonatomic, assign)RecordListType recordListType;
 
 @end

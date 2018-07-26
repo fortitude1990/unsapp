@@ -43,6 +43,7 @@
 		13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4AE52108560A005D65AD /* SecuritySettingCollectionViewCell.m */; };
 		13DD4AEA21085619005D65AD /* SecuritySettingItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4AE921085619005D65AD /* SecuritySettingItemModel.m */; };
 		13DD4AED21086491005D65AD /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4AEC21086491005D65AD /* GradientView.m */; };
+		13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4AEF2109D166005D65AD /* AmountShowView.m */; };
 		13DF1EE120F483A600507BF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DF1EE020F483A600507BF4 /* AppDelegate.m */; };
 		13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DF1EE320F483A600507BF4 /* LoginViewController.m */; };
 		13DF1EE720F483A600507BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13DF1EE520F483A600507BF4 /* Main.storyboard */; };
@@ -215,6 +216,8 @@
 		13DD4AE921085619005D65AD /* SecuritySettingItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecuritySettingItemModel.m; sourceTree = "<group>"; };
 		13DD4AEB21086491005D65AD /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		13DD4AEC21086491005D65AD /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		13DD4AEE2109D166005D65AD /* AmountShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmountShowView.h; sourceTree = "<group>"; };
+		13DD4AEF2109D166005D65AD /* AmountShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmountShowView.m; sourceTree = "<group>"; };
 		13DF1EDC20F483A600507BF4 /* unspayapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unspayapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13DF1EDF20F483A600507BF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13DF1EE020F483A600507BF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				13CC5B2721005AA900229F9F /* MSCNavigatorView.m */,
 				13DD4AEB21086491005D65AD /* GradientView.h */,
 				13DD4AEC21086491005D65AD /* GradientView.m */,
+				13DD4AEE2109D166005D65AD /* AmountShowView.h */,
+				13DD4AEF2109D166005D65AD /* AmountShowView.m */,
 			);
 			path = "其他";
 			sourceTree = "<group>";
@@ -1512,6 +1517,7 @@
 				13EC799220FC64910002C2CB /* CCCameraViewController.m in Sources */,
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
+				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,
 				13DF1F4D20F5A09F00507BF4 /* VerificationLoginView.m in Sources */,
 				13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */,
