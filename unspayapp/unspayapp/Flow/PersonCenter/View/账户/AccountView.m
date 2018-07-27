@@ -11,6 +11,7 @@
 #import "BaseMessageView.h"
 #import "SecuritySettingsView.h"
 #import "PaySettingsView.h"
+#import "RealNameAuthViewController.h"
 
 @interface AccountView()<UIScrollViewDelegate>
 
@@ -129,6 +130,12 @@
 
 
 - (void)realNameBtnAction{
+    
+    RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+    [self.controller presentViewController:navC animated:YES completion:^{
+        
+    }];
     
 }
 

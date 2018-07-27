@@ -12,7 +12,7 @@
 #import "TabViewController.h"
 #import "AmountShowView.h"
 #import "GradientView.h"
-
+#import "ShadowView.h"
 
 static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewTableViewCellIdentifier";
 
@@ -69,6 +69,7 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     headerView.clipsToBounds = YES;
     tableView.tableHeaderView = headerView;
 
+    /*
     UIView *backView = [[UIView alloc] init];
     backView.backgroundColor = [UIColor whiteColor];
     backView.layer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.1].CGColor;
@@ -77,7 +78,13 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     backView.layer.shadowRadius = 2;
     [headerView addSubview:backView];
     backView.frame = CGRectMake(15, kAutoScaleNormal(30), kRectWidth - 30, kAutoScaleNormal(380));
-
+    */
+    
+    ShadowView *backView = [[ShadowView alloc] init];
+    backView.backgroundColor = [UIColor whiteColor];
+    [headerView addSubview:backView];
+    backView.frame = CGRectMake(15, kAutoScaleNormal(30), kRectWidth - 30, kAutoScaleNormal(380));
+    
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"总资产";
     titleLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(30)];
@@ -142,8 +149,8 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
    
     self.amount = @"1.00";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        PersonCenterViewController *vc =  (PersonCenterViewController *)[self viewControllerSupportView:self];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        PersonCenterViewController *vc =  (PersonCenterViewController *)self.controller;
         if(vc){
             tableView.scrollEnabled = NO;
             [vc subviewsCanScroll:^(BOOL flag, NSString *message) {
@@ -152,8 +159,19 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
                     headerView.frame = CGRectMake(0, 0, 0, 0);
                     tableView.tableHeaderView = headerView;
                 }else{
+                    
+                    CGFloat offsetY = [message floatValue];
+                    
+                    if (100 - offsetY > 0) {
+                        headerView.frame = CGRectMake(0, 0, kRectWidth, kAutoScaleNormal(420) * (100 - offsetY) / 100.00);
+                        headerView.alpha = (100 - offsetY) / 100.00;
+                    }else{
+                        headerView.frame = CGRectMake(0, 0, kRectWidth, kAutoScaleNormal(420));
+                        headerView.alpha = 1;
+                    }
+                    
+                    
                     tableView.scrollEnabled = NO;
-                    headerView.frame = CGRectMake(0, 0, kRectWidth, kAutoScaleNormal(420));
                     tableView.tableHeaderView = headerView;
                 }
             }];
@@ -163,6 +181,11 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
 
     
     
+
+}
+
+- (void)setController:(UIViewController *)controller{
+    _controller = controller;
 
 }
 
@@ -182,7 +205,6 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     _amountBackView.frame = backViewFrame;
     
     
-    
 }
 
 - (CGFloat)widthOfString:(NSString *)string{
@@ -197,6 +219,10 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
         }
     }
     return nil;
+}
+
+- (void)selectBtnAction{
+    
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -220,6 +246,43 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     return 50;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *itemHeaderView = [[UIView alloc] init];
+    itemHeaderView.backgroundColor = [UIColor whiteColor];
+    itemHeaderView.frame = CGRectMake(0, 0, kRectWidth, 50);
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"支付账单"]];
+    [itemHeaderView addSubview:imageView];
+    imageView.frame = CGRectMake(15, (CGRectGetHeight(itemHeaderView.frame) - 30) / 2.0, 30, 30);
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"支付账单";
+    titleLabel.font = [UIFont systemFontOfSize:kAutoScaleNormal(30)];
+    [itemHeaderView addSubview:titleLabel];
+    titleLabel.frame = CGRectMake(CGRectGetMaxX(imageView.frame) + 5, CGRectGetMinY(imageView.frame), 150, 30);
+    
+    UIButton *selectBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [selectBtn setTitle:@"账单种类" forState:UIControlStateNormal];
+    [selectBtn setTitleColor:KHexColor(0x0068b7) forState:UIControlStateNormal];
+    [selectBtn addTarget:self action:@selector(selectBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [itemHeaderView addSubview:selectBtn];
+    selectBtn.frame = CGRectMake(CGRectGetWidth(itemHeaderView.frame) - 15 - kAutoScaleNormal(150), CGRectGetMinY(imageView.frame), kAutoScaleNormal(150), 30);
+    
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = tableView.separatorColor;
+    [itemHeaderView addSubview:lineView];
+    lineView.frame = CGRectMake(15, CGRectGetHeight(itemHeaderView.frame) - 0.5, kRectWidth - 30, 0.5);
+    
+    return itemHeaderView;
+    
+    
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -231,6 +294,7 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     cell.recordListType = RecordListTypeTotalProperty;
     return cell;
 }
+
 
 
 @end

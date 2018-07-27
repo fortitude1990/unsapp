@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RealNameAuthFailureViewController">
+            <connections>
+                <outlet property="nextBtn" destination="YW2-dy-Pyk" id="Zgo-lF-fqb"/>
+                <outlet property="reasonTextView" destination="2mQ-4r-fCJ" id="xeZ-DM-Ggo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="认证失败" translatesAutoresizingMaskIntoConstraints="NO" id="jpW-tA-dLQ">
+                    <rect key="frame" x="66" y="94" width="243" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jpW-tA-dLQ" secondAttribute="height" multiplier="486:360" id="A8B-5b-GP3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未通过实名认证人工审核！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXr-eh-MH9">
+                    <rect key="frame" x="15" y="289" width="345" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.92941176470588238" green="0.21568627450980393" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="1、照片不清晰； 2、姓名不对" translatesAutoresizingMaskIntoConstraints="NO" id="2mQ-4r-fCJ">
+                    <rect key="frame" x="15" y="322" width="345" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="bPK-ud-p7M"/>
+                    </constraints>
+                    <color key="textColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YW2-dy-Pyk" customClass="NextButton">
+                    <rect key="frame" x="20" y="407" width="335" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="g79-fy-v4H"/>
+                    </constraints>
+                    <state key="normal" title="重新上传身份证">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="5q5-sj-Uvj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2mQ-4r-fCJ" firstAttribute="top" secondItem="MXr-eh-MH9" secondAttribute="bottom" constant="15" id="2H4-lO-Shh"/>
+                <constraint firstItem="2mQ-4r-fCJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="5Uf-WF-AIg"/>
+                <constraint firstAttribute="trailing" secondItem="2mQ-4r-fCJ" secondAttribute="trailing" constant="15" id="DwG-Ka-q4S"/>
+                <constraint firstItem="MXr-eh-MH9" firstAttribute="top" secondItem="jpW-tA-dLQ" secondAttribute="bottom" constant="15" id="F2I-bY-aEW"/>
+                <constraint firstItem="jpW-tA-dLQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="SrB-NR-eeY"/>
+                <constraint firstAttribute="trailing" secondItem="jpW-tA-dLQ" secondAttribute="trailing" constant="66" id="TkL-Fn-wp7"/>
+                <constraint firstItem="YW2-dy-Pyk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="agy-St-x8K"/>
+                <constraint firstItem="MXr-eh-MH9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dao-cN-uS5"/>
+                <constraint firstAttribute="trailing" secondItem="YW2-dy-Pyk" secondAttribute="trailing" constant="20" id="dqO-nl-ofq"/>
+                <constraint firstItem="jpW-tA-dLQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="e9m-Fq-8Ib"/>
+                <constraint firstAttribute="trailing" secondItem="MXr-eh-MH9" secondAttribute="trailing" constant="15" id="kPq-o9-zfG"/>
+                <constraint firstItem="YW2-dy-Pyk" firstAttribute="top" secondItem="2mQ-4r-fCJ" secondAttribute="bottom" constant="5" id="woO-g4-Cc8"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="认证失败" width="243" height="180"/>
+    </resources>
+</document>

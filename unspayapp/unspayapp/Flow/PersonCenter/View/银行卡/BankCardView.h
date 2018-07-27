@@ -10,4 +10,6 @@
 
 @interface BankCardView : UIView
 
+@property (nonatomic, strong)UIViewController *controller;
+
 @end

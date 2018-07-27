@@ -10,4 +10,6 @@
 
 @interface TotalPropertyView : UIView
 
+@property (nonatomic, strong)UIViewController *controller;
+
 @end

@@ -25,6 +25,11 @@
 		136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */; };
 		136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */; };
 		136747B52101DFD00038B989 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747B42101DFD00038B989 /* RecordModel.m */; };
+		138D2853210ADFD000E91C2C /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2852210ADFD000E91C2C /* ShadowView.m */; };
+		138D2857210AEB0F00E91C2C /* BankCardShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2855210AEB0F00E91C2C /* BankCardShowTableViewCell.m */; };
+		138D2858210AEB0F00E91C2C /* BankCardShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2856210AEB0F00E91C2C /* BankCardShowTableViewCell.xib */; };
+		138D285C210B163900E91C2C /* RealNameAuthFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */; };
+		138D285D210B163900E91C2C /* RealNameAuthFailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
@@ -183,6 +188,14 @@
 		136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordTableViewCell.xib; sourceTree = "<group>"; };
 		136747B32101DFD00038B989 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
 		136747B42101DFD00038B989 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		138D2851210ADFD000E91C2C /* ShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
+		138D2852210ADFD000E91C2C /* ShadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
+		138D2854210AEB0F00E91C2C /* BankCardShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardShowTableViewCell.h; sourceTree = "<group>"; };
+		138D2855210AEB0F00E91C2C /* BankCardShowTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardShowTableViewCell.m; sourceTree = "<group>"; };
+		138D2856210AEB0F00E91C2C /* BankCardShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCardShowTableViewCell.xib; sourceTree = "<group>"; };
+		138D2859210B163900E91C2C /* RealNameAuthFailureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealNameAuthFailureViewController.h; sourceTree = "<group>"; };
+		138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealNameAuthFailureViewController.m; sourceTree = "<group>"; };
+		138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealNameAuthFailureViewController.xib; sourceTree = "<group>"; };
 		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
@@ -525,6 +538,9 @@
 			children = (
 				13CC5B2F21005C2100229F9F /* BankCardView.h */,
 				13CC5B3021005C2100229F9F /* BankCardView.m */,
+				138D2854210AEB0F00E91C2C /* BankCardShowTableViewCell.h */,
+				138D2855210AEB0F00E91C2C /* BankCardShowTableViewCell.m */,
+				138D2856210AEB0F00E91C2C /* BankCardShowTableViewCell.xib */,
 			);
 			path = "银行卡";
 			sourceTree = "<group>";
@@ -819,6 +835,8 @@
 				13DF1F6120F5EB6000507BF4 /* RadioBtn.h */,
 				13DF1F6220F5EB6100507BF4 /* RadioBtn.m */,
 				13DF1F5320F5D8B100507BF4 /* Alert */,
+				138D2851210ADFD000E91C2C /* ShadowView.h */,
+				138D2852210ADFD000E91C2C /* ShadowView.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -905,6 +923,9 @@
 				13EC79A520FCB7AE0002C2CB /* RealNameAuthSuccessViewController.h */,
 				13EC79A620FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m */,
 				13EC79A720FCB7AE0002C2CB /* RealNameAuthSuccessViewController.xib */,
+				138D2859210B163900E91C2C /* RealNameAuthFailureViewController.h */,
+				138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */,
+				138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1329,6 +1350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				138D2858210AEB0F00E91C2C /* BankCardShowTableViewCell.xib in Resources */,
 				13DF1EEF20F483A800507BF4 /* LaunchScreen.storyboard in Resources */,
 				13EC795E20FC27400002C2CB /* RealNameAuthViewController.xib in Resources */,
 				13EC799B20FC64920002C2CB /* 汉仪细行楷简.ttf in Resources */,
@@ -1346,6 +1368,7 @@
 				13DD4ADB2106CECF005D65AD /* TransferAccountToBankViewController.xib in Resources */,
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
 				136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */,
+				138D285D210B163900E91C2C /* RealNameAuthFailureViewController.xib in Resources */,
 				13DF1F6920F5F3A800507BF4 /* RegisterViewController.xib in Resources */,
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
@@ -1488,6 +1511,7 @@
 				135CC7202105A450001F0538 /* TransferAccountToWalletViewController.m in Sources */,
 				13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */,
 				13EC793420F6FAA90002C2CB /* HomePageViewController.m in Sources */,
+				138D2857210AEB0F00E91C2C /* BankCardShowTableViewCell.m in Sources */,
 				13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */,
 				13DF1F5120F5B0BD00507BF4 /* TimerButton.m in Sources */,
 				13EC794220F745440002C2CB /* HomePageItemModel.m in Sources */,
@@ -1525,6 +1549,7 @@
 				13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */,
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
+				138D2853210ADFD000E91C2C /* ShadowView.m in Sources */,
 				13EC79A820FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m in Sources */,
 				13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */,
 				13EC79B620FCC03A0002C2CB /* BindCardVerificationViewController.m in Sources */,
@@ -1539,6 +1564,7 @@
 				13DD4AED21086491005D65AD /* GradientView.m in Sources */,
 				13DF1EF220F483A800507BF4 /* main.m in Sources */,
 				13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */,
+				138D285C210B163900E91C2C /* RealNameAuthFailureViewController.m in Sources */,
 				13EC79B120FCBAE40002C2CB /* BindCardViewController.m in Sources */,
 				13DF1F6320F5EB6100507BF4 /* RadioBtn.m in Sources */,
 				136747AA2101C4460038B989 /* NoneRechargeRecordView.m in Sources */,

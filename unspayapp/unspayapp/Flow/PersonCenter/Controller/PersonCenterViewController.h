@@ -10,10 +10,11 @@
 
 //typedef void(^ScrollOffsetBlock)(CGPoint offset);
 
+
 @interface PersonCenterViewController : BaseViewController
 
 @property (nonatomic, copy)CommonBlock myBlock;
 
-- (void)subviewsCanScroll:(CommonBlock) bock;
+- (void)subviewsCanScroll:(CommonBlock)bock;
 
 @end

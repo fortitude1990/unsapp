@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 @property (strong, nonatomic) BankCardView *bankCardView;
 
+@property (strong, nonatomic) NSMutableArray *blockArray;
 
 @end
 
@@ -75,6 +76,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     // Do any additional setup after loading the view.
     
     [self createUI];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,13 +116,16 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     meansBackView.frame = CGRectMake(0, CGRectGetMaxY(self.controlStripView.frame), kRectWidth, self.scrollView.contentSize.height - CGRectGetMaxY(self.controlStripView.frame));
     
     AccountView *accountView = [[AccountView alloc] init];
+    accountView.controller = self;
     [self.scrollView addSubview:accountView];
     accountView.frame = meansBackView.frame;
     
     TotalPropertyView *totalPropertyView = [[TotalPropertyView alloc] init];
+    totalPropertyView.controller = self;
     totalPropertyView.frame = meansBackView.frame;
 
     BankCardView *bankCardView = [[BankCardView alloc] init];
+    bankCardView.controller = self;
     bankCardView.frame = meansBackView.frame;
     
     _accountView = accountView;
@@ -138,6 +143,13 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 #pragma mark - Get
+
+- (NSMutableArray *)blockArray{
+    if (!_blockArray) {
+        _blockArray = [NSMutableArray array];
+    }
+    return _blockArray;
+}
 
 - (UIView *)topView{
     if (!_topView) {
@@ -386,7 +398,12 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 - (void)subviewsCanScroll:(CommonBlock)bock{
     
     if (bock) {
-        self.myBlock = bock;
+        
+        [self.blockArray addObject:bock];
+        
+//        if (!self.myBlock) {
+//            self.myBlock = bock;
+//        }
     }
     
 }
@@ -463,13 +480,24 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     }
 
     
-    if (self.myBlock) {
+    
+    
+    
+    if (self.blockArray) {
         if (offsetY >= CGRectGetMaxY(self.headView.frame)) {
-            self.myBlock(YES, nil);
+            for (CommonBlock block in self.blockArray) {
+                block(YES, [NSString stringWithFormat:@"%lf", offsetY]);
+            }
+//            self.myBlock(YES, [NSString stringWithFormat:@"%lf", offsetY]);
         }else{
-            self.myBlock(NO, nil);
+            for (CommonBlock block in self.blockArray) {
+                block(NO, [NSString stringWithFormat:@"%lf", offsetY]);
+            }
+//            self.myBlock(NO, [NSString stringWithFormat:@"%lf", offsetY]);
         }
     }
+    
+
     
     
 }
