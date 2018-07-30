@@ -10,4 +10,7 @@
 
 @interface PaySettingsView : UIView
 
+@property (nonatomic, strong)UIViewController *controller;
+
+
 @end

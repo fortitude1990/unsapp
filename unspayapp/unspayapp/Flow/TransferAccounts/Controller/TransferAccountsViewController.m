@@ -57,6 +57,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, kRectWidth, kRectHeight - 74) style:UITableViewStylePlain];
     tableView.tableHeaderView = [UIView new];
     tableView.tableFooterView = [UIView new];

@@ -30,6 +30,12 @@
 		138D2858210AEB0F00E91C2C /* BankCardShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2856210AEB0F00E91C2C /* BankCardShowTableViewCell.xib */; };
 		138D285C210B163900E91C2C /* RealNameAuthFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */; };
 		138D285D210B163900E91C2C /* RealNameAuthFailureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */; };
+		138D2861210EB00400E91C2C /* PwdLoginFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D285F210EB00400E91C2C /* PwdLoginFirstViewController.m */; };
+		138D2862210EB00400E91C2C /* PwdLoginFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2860210EB00400E91C2C /* PwdLoginFirstViewController.xib */; };
+		138D2866210EB8CD00E91C2C /* PwdLoginSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2864210EB8CD00E91C2C /* PwdLoginSecondViewController.m */; };
+		138D2867210EB8CD00E91C2C /* PwdLoginSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2865210EB8CD00E91C2C /* PwdLoginSecondViewController.xib */; };
+		138D286B210EE74100E91C2C /* PwdPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2869210EE74100E91C2C /* PwdPayViewController.m */; };
+		138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D286A210EE74100E91C2C /* PwdPayViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
@@ -196,6 +202,15 @@
 		138D2859210B163900E91C2C /* RealNameAuthFailureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealNameAuthFailureViewController.h; sourceTree = "<group>"; };
 		138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealNameAuthFailureViewController.m; sourceTree = "<group>"; };
 		138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RealNameAuthFailureViewController.xib; sourceTree = "<group>"; };
+		138D285E210EB00400E91C2C /* PwdLoginFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdLoginFirstViewController.h; sourceTree = "<group>"; };
+		138D285F210EB00400E91C2C /* PwdLoginFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdLoginFirstViewController.m; sourceTree = "<group>"; };
+		138D2860210EB00400E91C2C /* PwdLoginFirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdLoginFirstViewController.xib; sourceTree = "<group>"; };
+		138D2863210EB8CD00E91C2C /* PwdLoginSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdLoginSecondViewController.h; sourceTree = "<group>"; };
+		138D2864210EB8CD00E91C2C /* PwdLoginSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdLoginSecondViewController.m; sourceTree = "<group>"; };
+		138D2865210EB8CD00E91C2C /* PwdLoginSecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdLoginSecondViewController.xib; sourceTree = "<group>"; };
+		138D2868210EE74100E91C2C /* PwdPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayViewController.h; sourceTree = "<group>"; };
+		138D2869210EE74100E91C2C /* PwdPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayViewController.m; sourceTree = "<group>"; };
+		138D286A210EE74100E91C2C /* PwdPayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayViewController.xib; sourceTree = "<group>"; };
 		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
@@ -1171,6 +1186,15 @@
 				135CC7132105793D001F0538 /* PwdSettingSuccessViewController.h */,
 				135CC7142105793D001F0538 /* PwdSettingSuccessViewController.m */,
 				135CC7152105793D001F0538 /* PwdSettingSuccessViewController.xib */,
+				138D285E210EB00400E91C2C /* PwdLoginFirstViewController.h */,
+				138D285F210EB00400E91C2C /* PwdLoginFirstViewController.m */,
+				138D2860210EB00400E91C2C /* PwdLoginFirstViewController.xib */,
+				138D2863210EB8CD00E91C2C /* PwdLoginSecondViewController.h */,
+				138D2864210EB8CD00E91C2C /* PwdLoginSecondViewController.m */,
+				138D2865210EB8CD00E91C2C /* PwdLoginSecondViewController.xib */,
+				138D2868210EE74100E91C2C /* PwdPayViewController.h */,
+				138D2869210EE74100E91C2C /* PwdPayViewController.m */,
+				138D286A210EE74100E91C2C /* PwdPayViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1362,9 +1386,12 @@
 				13DF1EE720F483A600507BF4 /* Main.storyboard in Resources */,
 				135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */,
 				13EC79B220FCBAE40002C2CB /* BindCardViewController.xib in Resources */,
+				138D2867210EB8CD00E91C2C /* PwdLoginSecondViewController.xib in Resources */,
 				13EC799A20FC64920002C2CB /* 华文行楷.ttf in Resources */,
 				13CC5B4B21007F4000229F9F /* BankListTableViewCell.xib in Resources */,
+				138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */,
 				13EC796920FC44970002C2CB /* UploadIdCardViewController.xib in Resources */,
+				138D2862210EB00400E91C2C /* PwdLoginFirstViewController.xib in Resources */,
 				13DD4ADB2106CECF005D65AD /* TransferAccountToBankViewController.xib in Resources */,
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
 				136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */,
@@ -1549,6 +1576,7 @@
 				13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */,
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
+				138D2861210EB00400E91C2C /* PwdLoginFirstViewController.m in Sources */,
 				138D2853210ADFD000E91C2C /* ShadowView.m in Sources */,
 				13EC79A820FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m in Sources */,
 				13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */,
@@ -1559,6 +1587,7 @@
 				136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */,
 				13DF1F4A20F592CE00507BF4 /* Networking.m in Sources */,
 				13DF1EEA20F483A600507BF4 /* unspayapp.xcdatamodeld in Sources */,
+				138D2866210EB8CD00E91C2C /* PwdLoginSecondViewController.m in Sources */,
 				13EC793E20F744F80002C2CB /* HomePageCollectionViewCell.m in Sources */,
 				135CC7162105793D001F0538 /* PwdSettingSuccessViewController.m in Sources */,
 				13DD4AED21086491005D65AD /* GradientView.m in Sources */,
@@ -1573,6 +1602,7 @@
 				13DF1EE120F483A600507BF4 /* AppDelegate.m in Sources */,
 				13EC7A0520FEE10D0002C2CB /* KeyboardView.m in Sources */,
 				13DF1F7520F6110C00507BF4 /* RegisterSuccessViewController.m in Sources */,
+				138D286B210EE74100E91C2C /* PwdPayViewController.m in Sources */,
 				13EC799F20FC884A0002C2CB /* LiDatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

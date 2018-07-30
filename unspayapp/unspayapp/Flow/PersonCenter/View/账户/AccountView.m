@@ -14,7 +14,11 @@
 #import "RealNameAuthViewController.h"
 
 @interface AccountView()<UIScrollViewDelegate>
-
+{
+    SecuritySettingsView *_securitySettingView;
+    BaseMessageView *_baseMessageView;
+    PaySettingsView *_paySettingView;
+}
 
 @property (nonatomic, strong)MSCNavigatorView *twoNavigator;
 @property (nonatomic, strong)UIScrollView *scrollView;
@@ -119,15 +123,21 @@
         make.right.equalTo(@0);
     }];
     
-    
+    _baseMessageView = baseMessageView;
+    _paySettingView = paySettingView;
+    _securitySettingView = securitySettingView;
     _twoNavigator = twoNavigator;
     _scrollView = scrollView;
     
 
-    
 }
 
-
+- (void)setController:(UIViewController *)controller{
+    _controller = controller;
+    _securitySettingView.controller = controller;
+    _baseMessageView.controller = controller;
+    _paySettingView.controller = controller;
+}
 
 - (void)realNameBtnAction{
     

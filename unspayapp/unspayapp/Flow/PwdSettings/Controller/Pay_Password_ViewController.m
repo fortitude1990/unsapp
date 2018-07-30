@@ -346,7 +346,7 @@
 
 
 
-- (void)sendValue:(PasswordBackValue)backValue{
+- (void)sendValue:(CommonBlock)backValue{
     self.backValue = backValue;
 }
 

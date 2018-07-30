@@ -10,6 +10,9 @@
 
 @interface BaseMessageView : UIView
 
+@property (nonatomic, strong)UIViewController *controller;
+
+
 - (void)createSubViews;
 
 @end

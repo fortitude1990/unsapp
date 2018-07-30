@@ -9,6 +9,11 @@
 #import "SecuritySettingsView.h"
 #import "SecuritySettingCollectionViewCell.h"
 #import "GradientView.h"
+#import "PwdLoginFirstViewController.h"
+#import "PersonCenterViewController.h"
+#import "Pay_Password_ViewController.h"
+#import "PwdPayViewController.h"
+
 
 
 @implementation SecuritySettingsView
@@ -124,9 +129,31 @@
 
 - (void)loginPwdSetting{
     
+    PersonCenterViewController *myController = (PersonCenterViewController *)self.controller;
+    PwdLoginFirstViewController *loginVC = [[PwdLoginFirstViewController alloc] init];
+    myController.hidesBottomBarWhenPushed = YES;
+    [self.controller.navigationController pushViewController:loginVC animated:YES];
+    
 }
 
 - (void)payPwdSetting{
+    
+    //设置支付密码之前
+    /*
+    Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
+    realVC.passwordInputType = PasswordInputTypeSimpleSetting;
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+    [self.controller presentViewController:navC animated:YES completion:^{
+        
+    }];
+    */
+    
+    PersonCenterViewController *myController = (PersonCenterViewController *)self.controller;
+    myController.hidesBottomBarWhenPushed = YES;
+
+    PwdPayViewController *payVC = [[PwdPayViewController alloc] init];
+    [self.controller.navigationController pushViewController:payVC animated:YES];
+    
     
 }
 - (void)gesturesPwdSetting{

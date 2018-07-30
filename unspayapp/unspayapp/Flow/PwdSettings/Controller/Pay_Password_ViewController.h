@@ -31,9 +31,9 @@ typedef void(^PasswordBackValue)(id backValue);
 @property (nonatomic, assign)PasswordInputType passwordInputType;
 
 
-@property (nonatomic, copy)PasswordBackValue backValue;
+@property (nonatomic, copy)CommonBlock backValue;
 
 
-- (void)sendValue: (PasswordBackValue)backValue;
+- (void)sendValue: (CommonBlock)backValue;
 
 @end
