@@ -12,6 +12,8 @@
 #import "SecuritySettingsView.h"
 #import "PaySettingsView.h"
 #import "RealNameAuthViewController.h"
+#import "RealNameAuthMessageViewController.h"
+#import "PersonCenterViewController.h"
 
 @interface AccountView()<UIScrollViewDelegate>
 {
@@ -141,11 +143,19 @@
 
 - (void)realNameBtnAction{
     
+    /*
     RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
     BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
     [self.controller presentViewController:navC animated:YES completion:^{
         
     }];
+     */
+    
+    PersonCenterViewController *myController = (PersonCenterViewController *)self.controller;
+    myController.hidesBottomBarWhenPushed = YES;
+    
+    RealNameAuthMessageViewController *messageVC = [[RealNameAuthMessageViewController alloc] init];
+    [self.controller.navigationController pushViewController:messageVC animated:YES];
     
 }
 

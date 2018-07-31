@@ -8,6 +8,15 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, ListType) {
+    
+    ListTypeChangePwd,
+    ListTypeForgetPwd
+    
+};
+
 @interface PwdPayViewController : BaseViewController
+
+@property (nonatomic, assign)ListType listType;
 
 @end

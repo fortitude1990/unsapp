@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-
+@property (nonatomic, strong)NSArray *titlesArray;
 
 @end
 
@@ -24,9 +24,23 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationItem.title = @"支付密码";
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     self.tableView.tableFooterView = [UIView new];
+    
+    switch (self.listType) {
+        case ListTypeChangePwd:
+            self.navigationItem.title = @"支付密码";
+            self.titlesArray = @[@"修改支付密码",@"忘记支付密码"];
+            break;
+        case ListTypeForgetPwd:
+            self.navigationItem.title = @"找回支付密码";
+            self.titlesArray = @[@"用绑定手机找回支付密码",@"用绑定邮箱找回支付密码"];
+            break;
+        default:
+            break;
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,40 +72,59 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    switch (indexPath.row) {
-        case 0:
-        {
-            Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
-            realVC.passwordInputType = PasswordInputTypeDefault;
-            BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-            [self presentViewController:navC animated:YES completion:^{
-                
-            }];
-            __weak typeof(self) weakSelf = self;
-            [realVC sendValue:^(BOOL flag, NSString *message) {
-                
-                if (flag) {
+    if (self.listType == ListTypeChangePwd) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
+                realVC.passwordInputType = PasswordInputTypeDefault;
+                BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+                [self presentViewController:navC animated:YES completion:^{
                     
-                    Pay_Password_ViewController *changeVC = [[Pay_Password_ViewController alloc] init];
-                    changeVC.passwordInputType = PasswordInputTypeSimpleChange;
-                    BaseNavController *naVC = [[BaseNavController alloc] initWithRootViewController:changeVC];
-                    [weakSelf presentViewController:naVC animated:YES completion:^{
+                }];
+                __weak typeof(self) weakSelf = self;
+                [realVC sendValue:^(BOOL flag, NSString *message) {
+                    
+                    if (flag) {
                         
-                    }];
-                    
-                }else{
-                    [PopupAction showMessage:message location:ShowLocationMid];
-                }
-            }];
-            
-            break;
+                        Pay_Password_ViewController *changeVC = [[Pay_Password_ViewController alloc] init];
+                        changeVC.passwordInputType = PasswordInputTypeSimpleChange;
+                        BaseNavController *naVC = [[BaseNavController alloc] initWithRootViewController:changeVC];
+                        [weakSelf presentViewController:naVC animated:YES completion:^{
+                            
+                        }];
+                        
+                    }else{
+                        [PopupAction showMessage:message location:ShowLocationMid];
+                    }
+                }];
+                
+                break;
+            }
+            case 1:
+            {   PwdPayViewController *forgetVC = [[PwdPayViewController alloc] init];
+                forgetVC.listType = ListTypeForgetPwd;
+                [self.navigationController pushViewController:forgetVC animated:YES];
+                break;
+            }
+            default:
+                break;
         }
-        case 1:
-            
-            break;
-        default:
-            break;
+        
+    }else{
+        
+        switch (indexPath.row) {
+            case 0:
+                break;
+                
+            default:
+                break;
+        }
+        
     }
+    
+    
+    
 }
 
 
@@ -100,7 +133,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return self.titlesArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *pwdPayViewControllerTableViewCellIdentifier = @"pwdPayViewControllerTableViewCellIdentifier";
@@ -112,17 +145,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"修改支付密码";
-            break;
-        case 1:
-            cell.textLabel.text = @"忘记支付密码";
-            break;
-            
-        default:
-            break;
-    }
+    cell.textLabel.text = self.titlesArray[indexPath.row];
     
     return cell;
 }

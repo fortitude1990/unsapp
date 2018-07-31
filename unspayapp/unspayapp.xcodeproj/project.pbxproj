@@ -36,6 +36,9 @@
 		138D2867210EB8CD00E91C2C /* PwdLoginSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2865210EB8CD00E91C2C /* PwdLoginSecondViewController.xib */; };
 		138D286B210EE74100E91C2C /* PwdPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2869210EE74100E91C2C /* PwdPayViewController.m */; };
 		138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D286A210EE74100E91C2C /* PwdPayViewController.xib */; };
+		138D286F210F03C800E91C2C /* RealNameAuthMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D286E210F03C800E91C2C /* RealNameAuthMessageViewController.m */; };
+		138D2873210F0D6000E91C2C /* PwdPayFindVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */; };
+		138D2874210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
@@ -211,6 +214,11 @@
 		138D2868210EE74100E91C2C /* PwdPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayViewController.h; sourceTree = "<group>"; };
 		138D2869210EE74100E91C2C /* PwdPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayViewController.m; sourceTree = "<group>"; };
 		138D286A210EE74100E91C2C /* PwdPayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayViewController.xib; sourceTree = "<group>"; };
+		138D286D210F03C800E91C2C /* RealNameAuthMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealNameAuthMessageViewController.h; sourceTree = "<group>"; };
+		138D286E210F03C800E91C2C /* RealNameAuthMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealNameAuthMessageViewController.m; sourceTree = "<group>"; };
+		138D2870210F0D6000E91C2C /* PwdPayFindVerificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayFindVerificationViewController.h; sourceTree = "<group>"; };
+		138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayFindVerificationViewController.m; sourceTree = "<group>"; };
+		138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayFindVerificationViewController.xib; sourceTree = "<group>"; };
 		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
@@ -941,6 +949,8 @@
 				138D2859210B163900E91C2C /* RealNameAuthFailureViewController.h */,
 				138D285A210B163900E91C2C /* RealNameAuthFailureViewController.m */,
 				138D285B210B163900E91C2C /* RealNameAuthFailureViewController.xib */,
+				138D286D210F03C800E91C2C /* RealNameAuthMessageViewController.h */,
+				138D286E210F03C800E91C2C /* RealNameAuthMessageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1195,6 +1205,9 @@
 				138D2868210EE74100E91C2C /* PwdPayViewController.h */,
 				138D2869210EE74100E91C2C /* PwdPayViewController.m */,
 				138D286A210EE74100E91C2C /* PwdPayViewController.xib */,
+				138D2870210F0D6000E91C2C /* PwdPayFindVerificationViewController.h */,
+				138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */,
+				138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1402,6 +1415,7 @@
 				135CC7212105A450001F0538 /* TransferAccountToWalletViewController.xib in Resources */,
 				13DF1F7620F6110C00507BF4 /* RegisterSuccessViewController.xib in Resources */,
 				135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */,
+				138D2874210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib in Resources */,
 				13EC79FE20FED6290002C2CB /* RechargeNoneBindCardViewController.xib in Resources */,
 				13EC79A920FCB7AE0002C2CB /* RealNameAuthSuccessViewController.xib in Resources */,
 			);
@@ -1530,6 +1544,7 @@
 				13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */,
 				13DF1F2320F48CAA00507BF4 /* TabViewController.m in Sources */,
 				13DD4AEA21085619005D65AD /* SecuritySettingItemModel.m in Sources */,
+				138D2873210F0D6000E91C2C /* PwdPayFindVerificationViewController.m in Sources */,
 				135CC71121017E76001F0538 /* WithdrawResultViewController.m in Sources */,
 				13EC795820F8A2CD0002C2CB /* ContactView.m in Sources */,
 				13EC795520F898D80002C2CB /* CheckItem.m in Sources */,
@@ -1570,6 +1585,7 @@
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
 				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,
+				138D286F210F03C800E91C2C /* RealNameAuthMessageViewController.m in Sources */,
 				13DF1F4D20F5A09F00507BF4 /* VerificationLoginView.m in Sources */,
 				13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */,
 				13EC79A320FCA4560002C2CB /* RealNameAuthStatusViewController.m in Sources */,
