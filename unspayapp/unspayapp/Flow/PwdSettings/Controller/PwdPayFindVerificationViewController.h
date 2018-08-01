@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, FindPwdType) {
+    FindPwdTypeMobile,
+    FindPwdTypeMail
+};
+
 @interface PwdPayFindVerificationViewController : BaseViewController
+
+@property (nonatomic, assign)FindPwdType type;
 
 @end

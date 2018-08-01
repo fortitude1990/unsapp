@@ -25,6 +25,17 @@
 		136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */; };
 		136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */; };
 		136747B52101DFD00038B989 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747B42101DFD00038B989 /* RecordModel.m */; };
+		1380F9EE2110125500CAE449 /* PwdPayFindIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9EC2110125500CAE449 /* PwdPayFindIDViewController.m */; };
+		1380F9EF2110125500CAE449 /* PwdPayFindIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1380F9ED2110125500CAE449 /* PwdPayFindIDViewController.xib */; };
+		1380FA0721103ED600CAE449 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9F321103ED600CAE449 /* CALayer+Anim.m */; };
+		1380FA0821103ED600CAE449 /* GestureVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9F621103ED600CAE449 /* GestureVerifyViewController.m */; };
+		1380FA0921103ED600CAE449 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9F821103ED600CAE449 /* GestureViewController.m */; };
+		1380FA0A21103ED600CAE449 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9FA21103ED600CAE449 /* HomeViewController.m */; };
+		1380FA0B21103ED600CAE449 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9FD21103ED600CAE449 /* PCCircle.m */; };
+		1380FA0C21103ED600CAE449 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9FF21103ED600CAE449 /* PCCircleView.m */; };
+		1380FA0D21103ED600CAE449 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380FA0121103ED600CAE449 /* PCCircleViewConst.m */; };
+		1380FA0E21103ED600CAE449 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380FA0421103ED600CAE449 /* PCCircleInfoView.m */; };
+		1380FA0F21103ED600CAE449 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380FA0621103ED600CAE449 /* PCLockLabel.m */; };
 		138D2853210ADFD000E91C2C /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2852210ADFD000E91C2C /* ShadowView.m */; };
 		138D2857210AEB0F00E91C2C /* BankCardShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2855210AEB0F00E91C2C /* BankCardShowTableViewCell.m */; };
 		138D2858210AEB0F00E91C2C /* BankCardShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2856210AEB0F00E91C2C /* BankCardShowTableViewCell.xib */; };
@@ -144,6 +155,13 @@
 		13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */; };
 		13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */; };
 		13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1720FF3B7B0002C2CB /* TriangleView.m */; };
+		13FF1E512110447E00FFBEDC /* PwdGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E4F2110447E00FFBEDC /* PwdGestureViewController.m */; };
+		13FF1E522110447E00FFBEDC /* PwdGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF1E502110447E00FFBEDC /* PwdGestureViewController.xib */; };
+		13FF1E58211054BA00FFBEDC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E56211054BA00FFBEDC /* SettingsViewController.m */; };
+		13FF1E59211054BA00FFBEDC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF1E57211054BA00FFBEDC /* SettingsViewController.xib */; };
+		13FF1E5D21106B0200FFBEDC /* HeadPortraitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E5B21106B0200FFBEDC /* HeadPortraitViewController.m */; };
+		13FF1E5E21106B0200FFBEDC /* HeadPortraitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF1E5C21106B0200FFBEDC /* HeadPortraitViewController.xib */; };
+		13FF1E61211070B000FFBEDC /* ImagePickUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E60211070B000FFBEDC /* ImagePickUtil.m */; };
 		928CBD9F11C8AB3379FC07B7 /* libPods-unspayapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81406937E7090FB557C59810 /* libPods-unspayapp.a */; };
 		93B2CFAFEB82244D6793F81E /* libPods-unspayappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCEA051B226A80FE075724E /* libPods-unspayappTests.a */; };
 		D0486FE418655A67983785FD /* libPods-unspayappUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F358168C5DB7412228BE8245 /* libPods-unspayappUITests.a */; };
@@ -197,6 +215,27 @@
 		136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordTableViewCell.xib; sourceTree = "<group>"; };
 		136747B32101DFD00038B989 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
 		136747B42101DFD00038B989 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		1380F9EB2110125500CAE449 /* PwdPayFindIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayFindIDViewController.h; sourceTree = "<group>"; };
+		1380F9EC2110125500CAE449 /* PwdPayFindIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayFindIDViewController.m; sourceTree = "<group>"; };
+		1380F9ED2110125500CAE449 /* PwdPayFindIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayFindIDViewController.xib; sourceTree = "<group>"; };
+		1380F9F221103ED600CAE449 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
+		1380F9F321103ED600CAE449 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		1380F9F521103ED600CAE449 /* GestureVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureVerifyViewController.h; sourceTree = "<group>"; };
+		1380F9F621103ED600CAE449 /* GestureVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureVerifyViewController.m; sourceTree = "<group>"; };
+		1380F9F721103ED600CAE449 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
+		1380F9F821103ED600CAE449 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
+		1380F9F921103ED600CAE449 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1380F9FA21103ED600CAE449 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1380F9FC21103ED600CAE449 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
+		1380F9FD21103ED600CAE449 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
+		1380F9FE21103ED600CAE449 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
+		1380F9FF21103ED600CAE449 /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
+		1380FA0021103ED600CAE449 /* PCCircleViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleViewConst.h; sourceTree = "<group>"; };
+		1380FA0121103ED600CAE449 /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
+		1380FA0321103ED600CAE449 /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleInfoView.h; sourceTree = "<group>"; };
+		1380FA0421103ED600CAE449 /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleInfoView.m; sourceTree = "<group>"; };
+		1380FA0521103ED600CAE449 /* PCLockLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLockLabel.h; sourceTree = "<group>"; };
+		1380FA0621103ED600CAE449 /* PCLockLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLockLabel.m; sourceTree = "<group>"; };
 		138D2851210ADFD000E91C2C /* ShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
 		138D2852210ADFD000E91C2C /* ShadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
 		138D2854210AEB0F00E91C2C /* BankCardShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardShowTableViewCell.h; sourceTree = "<group>"; };
@@ -412,6 +451,17 @@
 		13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmplificationBtn.m; sourceTree = "<group>"; };
 		13EC7A1620FF3B7B0002C2CB /* TriangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
 		13EC7A1720FF3B7B0002C2CB /* TriangleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
+		13FF1E4E2110447E00FFBEDC /* PwdGestureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdGestureViewController.h; sourceTree = "<group>"; };
+		13FF1E4F2110447E00FFBEDC /* PwdGestureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdGestureViewController.m; sourceTree = "<group>"; };
+		13FF1E502110447E00FFBEDC /* PwdGestureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdGestureViewController.xib; sourceTree = "<group>"; };
+		13FF1E55211054BA00FFBEDC /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		13FF1E56211054BA00FFBEDC /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		13FF1E57211054BA00FFBEDC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		13FF1E5A21106B0200FFBEDC /* HeadPortraitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadPortraitViewController.h; sourceTree = "<group>"; };
+		13FF1E5B21106B0200FFBEDC /* HeadPortraitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadPortraitViewController.m; sourceTree = "<group>"; };
+		13FF1E5C21106B0200FFBEDC /* HeadPortraitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadPortraitViewController.xib; sourceTree = "<group>"; };
+		13FF1E5F211070B000FFBEDC /* ImagePickUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickUtil.h; sourceTree = "<group>"; };
+		13FF1E60211070B000FFBEDC /* ImagePickUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickUtil.m; sourceTree = "<group>"; };
 		2FA69B8F2F9F420B8A6C99E4 /* Pods-unspayappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unspayappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unspayappTests/Pods-unspayappTests.release.xcconfig"; sourceTree = "<group>"; };
 		4FCEA051B226A80FE075724E /* libPods-unspayappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unspayappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AD66E1D3ECD0814E634B26 /* Pods-unspayappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unspayappUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-unspayappUITests/Pods-unspayappUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -486,6 +536,63 @@
 				13DD4AD92106CECF005D65AD /* TransferAccountToBankViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1380F9F021103ED600CAE449 /* PCGestureUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				1380F9F121103ED600CAE449 /* Category */,
+				1380F9F421103ED600CAE449 /* Controller */,
+				1380F9FB21103ED600CAE449 /* FrameWork */,
+				1380FA0221103ED600CAE449 /* View */,
+			);
+			path = PCGestureUnlock;
+			sourceTree = "<group>";
+		};
+		1380F9F121103ED600CAE449 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1380F9F221103ED600CAE449 /* CALayer+Anim.h */,
+				1380F9F321103ED600CAE449 /* CALayer+Anim.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		1380F9F421103ED600CAE449 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1380F9F521103ED600CAE449 /* GestureVerifyViewController.h */,
+				1380F9F621103ED600CAE449 /* GestureVerifyViewController.m */,
+				1380F9F721103ED600CAE449 /* GestureViewController.h */,
+				1380F9F821103ED600CAE449 /* GestureViewController.m */,
+				1380F9F921103ED600CAE449 /* HomeViewController.h */,
+				1380F9FA21103ED600CAE449 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1380F9FB21103ED600CAE449 /* FrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				1380F9FC21103ED600CAE449 /* PCCircle.h */,
+				1380F9FD21103ED600CAE449 /* PCCircle.m */,
+				1380F9FE21103ED600CAE449 /* PCCircleView.h */,
+				1380F9FF21103ED600CAE449 /* PCCircleView.m */,
+				1380FA0021103ED600CAE449 /* PCCircleViewConst.h */,
+				1380FA0121103ED600CAE449 /* PCCircleViewConst.m */,
+			);
+			path = FrameWork;
+			sourceTree = "<group>";
+		};
+		1380FA0221103ED600CAE449 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1380FA0321103ED600CAE449 /* PCCircleInfoView.h */,
+				1380FA0421103ED600CAE449 /* PCCircleInfoView.m */,
+				1380FA0521103ED600CAE449 /* PCLockLabel.h */,
+				1380FA0621103ED600CAE449 /* PCLockLabel.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		13CC5B3E210074B200229F9F /* Withdraw */ = {
@@ -795,6 +902,8 @@
 		13DF1F4E20F5B0AF00507BF4 /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				13FF1E5F211070B000FFBEDC /* ImagePickUtil.h */,
+				13FF1E60211070B000FFBEDC /* ImagePickUtil.m */,
 				13DF1F5B20F5E35200507BF4 /* ServeForTextField.h */,
 				13DF1F5C20F5E35200507BF4 /* ServeForTextField.m */,
 				136747A0210189850038B989 /* BankImageHelper.h */,
@@ -817,6 +926,7 @@
 		13DF1F5E20F5EA2600507BF4 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				13FF1E532110544E00FFBEDC /* Setting */,
 				135CC71821057E4D001F0538 /* TransferAccounts */,
 				13CC5B3E210074B200229F9F /* Withdraw */,
 				13EC7A0920FF03760002C2CB /* PwdSettings */,
@@ -974,6 +1084,7 @@
 		13EC796A20FC64820002C2CB /* ThirdPath */ = {
 			isa = PBXGroup;
 			children = (
+				1380F9F021103ED600CAE449 /* PCGestureUnlock */,
 				13EC796B20FC64910002C2CB /* CCCamera */,
 			);
 			path = ThirdPath;
@@ -1208,6 +1319,12 @@
 				138D2870210F0D6000E91C2C /* PwdPayFindVerificationViewController.h */,
 				138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */,
 				138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */,
+				1380F9EB2110125500CAE449 /* PwdPayFindIDViewController.h */,
+				1380F9EC2110125500CAE449 /* PwdPayFindIDViewController.m */,
+				1380F9ED2110125500CAE449 /* PwdPayFindIDViewController.xib */,
+				13FF1E4E2110447E00FFBEDC /* PwdGestureViewController.h */,
+				13FF1E4F2110447E00FFBEDC /* PwdGestureViewController.m */,
+				13FF1E502110447E00FFBEDC /* PwdGestureViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1254,6 +1371,27 @@
 				13DD4AE921085619005D65AD /* SecuritySettingItemModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		13FF1E532110544E00FFBEDC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				13FF1E542110545800FFBEDC /* Contoller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		13FF1E542110545800FFBEDC /* Contoller */ = {
+			isa = PBXGroup;
+			children = (
+				13FF1E55211054BA00FFBEDC /* SettingsViewController.h */,
+				13FF1E56211054BA00FFBEDC /* SettingsViewController.m */,
+				13FF1E57211054BA00FFBEDC /* SettingsViewController.xib */,
+				13FF1E5A21106B0200FFBEDC /* HeadPortraitViewController.h */,
+				13FF1E5B21106B0200FFBEDC /* HeadPortraitViewController.m */,
+				13FF1E5C21106B0200FFBEDC /* HeadPortraitViewController.xib */,
+			);
+			path = Contoller;
 			sourceTree = "<group>";
 		};
 		15F2D4247E81EFD806737EFC /* Pods */ = {
@@ -1397,6 +1535,7 @@
 				13EC79F620FCFAF10002C2CB /* Assets.xcassets in Resources */,
 				13EC79F420FCEF700002C2CB /* Assets.xcassets in Resources */,
 				13DF1EE720F483A600507BF4 /* Main.storyboard in Resources */,
+				13FF1E5E21106B0200FFBEDC /* HeadPortraitViewController.xib in Resources */,
 				135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */,
 				13EC79B220FCBAE40002C2CB /* BindCardViewController.xib in Resources */,
 				138D2867210EB8CD00E91C2C /* PwdLoginSecondViewController.xib in Resources */,
@@ -1404,12 +1543,15 @@
 				13CC5B4B21007F4000229F9F /* BankListTableViewCell.xib in Resources */,
 				138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */,
 				13EC796920FC44970002C2CB /* UploadIdCardViewController.xib in Resources */,
+				1380F9EF2110125500CAE449 /* PwdPayFindIDViewController.xib in Resources */,
 				138D2862210EB00400E91C2C /* PwdLoginFirstViewController.xib in Resources */,
 				13DD4ADB2106CECF005D65AD /* TransferAccountToBankViewController.xib in Resources */,
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
 				136747A72101B3D60038B989 /* RechargeSuccessViewController.xib in Resources */,
+				13FF1E522110447E00FFBEDC /* PwdGestureViewController.xib in Resources */,
 				138D285D210B163900E91C2C /* RealNameAuthFailureViewController.xib in Resources */,
 				13DF1F6920F5F3A800507BF4 /* RegisterViewController.xib in Resources */,
+				13FF1E59211054BA00FFBEDC /* SettingsViewController.xib in Resources */,
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
 				135CC7212105A450001F0538 /* TransferAccountToWalletViewController.xib in Resources */,
@@ -1523,6 +1665,7 @@
 				13DF1F4220F4B1B600507BF4 /* LoginRadioItemView.m in Sources */,
 				136747AD2101C7FC0038B989 /* RechargeRecordViewController.m in Sources */,
 				13EC79FD20FED6290002C2CB /* RechargeNoneBindCardViewController.m in Sources */,
+				13FF1E512110447E00FFBEDC /* PwdGestureViewController.m in Sources */,
 				135CC71C2105807F001F0538 /* TransferAccountsViewController.m in Sources */,
 				13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */,
 				13EC79C220FCD12E0002C2CB /* RechargeViewController.m in Sources */,
@@ -1540,8 +1683,10 @@
 				13DF1F5A20F5DC2C00507BF4 /* PopupAction.m in Sources */,
 				13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */,
 				13EC796820FC44970002C2CB /* UploadIdCardViewController.m in Sources */,
+				1380FA0A21103ED600CAE449 /* HomeViewController.m in Sources */,
 				136747A2210189850038B989 /* BankImageHelper.m in Sources */,
 				13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */,
+				1380F9EE2110125500CAE449 /* PwdPayFindIDViewController.m in Sources */,
 				13DF1F2320F48CAA00507BF4 /* TabViewController.m in Sources */,
 				13DD4AEA21085619005D65AD /* SecuritySettingItemModel.m in Sources */,
 				138D2873210F0D6000E91C2C /* PwdPayFindVerificationViewController.m in Sources */,
@@ -1550,10 +1695,12 @@
 				13EC795520F898D80002C2CB /* CheckItem.m in Sources */,
 				13CC5B3A2100681100229F9F /* SecuritySettingsView.m in Sources */,
 				13EC793020F6F4C90002C2CB /* GainLoginMessage.m in Sources */,
+				1380FA0D21103ED600CAE449 /* PCCircleViewConst.m in Sources */,
 				135CC7202105A450001F0538 /* TransferAccountToWalletViewController.m in Sources */,
 				13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */,
 				13EC793420F6FAA90002C2CB /* HomePageViewController.m in Sources */,
 				138D2857210AEB0F00E91C2C /* BankCardShowTableViewCell.m in Sources */,
+				1380FA0B21103ED600CAE449 /* PCCircle.m in Sources */,
 				13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */,
 				13DF1F5120F5B0BD00507BF4 /* TimerButton.m in Sources */,
 				13EC794220F745440002C2CB /* HomePageItemModel.m in Sources */,
@@ -1569,6 +1716,9 @@
 				13CC5B3121005C2100229F9F /* BankCardView.m in Sources */,
 				131A4B602100AA4600AA44DC /* BankListModel.m in Sources */,
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,
+				13FF1E58211054BA00FFBEDC /* SettingsViewController.m in Sources */,
+				1380FA0C21103ED600CAE449 /* PCCircleView.m in Sources */,
+				1380FA0E21103ED600CAE449 /* PCCircleInfoView.m in Sources */,
 				13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */,
 				13EC795220F88F5D0002C2CB /* SurprisedView.m in Sources */,
 				136747B52101DFD00038B989 /* RecordModel.m in Sources */,
@@ -1579,6 +1729,7 @@
 				13EC799820FC64910002C2CB /* CCMotionManager.m in Sources */,
 				13EC798F20FC64910002C2CB /* CCBaseViewController.m in Sources */,
 				13EC794F20F879F90002C2CB /* HistogramView.m in Sources */,
+				1380FA0721103ED600CAE449 /* CALayer+Anim.m in Sources */,
 				13EC799020FC64910002C2CB /* CCCameraView.m in Sources */,
 				13EC799220FC64910002C2CB /* CCCameraViewController.m in Sources */,
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
@@ -1590,6 +1741,7 @@
 				13DF1EE420F483A600507BF4 /* LoginViewController.m in Sources */,
 				13EC79A320FCA4560002C2CB /* RealNameAuthStatusViewController.m in Sources */,
 				13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */,
+				1380FA0821103ED600CAE449 /* GestureVerifyViewController.m in Sources */,
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
 				138D2861210EB00400E91C2C /* PwdLoginFirstViewController.m in Sources */,
@@ -1599,6 +1751,8 @@
 				13EC79B620FCC03A0002C2CB /* BindCardVerificationViewController.m in Sources */,
 				13EC798E20FC64910002C2CB /* CCBaseNavigationController.m in Sources */,
 				139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */,
+				1380FA0921103ED600CAE449 /* GestureViewController.m in Sources */,
+				13FF1E61211070B000FFBEDC /* ImagePickUtil.m in Sources */,
 				13DF1F5920F5DC2C00507BF4 /* PopupViewController.m in Sources */,
 				136747A62101B3D60038B989 /* RechargeSuccessViewController.m in Sources */,
 				13DF1F4A20F592CE00507BF4 /* Networking.m in Sources */,
@@ -1607,11 +1761,13 @@
 				13EC793E20F744F80002C2CB /* HomePageCollectionViewCell.m in Sources */,
 				135CC7162105793D001F0538 /* PwdSettingSuccessViewController.m in Sources */,
 				13DD4AED21086491005D65AD /* GradientView.m in Sources */,
+				13FF1E5D21106B0200FFBEDC /* HeadPortraitViewController.m in Sources */,
 				13DF1EF220F483A800507BF4 /* main.m in Sources */,
 				13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */,
 				138D285C210B163900E91C2C /* RealNameAuthFailureViewController.m in Sources */,
 				13EC79B120FCBAE40002C2CB /* BindCardViewController.m in Sources */,
 				13DF1F6320F5EB6100507BF4 /* RadioBtn.m in Sources */,
+				1380FA0F21103ED600CAE449 /* PCLockLabel.m in Sources */,
 				136747AA2101C4460038B989 /* NoneRechargeRecordView.m in Sources */,
 				135CC7252105B2E7001F0538 /* TransferAccountToWalletMessageViewController.m in Sources */,
 				13EC79BE20FCD0AC0002C2CB /* ItemBackView.m in Sources */,

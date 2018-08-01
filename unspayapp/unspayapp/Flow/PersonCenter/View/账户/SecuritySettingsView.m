@@ -13,8 +13,8 @@
 #import "PersonCenterViewController.h"
 #import "Pay_Password_ViewController.h"
 #import "PwdPayViewController.h"
-
-
+#import "PwdGestureViewController.h"
+#import "PCCircleViewConst.h"
 
 @implementation SecuritySettingsView
 
@@ -130,8 +130,9 @@
 - (void)loginPwdSetting{
     
     PersonCenterViewController *myController = (PersonCenterViewController *)self.controller;
-    PwdLoginFirstViewController *loginVC = [[PwdLoginFirstViewController alloc] init];
     myController.hidesBottomBarWhenPushed = YES;
+    
+    PwdLoginFirstViewController *loginVC = [[PwdLoginFirstViewController alloc] init];
     [self.controller.navigationController pushViewController:loginVC animated:YES];
     
 }
@@ -158,6 +159,26 @@
 }
 - (void)gesturesPwdSetting{
     
+    PersonCenterViewController *myController = (PersonCenterViewController *)self.controller;
+    myController.hidesBottomBarWhenPushed = YES;
+
+    
+    if ([[PCCircleViewConst getGestureWithKey:gestureFinalSaveKey] length]) {
+            //修改
+        PwdGestureViewController *gestureVC = [[PwdGestureViewController alloc] init];
+        [self.controller.navigationController pushViewController:gestureVC animated:YES];
+        
+    }else{
+        //设置
+        PwdLoginFirstViewController *loginVC = [[PwdLoginFirstViewController alloc] init];
+        loginVC.pwdSettingType = PwdSettingTypeGesture;
+        [self.controller.navigationController pushViewController:loginVC animated:YES];
+    }
+    
+
+    
+
+
 }
 
 @end

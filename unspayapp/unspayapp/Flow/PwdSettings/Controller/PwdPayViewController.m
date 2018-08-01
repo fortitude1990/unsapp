@@ -8,6 +8,8 @@
 
 #import "PwdPayViewController.h"
 #import "Pay_Password_ViewController.h"
+#import "PwdPayFindVerificationViewController.h"
+
 
 @interface PwdPayViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -115,8 +117,18 @@
         
         switch (indexPath.row) {
             case 0:
+            {
+                PwdPayFindVerificationViewController *verificationVC = [[PwdPayFindVerificationViewController alloc] init];
+                [self.navigationController pushViewController:verificationVC animated:YES];
                 break;
-                
+            }
+            case 1:
+            {
+                PwdPayFindVerificationViewController *verificationVC = [[PwdPayFindVerificationViewController alloc] init];
+                verificationVC.type = FindPwdTypeMail;
+                [self.navigationController pushViewController:verificationVC animated:YES];
+                break;
+            }
             default:
                 break;
         }

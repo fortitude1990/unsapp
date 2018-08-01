@@ -19,6 +19,7 @@
 #import "RechargeViewController.h"
 #import "Pay_Password_ViewController.h"
 #import "TransferAccountsViewController.h"
+#import "SettingsViewController.h"
 
 
 
@@ -423,6 +424,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 #pragma mark - BtnActions
 
 - (void)settingBtnAction{
+    
+    self.hidesBottomBarWhenPushed = YES;
+    
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+    [self.navigationController pushViewController:settingsVC animated:YES];
     
 }
 

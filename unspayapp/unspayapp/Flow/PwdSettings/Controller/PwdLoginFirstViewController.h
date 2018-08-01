@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger,PwdSettingType) {
     PwdSettingTypeLogin,
-    PwdSettingTypeLoginChange
+    PwdSettingTypeLoginChange,
+    PwdSettingTypeGesture,
 };
 
 @interface PwdLoginFirstViewController : BaseViewController

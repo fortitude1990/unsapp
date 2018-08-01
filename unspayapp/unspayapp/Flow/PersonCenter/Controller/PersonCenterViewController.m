@@ -68,6 +68,8 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = NO;
+    
     
 }
 

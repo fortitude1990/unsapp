@@ -11,9 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PwdLoginFirstViewController">
             <connections>
-                <outlet property="nextView" destination="i5M-Pr-FkT" id="60M-f9-ts8"/>
-                <outlet property="titleLabel" destination="XjN-oA-goF" id="fOg-qz-TLy"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="nextView" destination="XjN-oA-goF" id="3eC-XI-Odg"/>
+                <outlet property="titleLabel" destination="YFZ-OA-tZC" id="LLR-Gh-lDH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="fB7-tA-E2c"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

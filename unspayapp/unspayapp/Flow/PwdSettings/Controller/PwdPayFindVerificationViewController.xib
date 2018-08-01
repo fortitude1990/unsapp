@@ -23,17 +23,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已发送短信验证码到：+86 135 2493 8205" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUi-FU-7JH">
-                    <rect key="frame" x="15" y="94" width="345" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已发送短信验证码到：+86 135 2493 8205" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUi-FU-7JH">
+                    <rect key="frame" x="15" y="94" width="345" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="sVs-Nt-Poo"/>
+                        <constraint firstAttribute="height" constant="44" id="sVs-Nt-Poo"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-pM-201" customClass="ItemBackView">
-                    <rect key="frame" x="0.0" y="158" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="181" width="375" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-7O-axE" customClass="TimerButton">
                             <rect key="frame" x="240" y="10" width="120" height="30"/>
@@ -46,10 +46,13 @@
                             </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCU-Cy-7Wq">
-                            <rect key="frame" x="20" y="16.5" width="215" height="17"/>
+                            <rect key="frame" x="20" y="17" width="215" height="17"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="nDa-Ps-qan"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,7 +66,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8L-qt-Rej" customClass="NextButton">
-                    <rect key="frame" x="20" y="252" width="335" height="44"/>
+                    <rect key="frame" x="20" y="275" width="335" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="SuB-Aq-Lnu"/>
                     </constraints>

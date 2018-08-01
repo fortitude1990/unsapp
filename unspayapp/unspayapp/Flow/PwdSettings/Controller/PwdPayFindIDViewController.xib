@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PwdPayFindIDViewController">
+            <connections>
+                <outlet property="IDTF" destination="msA-NL-qsc" id="e7Z-RD-QsN"/>
+                <outlet property="nextBtn" destination="i6Y-Gf-YCq" id="qkR-b5-10d"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXs-Pt-omg">
+                    <rect key="frame" x="30" y="94" width="82" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmm-bl-qbz">
+                    <rect key="frame" x="0.0" y="133.5" width="375" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写身份证号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msA-NL-qsc">
+                            <rect key="frame" x="20" y="10" width="335" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="oMl-Wi-DF2"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="68r-nL-xqt"/>
+                        <constraint firstItem="msA-NL-qsc" firstAttribute="centerY" secondItem="dmm-bl-qbz" secondAttribute="centerY" id="I1b-sn-2sN"/>
+                        <constraint firstAttribute="trailing" secondItem="msA-NL-qsc" secondAttribute="trailing" constant="20" id="uq2-c5-kJu"/>
+                        <constraint firstItem="msA-NL-qsc" firstAttribute="leading" secondItem="dmm-bl-qbz" secondAttribute="leading" constant="20" id="vhO-uO-Am8"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6Y-Gf-YCq" customClass="NextButton">
+                    <rect key="frame" x="20" y="227.5" width="335" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="2P0-zo-XFh"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="nextBtnAction:" destination="-1" eventType="touchUpInside" id="4OR-DU-EHQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dmm-bl-qbz" firstAttribute="top" secondItem="CXs-Pt-omg" secondAttribute="bottom" constant="20" id="2Om-fn-aos"/>
+                <constraint firstItem="i6Y-Gf-YCq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="PH2-Fy-DVp"/>
+                <constraint firstAttribute="trailing" secondItem="i6Y-Gf-YCq" secondAttribute="trailing" constant="20" id="R5D-wf-tEP"/>
+                <constraint firstItem="CXs-Pt-omg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="YMi-ZU-ROC"/>
+                <constraint firstItem="CXs-Pt-omg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="hzj-65-iZd"/>
+                <constraint firstItem="dmm-bl-qbz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pcg-bG-zAN"/>
+                <constraint firstItem="i6Y-Gf-YCq" firstAttribute="top" secondItem="dmm-bl-qbz" secondAttribute="bottom" constant="44" id="qxh-EN-Ptw"/>
+                <constraint firstAttribute="trailing" secondItem="dmm-bl-qbz" secondAttribute="trailing" id="tbv-eF-T0D"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
