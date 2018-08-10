@@ -154,6 +154,9 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
         if(vc){
             tableView.scrollEnabled = NO;
             [vc subviewsCanScroll:^(BOOL flag, NSString *message) {
+                
+
+                
                 if (flag) {
                     tableView.scrollEnabled = YES;
                     headerView.frame = CGRectMake(0, 0, 0, 0);
@@ -170,10 +173,17 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
                         headerView.alpha = 1;
                     }
                     
-                    
                     tableView.scrollEnabled = NO;
                     tableView.tableHeaderView = headerView;
+                    
                 }
+                
+                
+                if (IOS_VERSION < 10.0) {
+                    [tableView reloadData];
+                }
+            
+                
             }];
         }
     });
@@ -252,6 +262,7 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+
     UIView *itemHeaderView = [[UIView alloc] init];
     itemHeaderView.backgroundColor = [UIColor whiteColor];
     itemHeaderView.frame = CGRectMake(0, 0, kRectWidth, 50);
@@ -278,7 +289,18 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     [itemHeaderView addSubview:lineView];
     lineView.frame = CGRectMake(15, CGRectGetHeight(itemHeaderView.frame) - 0.5, kRectWidth - 30, 0.5);
     
-    return itemHeaderView;
+    
+    
+    static NSString *totalPropertyHeaderIdentifier = @"totalPropertyHeaderIdentifier";
+    
+    UITableViewHeaderFooterView *myHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:totalPropertyHeaderIdentifier];
+    if(!myHeader) {
+        myHeader = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:totalPropertyHeaderIdentifier];
+    }
+    
+    [myHeader addSubview:itemHeaderView];
+    
+    return myHeader;
     
     
 }
@@ -294,6 +316,7 @@ static NSString *totalPropertyViewTableViewCellIdentifier = @"totalPropertyViewT
     cell.recordListType = RecordListTypeTotalProperty;
     return cell;
 }
+
 
 
 

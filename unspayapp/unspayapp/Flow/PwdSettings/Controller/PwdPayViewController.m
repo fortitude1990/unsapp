@@ -25,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.navigationController.navigationBar.hidden = NO;
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     self.tableView.tableFooterView = [UIView new];

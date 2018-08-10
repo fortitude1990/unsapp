@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ItemBackView.h"
+#import "HeadPortraitViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -44,6 +45,7 @@
 
 - (void)createUI{
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBar.hidden = NO;
     self.navigationItem.title = @"账号管理";
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
@@ -86,6 +88,13 @@
     }];
 }
 
+- (void)headPortraitBtnAction{
+    
+    HeadPortraitViewController *headPortraitVC = [[HeadPortraitViewController alloc] init];
+    [self.navigationController pushViewController:headPortraitVC animated:YES];
+    
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,6 +106,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.section == 0) {
+        [self headPortraitBtnAction];
+    }
+    
+    if (indexPath.section == 1) {
+        
+    }
+    
+    
 }
 
 #pragma mark - UITableViewDataSource

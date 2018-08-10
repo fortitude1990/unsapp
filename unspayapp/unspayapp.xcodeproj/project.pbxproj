@@ -25,6 +25,10 @@
 		136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747AF2101CEEA0038B989 /* RechargeRecordTableViewCell.m */; };
 		136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */; };
 		136747B52101DFD00038B989 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136747B42101DFD00038B989 /* RecordModel.m */; };
+		1371076D211D75D200940434 /* SettingNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1371076B211D75D200940434 /* SettingNicknameViewController.m */; };
+		1371076E211D75D200940434 /* SettingNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1371076C211D75D200940434 /* SettingNicknameViewController.xib */; };
+		13710772211D811A00940434 /* SettingChangeMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13710770211D811A00940434 /* SettingChangeMobileViewController.m */; };
+		13710773211D811A00940434 /* SettingChangeMobileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13710771211D811A00940434 /* SettingChangeMobileViewController.xib */; };
 		1380F9EE2110125500CAE449 /* PwdPayFindIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9EC2110125500CAE449 /* PwdPayFindIDViewController.m */; };
 		1380F9EF2110125500CAE449 /* PwdPayFindIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1380F9ED2110125500CAE449 /* PwdPayFindIDViewController.xib */; };
 		1380FA0721103ED600CAE449 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 1380F9F321103ED600CAE449 /* CALayer+Anim.m */; };
@@ -215,6 +219,12 @@
 		136747B02101CEEA0038B989 /* RechargeRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RechargeRecordTableViewCell.xib; sourceTree = "<group>"; };
 		136747B32101DFD00038B989 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
 		136747B42101DFD00038B989 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		1371076A211D75D200940434 /* SettingNicknameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingNicknameViewController.h; sourceTree = "<group>"; };
+		1371076B211D75D200940434 /* SettingNicknameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingNicknameViewController.m; sourceTree = "<group>"; };
+		1371076C211D75D200940434 /* SettingNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingNicknameViewController.xib; sourceTree = "<group>"; };
+		1371076F211D811A00940434 /* SettingChangeMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingChangeMobileViewController.h; sourceTree = "<group>"; };
+		13710770211D811A00940434 /* SettingChangeMobileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingChangeMobileViewController.m; sourceTree = "<group>"; };
+		13710771211D811A00940434 /* SettingChangeMobileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingChangeMobileViewController.xib; sourceTree = "<group>"; };
 		1380F9EB2110125500CAE449 /* PwdPayFindIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayFindIDViewController.h; sourceTree = "<group>"; };
 		1380F9EC2110125500CAE449 /* PwdPayFindIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayFindIDViewController.m; sourceTree = "<group>"; };
 		1380F9ED2110125500CAE449 /* PwdPayFindIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayFindIDViewController.xib; sourceTree = "<group>"; };
@@ -1390,6 +1400,12 @@
 				13FF1E5A21106B0200FFBEDC /* HeadPortraitViewController.h */,
 				13FF1E5B21106B0200FFBEDC /* HeadPortraitViewController.m */,
 				13FF1E5C21106B0200FFBEDC /* HeadPortraitViewController.xib */,
+				1371076A211D75D200940434 /* SettingNicknameViewController.h */,
+				1371076B211D75D200940434 /* SettingNicknameViewController.m */,
+				1371076C211D75D200940434 /* SettingNicknameViewController.xib */,
+				1371076F211D811A00940434 /* SettingChangeMobileViewController.h */,
+				13710770211D811A00940434 /* SettingChangeMobileViewController.m */,
+				13710771211D811A00940434 /* SettingChangeMobileViewController.xib */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -1544,6 +1560,7 @@
 				138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */,
 				13EC796920FC44970002C2CB /* UploadIdCardViewController.xib in Resources */,
 				1380F9EF2110125500CAE449 /* PwdPayFindIDViewController.xib in Resources */,
+				1371076E211D75D200940434 /* SettingNicknameViewController.xib in Resources */,
 				138D2862210EB00400E91C2C /* PwdLoginFirstViewController.xib in Resources */,
 				13DD4ADB2106CECF005D65AD /* TransferAccountToBankViewController.xib in Resources */,
 				13EC79A420FCA4560002C2CB /* RealNameAuthStatusViewController.xib in Resources */,
@@ -1555,6 +1572,7 @@
 				13EC79B720FCC03A0002C2CB /* BindCardVerificationViewController.xib in Resources */,
 				13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */,
 				135CC7212105A450001F0538 /* TransferAccountToWalletViewController.xib in Resources */,
+				13710773211D811A00940434 /* SettingChangeMobileViewController.xib in Resources */,
 				13DF1F7620F6110C00507BF4 /* RegisterSuccessViewController.xib in Resources */,
 				135CC7172105793D001F0538 /* PwdSettingSuccessViewController.xib in Resources */,
 				138D2874210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib in Resources */,
@@ -1713,6 +1731,7 @@
 				13EC799420FC64910002C2CB /* UIView+CCAdditions.m in Sources */,
 				13DF1F6820F5F3A800507BF4 /* RegisterViewController.m in Sources */,
 				13EC799920FC64920002C2CB /* CCTools.m in Sources */,
+				13710772211D811A00940434 /* SettingChangeMobileViewController.m in Sources */,
 				13CC5B3121005C2100229F9F /* BankCardView.m in Sources */,
 				131A4B602100AA4600AA44DC /* BankListModel.m in Sources */,
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,
@@ -1734,6 +1753,7 @@
 				13EC799220FC64910002C2CB /* CCCameraViewController.m in Sources */,
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
+				1371076D211D75D200940434 /* SettingNicknameViewController.m in Sources */,
 				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,
 				138D286F210F03C800E91C2C /* RealNameAuthMessageViewController.m in Sources */,

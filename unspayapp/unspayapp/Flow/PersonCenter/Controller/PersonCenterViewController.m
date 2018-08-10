@@ -100,6 +100,8 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 - (void)createUI{
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.view.backgroundColor = [UIColor colorWithRed:247/255. green:247/255. blue:247/255. alpha:1.0];
     
     [self.view addSubview:self.topBackgroundView];

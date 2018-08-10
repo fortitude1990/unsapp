@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self createUI];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +41,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)viewDidLayoutSubviews{
+    
+    
+    self.imageView.layer.cornerRadius = CGRectGetWidth(self.imageView.frame) / 2.0;
+    self.imageView.clipsToBounds = YES;
+    
+    self.photoAlbumBtn.layer.cornerRadius = kAutoScaleNormal(6);
+    self.takingPicturesBtn.layer.cornerRadius = kAutoScaleNormal(6);
+
+}
+
+- (void)createUI{
+    
+    self.navigationItem.title = @"设置个人头像";
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+    
+}
+
+- (void)leftBtnAction{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
 - (IBAction)takingPicturesBtnAction:(id)sender {
     
     // 拍照
