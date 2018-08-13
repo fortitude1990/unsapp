@@ -7,6 +7,7 @@
 //
 
 #import "SettingChangeMobileViewController.h"
+#import "CanGainVerificationToChangeMobileViewController.h"
 
 @interface SettingChangeMobileViewController ()
 @property (strong, nonatomic) IBOutlet UIView *oneItem;
@@ -42,7 +43,7 @@
 - (void)createUI{
     
     self.navigationItem.title = @"换绑手机";
-    
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTapAction)];
     [self.oneItem addGestureRecognizer:tapGes];
@@ -60,6 +61,13 @@
 
 - (void)twoTapAction{
     
+    CanGainVerificationToChangeMobileViewController *changeVC = [[CanGainVerificationToChangeMobileViewController alloc] init];
+    [self.navigationController pushViewController:changeVC animated:YES];
+    
+}
+
+- (void)leftBtnAction{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

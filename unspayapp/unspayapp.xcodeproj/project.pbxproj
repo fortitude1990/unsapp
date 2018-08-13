@@ -54,6 +54,10 @@
 		138D286F210F03C800E91C2C /* RealNameAuthMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D286E210F03C800E91C2C /* RealNameAuthMessageViewController.m */; };
 		138D2873210F0D6000E91C2C /* PwdPayFindVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */; };
 		138D2874210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */; };
+		138FC05E211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138FC05C211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m */; };
+		138FC05F211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138FC05D211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.xib */; };
+		138FC063212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138FC061212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m */; };
+		138FC064212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
@@ -268,6 +272,12 @@
 		138D2870210F0D6000E91C2C /* PwdPayFindVerificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdPayFindVerificationViewController.h; sourceTree = "<group>"; };
 		138D2871210F0D6000E91C2C /* PwdPayFindVerificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdPayFindVerificationViewController.m; sourceTree = "<group>"; };
 		138D2872210F0D6000E91C2C /* PwdPayFindVerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdPayFindVerificationViewController.xib; sourceTree = "<group>"; };
+		138FC05B211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanGainVerificationToChangeMobileViewController.h; sourceTree = "<group>"; };
+		138FC05C211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanGainVerificationToChangeMobileViewController.m; sourceTree = "<group>"; };
+		138FC05D211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CanGainVerificationToChangeMobileViewController.xib; sourceTree = "<group>"; };
+		138FC060212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeMobileOrEmailGainVerificaitonViewController.h; sourceTree = "<group>"; };
+		138FC061212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeMobileOrEmailGainVerificaitonViewController.m; sourceTree = "<group>"; };
+		138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeMobileOrEmailGainVerificaitonViewController.xib; sourceTree = "<group>"; };
 		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
@@ -1406,6 +1416,12 @@
 				1371076F211D811A00940434 /* SettingChangeMobileViewController.h */,
 				13710770211D811A00940434 /* SettingChangeMobileViewController.m */,
 				13710771211D811A00940434 /* SettingChangeMobileViewController.xib */,
+				138FC05B211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.h */,
+				138FC05C211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m */,
+				138FC05D211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.xib */,
+				138FC060212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.h */,
+				138FC061212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m */,
+				138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -1549,12 +1565,14 @@
 				13EC79C320FCD12E0002C2CB /* RechargeViewController.xib in Resources */,
 				136747B22101CEEA0038B989 /* RechargeRecordTableViewCell.xib in Resources */,
 				13EC79F620FCFAF10002C2CB /* Assets.xcassets in Resources */,
+				138FC05F211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.xib in Resources */,
 				13EC79F420FCEF700002C2CB /* Assets.xcassets in Resources */,
 				13DF1EE720F483A600507BF4 /* Main.storyboard in Resources */,
 				13FF1E5E21106B0200FFBEDC /* HeadPortraitViewController.xib in Resources */,
 				135CC71221017E76001F0538 /* WithdrawResultViewController.xib in Resources */,
 				13EC79B220FCBAE40002C2CB /* BindCardViewController.xib in Resources */,
 				138D2867210EB8CD00E91C2C /* PwdLoginSecondViewController.xib in Resources */,
+				138FC064212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib in Resources */,
 				13EC799A20FC64920002C2CB /* 华文行楷.ttf in Resources */,
 				13CC5B4B21007F4000229F9F /* BankListTableViewCell.xib in Resources */,
 				138D286C210EE74100E91C2C /* PwdPayViewController.xib in Resources */,
@@ -1685,6 +1703,7 @@
 				13EC79FD20FED6290002C2CB /* RechargeNoneBindCardViewController.m in Sources */,
 				13FF1E512110447E00FFBEDC /* PwdGestureViewController.m in Sources */,
 				135CC71C2105807F001F0538 /* TransferAccountsViewController.m in Sources */,
+				138FC05E211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m in Sources */,
 				13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */,
 				13EC79C220FCD12E0002C2CB /* RechargeViewController.m in Sources */,
 				13DF1F4520F590E200507BF4 /* PWDLoginView.m in Sources */,
@@ -1732,6 +1751,7 @@
 				13DF1F6820F5F3A800507BF4 /* RegisterViewController.m in Sources */,
 				13EC799920FC64920002C2CB /* CCTools.m in Sources */,
 				13710772211D811A00940434 /* SettingChangeMobileViewController.m in Sources */,
+				138FC063212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m in Sources */,
 				13CC5B3121005C2100229F9F /* BankCardView.m in Sources */,
 				131A4B602100AA4600AA44DC /* BankListModel.m in Sources */,
 				13EC79C620FCEB8A0002C2CB /* PayTypeView.m in Sources */,

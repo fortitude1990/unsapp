@@ -73,6 +73,7 @@
 
 - (void)setTitle{
     NSString *aTitle = [NSString stringWithFormat:@"重新发送(%ld%@)", (long)time, aUnit];
+    self.titleLabel.text = aTitle; //解决赋值时闪动的问题，必须在setTitle之前设置
     [self setTitle:aTitle forState:UIControlStateNormal];
 }
 
@@ -89,6 +90,7 @@
     }
     
     if (startTitle) {
+        self.titleLabel.text = startTitle; //解决赋值时闪动的问题，必须在setTitle之前设置
         [self setTitle:startTitle forState:UIControlStateNormal];
     }
     

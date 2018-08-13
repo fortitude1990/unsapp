@@ -9,6 +9,8 @@
 #import "SettingsViewController.h"
 #import "ItemBackView.h"
 #import "HeadPortraitViewController.h"
+#import "SettingChangeMobileViewController.h"
+#import "SettingNicknameViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -95,6 +97,21 @@
     
 }
 
+- (void)changeMobileBtnAction{
+    
+    SettingChangeMobileViewController *changeVC = [[SettingChangeMobileViewController alloc] init];
+    [self.navigationController pushViewController:changeVC animated:YES];
+    
+}
+
+- (void)nicknameBtnAction{
+    
+    SettingNicknameViewController *nicknameVC = [[SettingNicknameViewController alloc] init];
+    [self.navigationController pushViewController:nicknameVC animated:YES];
+    
+}
+
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -112,6 +129,17 @@
     }
     
     if (indexPath.section == 1) {
+        
+        switch (indexPath.row) {
+            case 0:
+                [self nicknameBtnAction];
+                break;
+            case 1:
+                [self changeMobileBtnAction];
+                break;
+            default:
+                break;
+        }
         
     }
     
