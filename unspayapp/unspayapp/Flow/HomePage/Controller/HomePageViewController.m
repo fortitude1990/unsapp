@@ -518,6 +518,8 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 #pragma mark - UIScrollViewDelegate
 
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
   [self startAlphaAnimation];
@@ -530,6 +532,16 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0){
     
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//    if (offsetY > 0 && offsetY < CGRectGetMinY(self.chameleon.frame)) {
+//        if (_scrollDirection == ScrollDirectionUp) {
+//            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        }
+//        if (_scrollDirection == ScrollDirectionDown) {
+//            [scrollView setContentOffset:CGPointMake(0, CGRectGetMinY(self.chameleon.frame)) animated:YES];
+//        }
+//
+//    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -538,13 +550,13 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     CGFloat offsetY = scrollView.contentOffset.y;
 
     if (offsetY > 0 && offsetY < CGRectGetMinY(self.chameleon.frame) && !decelerate) {
-        
+
         if (_scrollDirection == ScrollDirectionUp) {
             [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         }
-        
+
         if (_scrollDirection == ScrollDirectionDown) {
-            
+
         [scrollView setContentOffset:CGPointMake(0, CGRectGetMinY(self.chameleon.frame)) animated:YES];
         }
 
@@ -561,19 +573,19 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     
     
     CGFloat offsetY = scrollView.contentOffset.y;
-    
+
     if (offsetY > 0 && offsetY < CGRectGetMinY(self.chameleon.frame)) {
-        
+
         if (_scrollDirection == ScrollDirectionUp) {
             [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         }
-        
+
         if (_scrollDirection == ScrollDirectionDown) {
-            
+
             [scrollView setContentOffset:CGPointMake(0, CGRectGetMinY(self.chameleon.frame)) animated:YES];
         }
 
-        
+
     }
     
 
