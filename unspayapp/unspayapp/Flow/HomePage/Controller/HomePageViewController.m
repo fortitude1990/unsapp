@@ -21,6 +21,8 @@
 #import "TransferAccountsViewController.h"
 #import "SettingsViewController.h"
 #import "NetworkingUtils.h"
+#import "DataBaseUtils.h"
+#import "LoginViewController.h"
 
 #define kMargin 15
 
@@ -73,52 +75,122 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     self.hidesBottomBarWhenPushed = NO;
     
     
-    DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
     
-    [NetworkingUtils propertyNetworking:^(BOOL flag, NSString *message) {
-        
-        if (flag) {
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
 
-            [self.meansView updateData];
-        
-        }else{
-            [PopupAction showMessage:message location:ShowLocationBottom];
-        }
-        
-        
-    }];
-    
-    
-    if ([defaultMessage.baseMsg.isRealName isEqualToString:@"0"]) {
-        
-        [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
+    if (defaultMessage.accountId.length == 0) {
+        NSString *loginStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kLoginStatusKey];
+        NSString *tel = [[NSUserDefaults standardUserDefaults] objectForKey:kTelKey];
+        NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:kPwdKey];
+        NSString *accountId = [[NSUserDefaults standardUserDefaults] objectForKey:kAccountIdKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        if ([loginStatus isEqualToString:@"1"] && accountId.length > 0 && tel.length > 0 && pwd.length > 0) {
             
-            RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
-            BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-            [self presentViewController:navC animated:YES completion:^{
+            BaseMsg * baseMsg =  [DataBaseUtils unArchiverBaseMsg];
+            PropertyMsg *propertyMsg = [DataBaseUtils unArchiverPropertyMsg];
+            
+            defaultMessage.accountId = accountId;
+            defaultMessage.baseMsg = baseMsg;
+            defaultMessage.propertyMsg = propertyMsg;
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.meansView updateData];
+            });
+            
+        }else{
+            
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:loginVC];
+            [self presentViewController:navC animated:NO completion:^{
                 
             }];
+            return;
             
-        } of:self];
-        return;
+        }
+    }else{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.meansView updateData];
+        });
+        
     }
     
     
-    if ([defaultMessage.baseMsg.isSetPayPwd isEqualToString:@"0"]) {
+    if (defaultMessage.isUpdateBaseMsg) {
         
-         [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
-         
-         Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
-         realVC.passwordInputType = PasswordInputTypeSimpleSetting;
-         BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-         [self presentViewController:navC animated:YES completion:^{
-         
-         }];
-         
-         } of:self];
-        return;
+        [NetworkingUtils propertyNetworking:^(BOOL flag, NSString *message) {
+            
+            if (flag) {
+                
+                [self.meansView updateData];
+                
+            }else{
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [PopupAction showMessage:message location:ShowLocationBottom];
+                });
+                
+            }
+            
+            
+        }];
+        
+        
+        
+        [NetworkingUtils baseMsgNetworking:^(BOOL flag, NSString *message) {
+            if (flag) {
+                
+                DefaultMessage *defaultMsg = DefaultMessage.shareMessage;
+                
+                if (defaultMsg.baseMsg.nickname.length > 0) {
+                    self.nameLabel.text = defaultMsg.baseMsg.nickname;
+                }
+                
+                if (defaultMsg.baseMsg.headPortraitImge.length > 0) {
+                    UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMsg.baseMsg.headPortraitImge options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+                    self.headImagView.image = image;
+                }
+                
+                if ([defaultMessage.baseMsg.isRealName isEqualToString:@"0"]) {
+                    
+                    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
+                        
+                        RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
+                        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+                        [self presentViewController:navC animated:YES completion:^{
+                            
+                        }];
+                        
+                    } of:self];
+                    return;
+                }
+                
+                
+                if ([defaultMessage.baseMsg.isSetPayPwd isEqualToString:@"0"]) {
+                    
+                    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
+                        
+                        Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
+                        realVC.passwordInputType = PasswordInputTypeSimpleSetting;
+                        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+                        [self presentViewController:navC animated:YES completion:^{
+                            
+                        }];
+                        
+                    } of:self];
+                    return;
+                    
+                }
+                
+                
+            }else{
+                [PopupAction showMessage:message location:ShowLocationBottom];
+            }
+        }];
         
     }
+    
+
     
 
     
@@ -147,24 +219,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     
     [self createUI];
     
-    [NetworkingUtils baseMsgNetworking:^(BOOL flag, NSString *message) {
-        if (flag) {
-            
-            DefaultMessage *defaultMsg = DefaultMessage.shareMessage;
-            
-            if (defaultMsg.baseMsg.nickname.length > 0) {
-                self.nameLabel.text = defaultMsg.baseMsg.nickname;
-            }
-            
-            if (defaultMsg.baseMsg.headPortraitImge.length > 0) {
-                UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMsg.baseMsg.headPortraitImge options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
-                self.headImagView.image = image;
-            }
+    
+    
 
-        }else{
-            [PopupAction showMessage:message location:ShowLocationBottom];
-        }
-    }];
+    
+
     
     
 }

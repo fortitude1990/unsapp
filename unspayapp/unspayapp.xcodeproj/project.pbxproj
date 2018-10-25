@@ -59,6 +59,7 @@
 		138FC063212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138FC061212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.m */; };
 		138FC064212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
+		13C12C16218172120056BF3D /* DataBaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C12C15218172120056BF3D /* DataBaseUtils.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -284,6 +285,9 @@
 		138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeMobileOrEmailGainVerificaitonViewController.xib; sourceTree = "<group>"; };
 		139CB89F2101F0B00054FBE4 /* RecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
+		13C12C14218172120056BF3D /* DataBaseUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseUtils.h; sourceTree = "<group>"; };
+		13C12C15218172120056BF3D /* DataBaseUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseUtils.m; sourceTree = "<group>"; };
+		13C12C1821818C410056BF3D /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -628,6 +632,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		13C12C1721818C280056BF3D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				13C12C1821818C410056BF3D /* Constant.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		13CC5B3E210074B200229F9F /* Withdraw */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +782,7 @@
 		13DF1EDE20F483A600507BF4 /* unspayapp */ = {
 			isa = PBXGroup;
 			children = (
+				13C12C1721818C280056BF3D /* Common */,
 				13D69158218041A200B86FD4 /* DataBase */,
 				13EC796A20FC64820002C2CB /* ThirdPath */,
 				13DF1F6420F5F34D00507BF4 /* CustomView */,
@@ -958,6 +971,8 @@
 				136747A1210189850038B989 /* BankImageHelper.m */,
 				13D691622180501700B86FD4 /* NetworkingUtils.h */,
 				13D691632180501700B86FD4 /* NetworkingUtils.m */,
+				13C12C14218172120056BF3D /* DataBaseUtils.h */,
+				13C12C15218172120056BF3D /* DataBaseUtils.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -1803,6 +1818,7 @@
 				13EC794F20F879F90002C2CB /* HistogramView.m in Sources */,
 				1380FA0721103ED600CAE449 /* CALayer+Anim.m in Sources */,
 				13EC799020FC64910002C2CB /* CCCameraView.m in Sources */,
+				13C12C16218172120056BF3D /* DataBaseUtils.m in Sources */,
 				13EC799220FC64910002C2CB /* CCCameraViewController.m in Sources */,
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,

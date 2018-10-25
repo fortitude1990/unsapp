@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseMsg : NSObject
+@interface BaseMsg : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *name; //姓名
 @property (nonatomic, strong) NSString *sex; //性别

@@ -153,8 +153,7 @@
     _incomeYD = incomeYD;
     _expendYD = expendYD;
 
-    _totalMeans.percentage = 1.0;
-    _incomeYD.percentage = 0.96;
+
 }
 
 - (void)tapGesAction{
@@ -174,8 +173,8 @@
     DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
     _totalMeans.amount = defaultMessage.propertyMsg.totalProperty;
     _balance.amount = defaultMessage.propertyMsg.availableProperty;
-    _incomeYD.amount = defaultMessage.propertyMsg.monthlyIncome;
-    _expendYD.amount = defaultMessage.propertyMsg.monthlySpending;
+    _incomeYD.amount = defaultMessage.propertyMsg.yesterdayIncome;
+    _expendYD.amount = defaultMessage.propertyMsg.yesterdaySpending;
     
     
     _totalMeans.percentage = 1.0;

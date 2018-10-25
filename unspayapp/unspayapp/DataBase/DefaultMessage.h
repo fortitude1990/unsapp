@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) BaseMsg *baseMsg;
 @property (nonatomic, strong) PropertyMsg *propertyMsg;
-
+@property (nonatomic, assign) BOOL isUpdateBaseMsg;
 
 
 + (DefaultMessage *)shareMessage;

@@ -370,6 +370,12 @@
             DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
             defaultMessage.accountId = jsonDic[@"accountId"];
             self.endBlock(YES, @"成功");
+            
+            [[NSUserDefaults standardUserDefaults] setObject:params[@"tel"] forKey:kTelKey];
+            [[NSUserDefaults standardUserDefaults] setObject:params[@"pwd"] forKey:kPwdKey];
+            [[NSUserDefaults standardUserDefaults] setObject:defaultMessage.accountId forKey:kAccountIdKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
 
         }else{
             NSString *rspMsg = jsonDic[@"rspMsg"];

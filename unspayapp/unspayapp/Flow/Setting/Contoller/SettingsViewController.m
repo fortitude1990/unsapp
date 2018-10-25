@@ -11,6 +11,7 @@
 #import "HeadPortraitViewController.h"
 #import "SettingChangeMobileViewController.h"
 #import "SettingNicknameViewController.h"
+#import "LoginViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -85,9 +86,14 @@
 }
 
 - (void)quitBtnAction{
-    [self dismissViewControllerAnimated:YES completion:^{
-        
+    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:navC animated:NO completion:^{
+        [self.tabBarController setSelectedIndex:0];
+        [(BaseNavController *)self.tabBarController.selectedViewController popToRootViewControllerAnimated:NO];
     }];
+    
 }
 
 - (void)headPortraitBtnAction{

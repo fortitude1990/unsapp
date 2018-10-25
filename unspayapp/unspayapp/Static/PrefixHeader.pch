@@ -19,6 +19,7 @@
 #import "TotalUrls.h"
 #import "Networking.h"
 #import "DefaultMessage.h"
+#import "Constant.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -46,6 +47,6 @@ blue:((float)(hexValue & 0xFF))/255.0 alpha:1.0]
 
 
 typedef void(^CommonBlock)(BOOL flag, NSString *message);
-typedef void(^VoidBlock)();
+typedef void(^VoidBlock)(void);
 
 #endif /* PrefixHeader_pch */

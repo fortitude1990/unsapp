@@ -11,13 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PropertyMsg : NSObject
+@interface PropertyMsg : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *totalProperty; //总资产
 @property (nonatomic, strong) NSString *availableProperty; //可用资产
 @property (nonatomic, strong) NSString *monthlySpending; //月支出
 @property (nonatomic, strong) NSString *monthlyIncome; //月收入
-
+@property (nonatomic, strong) NSString *yesterdaySpending; //昨日支出
+@property (nonatomic, strong) NSString *yesterdayIncome; //昨日收入
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "NetworkingUtils.h"
+#import "DataBaseUtils.h"
 
 @implementation NetworkingUtils
 
@@ -32,6 +33,10 @@
             defaulteMessage.baseMsg = baseMsg;
             complete(YES, nil);
 
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                [DataBaseUtils archiverBaseMsg];
+            });
+            
             
         }else{
             NSString *rspMsg = jsonDic[@"rspMsg"];
@@ -66,6 +71,10 @@
             PropertyMsg *propertyMsg = [PropertyMsg modelWithJSON:jsonDic];
             defaulteMessage.propertyMsg = propertyMsg;
             complete(YES, nil);
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [DataBaseUtils archiverPropertyMsg];
+            });
             
         }else{
             NSString *rspMsg = jsonDic[@"rspMsg"];

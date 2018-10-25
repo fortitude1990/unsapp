@@ -46,12 +46,17 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kLoginStatusKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 #pragma mark - CreateUI
 
 - (void)createUI{
     
+    self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [registerBtn setTitle:@"注册" forState:UIControlStateNormal];
@@ -137,10 +142,14 @@
     } end:^(BOOL flag, NSString *msg) {
         
         if (flag == YES) {
-            TabViewController *tabVC = [[TabViewController alloc] init];
-            [self presentViewController:tabVC animated:YES completion:^{
-                
+            
+            DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+            defaultMessage.isUpdateBaseMsg = YES;
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kLoginStatusKey];
+                [[NSUserDefaults standardUserDefaults] synchronize];
             }];
+            
         }else{
             [PopupAction alertMsg:msg of:self];
         }
