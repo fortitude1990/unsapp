@@ -127,7 +127,11 @@
         
     } start:^(BOOL flag, NSString *msg) {
         
-        
+        if (flag) {
+            
+        }else{
+            [PopupAction alertMsg:msg of:self];
+        }
         
         
     } end:^(BOOL flag, NSString *msg) {
@@ -138,7 +142,7 @@
                 
             }];
         }else{
-            
+            [PopupAction alertMsg:msg of:self];
         }
         
         
@@ -165,6 +169,15 @@
     
 }
 
+#pragma mark - Networking
+
+- (void)networking{
+    
+    
+    
+}
+
+
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -185,8 +198,6 @@
             return NO;
         }
     }
-    
-
     
     return YES;
 }

@@ -26,4 +26,6 @@ typedef NS_ENUM(NSInteger, ShowLocation) {
 //
 //+ (void)dismissSVHUD;
 
++ (void)alertMsg: (NSString *)msg of: (id)sender;
+
 @end

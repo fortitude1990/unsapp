@@ -58,8 +58,8 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
-    
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
 }
 
 @end

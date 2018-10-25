@@ -169,4 +169,20 @@
     }
 }
 
+- (void)updateData{
+    
+    DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
+    _totalMeans.amount = defaultMessage.propertyMsg.totalProperty;
+    _balance.amount = defaultMessage.propertyMsg.availableProperty;
+    _incomeYD.amount = defaultMessage.propertyMsg.monthlyIncome;
+    _expendYD.amount = defaultMessage.propertyMsg.monthlySpending;
+    
+    
+    _totalMeans.percentage = 1.0;
+    _balance.percentage = _balance.amount.floatValue / _totalMeans.amount.floatValue;
+    _incomeYD.percentage = _incomeYD.amount.floatValue / _totalMeans.amount.floatValue;
+    _expendYD.percentage = _expendYD.amount.floatValue / _totalMeans.amount.floatValue;
+    
+}
+
 @end

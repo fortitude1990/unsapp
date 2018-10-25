@@ -112,8 +112,15 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
-    RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
-    [self.navigationController pushViewController:successVC animated:YES];
+    
+    if ([self.pwdTF.text isEqualToString:self.onceAgainTF.text]) {
+        [self networking];
+    }else{
+        [PopupAction alertMsg:@"密码再次输入不正确" of:self];
+    }
+    
+    
+
     
     
 }
@@ -126,6 +133,44 @@
 - (void)protocolBtnAction{
     
 }
+
+#pragma mark - Networking
+
+- (void)networking{
+    
+    NSDictionary *params = @{@"tel" : self.mobileTF.text,
+                             @"pwd" : self.pwdTF.text
+                             };
+    [Networking networkingWithHTTPOfPostTo:kRegisterUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"网络异常" of:self];
+            return ;
+        }
+        
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+                RegisterSuccessViewController *successVC = [[RegisterSuccessViewController alloc] init];
+                [self.navigationController pushViewController:successVC animated:YES];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+                                 
+        
+        
+    }];
+    
+    
+}
+
 
 #pragma mark - UITextFieldDelegate
 

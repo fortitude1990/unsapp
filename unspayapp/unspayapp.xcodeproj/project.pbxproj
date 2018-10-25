@@ -70,6 +70,10 @@
 		13CC5B4621007EBD00229F9F /* WithdrawBankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CC5B4421007EBD00229F9F /* WithdrawBankListViewController.xib */; };
 		13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B4821007F4000229F9F /* BankListTableViewCell.m */; };
 		13CC5B4B21007F4000229F9F /* BankListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CC5B4921007F4000229F9F /* BankListTableViewCell.xib */; };
+		13D6915B218041D200B86FD4 /* DefaultMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D6915A218041D200B86FD4 /* DefaultMessage.m */; };
+		13D6915E2180499100B86FD4 /* BaseMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D6915D2180499100B86FD4 /* BaseMsg.m */; };
+		13D6916121804D5600B86FD4 /* PropertyMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D6916021804D5600B86FD4 /* PropertyMsg.m */; };
+		13D691642180501700B86FD4 /* NetworkingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D691632180501700B86FD4 /* NetworkingUtils.m */; };
 		13DD4ADA2106CECF005D65AD /* TransferAccountToBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4AD82106CECF005D65AD /* TransferAccountToBankViewController.m */; };
 		13DD4ADB2106CECF005D65AD /* TransferAccountToBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13DD4AD92106CECF005D65AD /* TransferAccountToBankViewController.xib */; };
 		13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DD4ADE2106D827005D65AD /* SwithPayTypeView.m */; };
@@ -300,6 +304,15 @@
 		13CC5B4721007F4000229F9F /* BankListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankListTableViewCell.h; sourceTree = "<group>"; };
 		13CC5B4821007F4000229F9F /* BankListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankListTableViewCell.m; sourceTree = "<group>"; };
 		13CC5B4921007F4000229F9F /* BankListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankListTableViewCell.xib; sourceTree = "<group>"; };
+		13D6915721801F2B00B86FD4 /* TotalUrls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TotalUrls.h; sourceTree = "<group>"; };
+		13D69159218041D200B86FD4 /* DefaultMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefaultMessage.h; sourceTree = "<group>"; };
+		13D6915A218041D200B86FD4 /* DefaultMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefaultMessage.m; sourceTree = "<group>"; };
+		13D6915C2180499100B86FD4 /* BaseMsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseMsg.h; sourceTree = "<group>"; };
+		13D6915D2180499100B86FD4 /* BaseMsg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseMsg.m; sourceTree = "<group>"; };
+		13D6915F21804D5600B86FD4 /* PropertyMsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyMsg.h; sourceTree = "<group>"; };
+		13D6916021804D5600B86FD4 /* PropertyMsg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyMsg.m; sourceTree = "<group>"; };
+		13D691622180501700B86FD4 /* NetworkingUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingUtils.h; sourceTree = "<group>"; };
+		13D691632180501700B86FD4 /* NetworkingUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingUtils.m; sourceTree = "<group>"; };
 		13DD4AD72106CECF005D65AD /* TransferAccountToBankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferAccountToBankViewController.h; sourceTree = "<group>"; };
 		13DD4AD82106CECF005D65AD /* TransferAccountToBankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferAccountToBankViewController.m; sourceTree = "<group>"; };
 		13DD4AD92106CECF005D65AD /* TransferAccountToBankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferAccountToBankViewController.xib; sourceTree = "<group>"; };
@@ -648,6 +661,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		13D69158218041A200B86FD4 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				13D69159218041D200B86FD4 /* DefaultMessage.h */,
+				13D6915A218041D200B86FD4 /* DefaultMessage.m */,
+				13D6915C2180499100B86FD4 /* BaseMsg.h */,
+				13D6915D2180499100B86FD4 /* BaseMsg.m */,
+				13D6915F21804D5600B86FD4 /* PropertyMsg.h */,
+				13D6916021804D5600B86FD4 /* PropertyMsg.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		13DD4ADC2106D7EE005D65AD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +770,7 @@
 		13DF1EDE20F483A600507BF4 /* unspayapp */ = {
 			isa = PBXGroup;
 			children = (
+				13D69158218041A200B86FD4 /* DataBase */,
 				13EC796A20FC64820002C2CB /* ThirdPath */,
 				13DF1F6420F5F34D00507BF4 /* CustomView */,
 				13DF1F5E20F5EA2600507BF4 /* Flow */,
@@ -871,6 +898,7 @@
 			isa = PBXGroup;
 			children = (
 				13DF1F3120F48D2800507BF4 /* PrefixHeader.pch */,
+				13D6915721801F2B00B86FD4 /* TotalUrls.h */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -928,6 +956,8 @@
 				13DF1F5C20F5E35200507BF4 /* ServeForTextField.m */,
 				136747A0210189850038B989 /* BankImageHelper.h */,
 				136747A1210189850038B989 /* BankImageHelper.m */,
+				13D691622180501700B86FD4 /* NetworkingUtils.h */,
+				13D691632180501700B86FD4 /* NetworkingUtils.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -1707,7 +1737,9 @@
 				13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */,
 				13EC79C220FCD12E0002C2CB /* RechargeViewController.m in Sources */,
 				13DF1F4520F590E200507BF4 /* PWDLoginView.m in Sources */,
+				13D6916121804D5600B86FD4 /* PropertyMsg.m in Sources */,
 				13EC799620FC64910002C2CB /* CCImagePreviewController.m in Sources */,
+				13D6915B218041D200B86FD4 /* DefaultMessage.m in Sources */,
 				13EC799720FC64910002C2CB /* CCglCameraViewController.m in Sources */,
 				13DF1F3420F48E9D00507BF4 /* BaseViewController.m in Sources */,
 				13EC793720F7003F0002C2CB /* PersonCenterViewController.m in Sources */,
@@ -1744,6 +1776,7 @@
 				136747B12101CEEA0038B989 /* RechargeRecordTableViewCell.m in Sources */,
 				13DD4ADA2106CECF005D65AD /* TransferAccountToBankViewController.m in Sources */,
 				13EC79F920FD01D80002C2CB /* PayTypeModel.m in Sources */,
+				13D691642180501700B86FD4 /* NetworkingUtils.m in Sources */,
 				13DF1F1A20F48BDE00507BF4 /* BaseNavController.m in Sources */,
 				13EC79C920FCEBDF0002C2CB /* PayTypeItem.m in Sources */,
 				13DF1F3F20F4B0DF00507BF4 /* LoginRadioView.m in Sources */,
@@ -1773,6 +1806,7 @@
 				13EC799220FC64910002C2CB /* CCCameraViewController.m in Sources */,
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
+				13D6915E2180499100B86FD4 /* BaseMsg.m in Sources */,
 				1371076D211D75D200940434 /* SettingNicknameViewController.m in Sources */,
 				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,

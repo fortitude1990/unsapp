@@ -10,6 +10,8 @@
 
 @interface MeansView : UIView
 
+- (void)updateData;
+
 - (void)tapAction:(CommonBlock)action;
 
 @end

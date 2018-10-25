@@ -275,7 +275,27 @@
 
 - (void)loginBtnAction{
     
-    self.endBlock(YES, @"");
+    
+    
+    
+    if (self.mobileTF.text.length == 0) {
+        self.startBlock(NO, @"请输入手机号码");
+        return;
+    }
+    
+    
+    if (self.loginType == LoginTypePwd) {
+        if (self.pwdTF.text.length == 0) {
+            self.startBlock(NO, @"请输入密码");
+            return;
+        }else{
+            self.startBlock(YES, nil);
+            [self networking];
+        }
+    }
+    
+
+    
     
 }
 
@@ -328,7 +348,40 @@
 #pragma mark - Networking
 
 
+- (void)networking{
+    
+    NSDictionary *params = @{@"tel" : self.mobileTF.text,
+                             @"pwd" : self.pwdTF.text
+                             };
+    
+    [Networking networkingWithHTTPOfPostTo:kLoginUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            self.endBlock(NO, @"网络异常");
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
+            defaultMessage.accountId = jsonDic[@"accountId"];
+            self.endBlock(YES, @"成功");
 
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            self.endBlock(NO, rspMsg);
+        }
+        
+        
+    }];
+    
+    
+}
 
 
 

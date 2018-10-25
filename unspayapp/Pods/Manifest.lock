@@ -1,20 +1,26 @@
 PODS:
   - Masonry (1.0.2)
   - SVProgressHUD (2.1.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - Masonry
   - SVProgressHUD
+  - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Masonry
     - SVProgressHUD
+    - YYKit
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: fbda6f0b84bf96c0cd744a569f2132bc8ac625c8
+PODFILE CHECKSUM: b649940df9363fc0d1ff9a67179af45f5191bf0e
 
 COCOAPODS: 1.5.2

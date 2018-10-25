@@ -102,6 +102,11 @@
     
 }
 
+
++ (void)alertMsg:(NSString *)msg of:(id)sender{
+    [[self defaultPopupAction] popupWithTitle:@"温馨提示" message:msg ok:@"确定" cancel:nil okAction:nil cancelAction:nil of:sender];
+}
+
 - (void)popupWithTitle:(NSString *)title message:(NSString *)message ok:(NSString *)ok cancel:(NSString *)cancel okAction:(PopupViewBack)okAction cancelAction:(PopupViewBack)cancelAction of:(id)sender{
     
     //开始忽略

@@ -20,8 +20,7 @@
 #import "Pay_Password_ViewController.h"
 #import "TransferAccountsViewController.h"
 #import "SettingsViewController.h"
-
-
+#import "NetworkingUtils.h"
 
 #define kMargin 15
 
@@ -33,12 +32,14 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 @interface HomePageViewController ()<UIScrollViewDelegate>
 {
-    UIImageView *_headImagView;
-    UILabel *_nameLabel;
     ScrollDirection _scrollDirection;
     CGFloat _currentOffsetY;
     dispatch_semaphore_t _semaphore;
 }
+
+@property (strong, nonatomic) UIImageView *headImagView;
+
+@property (strong, nonatomic) UILabel * nameLabel;
 
 @property (strong, nonatomic) UIView * naviagtionView;
 
@@ -71,17 +72,55 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     self.navigationController.navigationBar.hidden = YES;
     self.hidesBottomBarWhenPushed = NO;
     
-    /*
-    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
+    
+    DefaultMessage *defaultMessage = DefaultMessage.shareMessage;
+    
+    [NetworkingUtils propertyNetworking:^(BOOL flag, NSString *message) {
         
-        RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
-        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-        [self presentViewController:navC animated:YES completion:^{
+        if (flag) {
+
+            [self.meansView updateData];
+        
+        }else{
+            [PopupAction showMessage:message location:ShowLocationBottom];
+        }
+        
+        
+    }];
+    
+    
+    if ([defaultMessage.baseMsg.isRealName isEqualToString:@"0"]) {
+        
+        [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
             
-        }];
+            RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
+            BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+            [self presentViewController:navC animated:YES completion:^{
+                
+            }];
+            
+        } of:self];
+        return;
+    }
+    
+    
+    if ([defaultMessage.baseMsg.isSetPayPwd isEqualToString:@"0"]) {
         
-    } of:self];
-    */
+         [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
+         
+         Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
+         realVC.passwordInputType = PasswordInputTypeSimpleSetting;
+         BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
+         [self presentViewController:navC animated:YES completion:^{
+         
+         }];
+         
+         } of:self];
+        return;
+        
+    }
+    
+
     
     
     
@@ -97,18 +136,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     } of:self];
     */
     
-    /*
-     [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
-     
-     Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
-         realVC.passwordInputType = PasswordInputTypeSimpleSetting;
-     BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-     [self presentViewController:navC animated:YES completion:^{
-     
-     }];
-     
-     } of:self];
-     */
+
     
     
 }
@@ -119,6 +147,24 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     
     [self createUI];
     
+    [NetworkingUtils baseMsgNetworking:^(BOOL flag, NSString *message) {
+        if (flag) {
+            
+            DefaultMessage *defaultMsg = DefaultMessage.shareMessage;
+            
+            if (defaultMsg.baseMsg.nickname.length > 0) {
+                self.nameLabel.text = defaultMsg.baseMsg.nickname;
+            }
+            
+            if (defaultMsg.baseMsg.headPortraitImge.length > 0) {
+                UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMsg.baseMsg.headPortraitImge options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+                self.headImagView.image = image;
+            }
+
+        }else{
+            [PopupAction showMessage:message location:ShowLocationBottom];
+        }
+    }];
     
     
 }
@@ -329,7 +375,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         UILabel *nameLabel = [[UILabel alloc] init];
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.font = [UIFont systemFontOfSize:16];
-        nameLabel.text = @"李志敬";
+        nameLabel.text = @"用户";
         nameLabel.textAlignment = NSTextAlignmentCenter;
         [_headView addSubview:nameLabel];
         nameLabel.frame = CGRectMake(0, CGRectGetMaxY(imageView.frame) + 5,CGRectGetWidth(_headView.frame), 22.5);
@@ -515,6 +561,12 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     
     
 }
+
+#pragma mark - Networking
+
+
+
+
 
 #pragma mark - UIScrollViewDelegate
 
