@@ -206,7 +206,6 @@
      PointView *pointView = self.boxArray[self.password.length];
     pointView.alpha = 1;
     
-    
     self.password = (NSMutableString *)[self.password stringByAppendingString:str];
     
     if (self.password.length == 6) {
@@ -352,6 +351,40 @@
 #pragma mark ------------------------------ Networking -----------------------------------
 
 - (void)networking{
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"payPwd" : self.password
+                             };
+    [ProgressHUB show];
+    [Networking networkingWithHTTPOfPostTo:kSetPayPwdUrl params:params backData:^(NSData *data) {
+        [ProgressHUB dismiss];
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"服务器连接失败，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            defaultMessage.isUpdateBaseMsg = YES;
+        
+            [self dismissViewControllerAnimated:YES completion:^{
+                self.backValue(YES, @"支付密码设置成功");
+            }];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+    }];
+    
     
 }
 

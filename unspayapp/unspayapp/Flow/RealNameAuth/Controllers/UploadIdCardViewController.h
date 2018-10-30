@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
+@class RealNameMsg;
 @interface UploadIdCardViewController : BaseViewController
+
+@property (nonatomic, strong) RealNameMsg *realNameMsg;
 
 @end

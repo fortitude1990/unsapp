@@ -23,6 +23,7 @@
 #import "NetworkingUtils.h"
 #import "DataBaseUtils.h"
 #import "LoginViewController.h"
+#import "NecessaryConditionJudgment.h"
 
 #define kMargin 15
 
@@ -92,10 +93,12 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
             defaultMessage.accountId = accountId;
             defaultMessage.baseMsg = baseMsg;
             defaultMessage.propertyMsg = propertyMsg;
+            defaultMessage.isUpdateBaseMsg = YES;
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            if (defaultMessage.propertyMsg) {
                 [self.meansView updateData];
-            });
+            }
             
         }else{
             
@@ -109,14 +112,17 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         }
     }else{
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+        if (defaultMessage.propertyMsg) {
             [self.meansView updateData];
-        });
+        }
         
     }
     
     
     if (defaultMessage.isUpdateBaseMsg) {
+        
+        defaultMessage.isUpdateBaseMsg = NO;
         
         [NetworkingUtils propertyNetworking:^(BOOL flag, NSString *message) {
             
@@ -151,35 +157,14 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
                     self.headImagView.image = image;
                 }
                 
-                if ([defaultMessage.baseMsg.isRealName isEqualToString:@"0"]) {
-                    
-                    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还没有进行实名认证，请进行实名认证" ok:@"再看看" cancel:@"去实名认证" okAction:nil cancelAction:^{
-                        
-                        RealNameAuthViewController *realVC = [[RealNameAuthViewController alloc] init];
-                        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-                        [self presentViewController:navC animated:YES completion:^{
-                            
-                        }];
-                        
-                    } of:self];
-                    return;
+                if (![NecessaryConditionJudgment checkIsRealName]) {
+                    [NecessaryConditionJudgment promptAndDoRealName:self];
+                    return ;
                 }
                 
-                
-                if ([defaultMessage.baseMsg.isSetPayPwd isEqualToString:@"0"]) {
-                    
-                    [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"请设置支付密码" ok:@"再看看" cancel:@"设置" okAction:nil cancelAction:^{
-                        
-                        Pay_Password_ViewController *realVC = [[Pay_Password_ViewController alloc] init];
-                        realVC.passwordInputType = PasswordInputTypeSimpleSetting;
-                        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:realVC];
-                        [self presentViewController:navC animated:YES completion:^{
-                            
-                        }];
-                        
-                    } of:self];
-                    return;
-                    
+                if (![NecessaryConditionJudgment checkIsSetPayPwd]) {
+                    [NecessaryConditionJudgment promptAndDoSetPayPwd:self];
+                    return ;
                 }
                 
                 
@@ -543,6 +528,16 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 - (void)rechargeBtnAction{
     
+    if (![NecessaryConditionJudgment checkIsRealName]) {
+        [NecessaryConditionJudgment promptAndDoRealName:self];
+        return;
+    }
+    
+    if (![NecessaryConditionJudgment checkIsSetPayPwd]) {
+        [NecessaryConditionJudgment promptAndDoSetPayPwd:self];
+        return;
+    }
+    
     RechargeViewController *rechargeVC = [[RechargeViewController alloc] init];
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:rechargeVC animated:YES];
@@ -552,6 +547,16 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 - (void)transferAccountsBtnAction{
     
+    if (![NecessaryConditionJudgment checkIsRealName]) {
+        [NecessaryConditionJudgment promptAndDoRealName:self];
+        return;
+    }
+    
+    if (![NecessaryConditionJudgment checkIsSetPayPwd]) {
+        [NecessaryConditionJudgment promptAndDoSetPayPwd:self];
+        return;
+    }
+    
     self.hidesBottomBarWhenPushed = YES;
     TransferAccountsViewController *transferAccountVC = [[TransferAccountsViewController alloc] init];
     [self.navigationController pushViewController:transferAccountVC animated:YES];
@@ -559,6 +564,16 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (void)withdrawBtnAction{
+    
+    if (![NecessaryConditionJudgment checkIsRealName]) {
+        [NecessaryConditionJudgment promptAndDoRealName:self];
+        return;
+    }
+    
+    if (![NecessaryConditionJudgment checkIsSetPayPwd]) {
+        [NecessaryConditionJudgment promptAndDoSetPayPwd:self];
+        return;
+    }
     
     RechargeViewController *rechargeVC = [[RechargeViewController alloc] init];
     rechargeVC.tradingType = TradingTypeWithdraw;
@@ -568,6 +583,9 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 #pragma mark - Methods
+
+
+
 
 - (void)startAlphaAnimation{
     

@@ -17,4 +17,5 @@ typedef NS_ENUM(NSInteger, QuitType) {
 
 @property (nonatomic, assign)QuitType quitType;
 
+
 @end

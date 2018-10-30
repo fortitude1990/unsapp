@@ -10,7 +10,7 @@
 #define TotalUrls_h
 
 
-#define kIP @"172.22.200.48:8081"
+#define kIP @"172.22.200.51:8081"
 
 
 #define kRegisterUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/register", kIP]
@@ -18,6 +18,9 @@
 #define kGainBaseMsgUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/basemsg/gain", kIP]
 #define kUpdateBaseMsgUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/basemsg/update", kIP]
 #define kMainMessageUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/main_message", kIP]
+#define kRealNameUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/realname", kIP]
+#define kSetPayPwdUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/setting/pay/passoword", kIP]
+#define kBankListUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/banklist", kIP] //获取绑定的银行卡
 
 
 #endif /* TotalUrls_h */

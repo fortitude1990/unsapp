@@ -10,6 +10,7 @@
 #import "AuthItem.h"
 #import "NextButton.h"
 #import "UploadIdCardViewController.h"
+#import "RealNameMsg.h"
 
 @interface RealNameAuthViewController ()<UITextFieldDelegate>
 
@@ -97,7 +98,12 @@
 }
 - (IBAction)nextBtnAction:(id)sender {
     
+    RealNameMsg *realNameMsg  = [[RealNameMsg alloc] init];
+    realNameMsg.name = self.nameItem.textField.text;
+    realNameMsg.identityId = self.IDItem.textField.text;
+    
     UploadIdCardViewController *uploadVC = [[UploadIdCardViewController alloc] init];
+    uploadVC.realNameMsg = realNameMsg;
     [self.navigationController pushViewController:uploadVC animated:YES];
     
 }

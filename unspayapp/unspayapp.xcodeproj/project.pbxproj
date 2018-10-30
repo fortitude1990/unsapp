@@ -60,6 +60,10 @@
 		138FC064212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138FC062212128A000941414 /* ChangeMobileOrEmailGainVerificaitonViewController.xib */; };
 		139CB8A12101F0B00054FBE4 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139CB8A02101F0B00054FBE4 /* RecordDetailViewController.m */; };
 		13C12C16218172120056BF3D /* DataBaseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C12C15218172120056BF3D /* DataBaseUtils.m */; };
+		13C48C8A2182EB6C00F6B07A /* ProgressHUB.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C48C892182EB6C00F6B07A /* ProgressHUB.m */; };
+		13C48C8D2182F05800F6B07A /* RealNameMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C48C8C2182F05800F6B07A /* RealNameMsg.m */; };
+		13C48C902186E5A100F6B07A /* NecessaryConditionJudgment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C48C8F2186E5A100F6B07A /* NecessaryConditionJudgment.m */; };
+		13C48C93218720AF00F6B07A /* BankCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C48C92218720AF00F6B07A /* BankCard.m */; };
 		13CC5B2821005AA900229F9F /* MSCNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2721005AA900229F9F /* MSCNavigatorView.m */; };
 		13CC5B2B21005BEF00229F9F /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B2A21005BEF00229F9F /* AccountView.m */; };
 		13CC5B3121005C2100229F9F /* BankCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CC5B3021005C2100229F9F /* BankCardView.m */; };
@@ -288,6 +292,14 @@
 		13C12C14218172120056BF3D /* DataBaseUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseUtils.h; sourceTree = "<group>"; };
 		13C12C15218172120056BF3D /* DataBaseUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseUtils.m; sourceTree = "<group>"; };
 		13C12C1821818C410056BF3D /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		13C48C882182EB6C00F6B07A /* ProgressHUB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUB.h; sourceTree = "<group>"; };
+		13C48C892182EB6C00F6B07A /* ProgressHUB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUB.m; sourceTree = "<group>"; };
+		13C48C8B2182F05800F6B07A /* RealNameMsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealNameMsg.h; sourceTree = "<group>"; };
+		13C48C8C2182F05800F6B07A /* RealNameMsg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealNameMsg.m; sourceTree = "<group>"; };
+		13C48C8E2186E5A100F6B07A /* NecessaryConditionJudgment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NecessaryConditionJudgment.h; sourceTree = "<group>"; };
+		13C48C8F2186E5A100F6B07A /* NecessaryConditionJudgment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NecessaryConditionJudgment.m; sourceTree = "<group>"; };
+		13C48C91218720AF00F6B07A /* BankCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCard.h; sourceTree = "<group>"; };
+		13C48C92218720AF00F6B07A /* BankCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCard.m; sourceTree = "<group>"; };
 		13CC5B2621005AA900229F9F /* MSCNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCNavigatorView.h; sourceTree = "<group>"; };
 		13CC5B2721005AA900229F9F /* MSCNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCNavigatorView.m; sourceTree = "<group>"; };
 		13CC5B2921005BEF00229F9F /* AccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
@@ -973,6 +985,10 @@
 				13D691632180501700B86FD4 /* NetworkingUtils.m */,
 				13C12C14218172120056BF3D /* DataBaseUtils.h */,
 				13C12C15218172120056BF3D /* DataBaseUtils.m */,
+				13C48C882182EB6C00F6B07A /* ProgressHUB.h */,
+				13C48C892182EB6C00F6B07A /* ProgressHUB.m */,
+				13C48C8E2186E5A100F6B07A /* NecessaryConditionJudgment.h */,
+				13C48C8F2186E5A100F6B07A /* NecessaryConditionJudgment.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -1142,6 +1158,8 @@
 		13EC796120FC28280002C2CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13C48C8B2182F05800F6B07A /* RealNameMsg.h */,
+				13C48C8C2182F05800F6B07A /* RealNameMsg.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1326,6 +1344,8 @@
 				13EC79F820FD01D80002C2CB /* PayTypeModel.m */,
 				136747B32101DFD00038B989 /* RecordModel.h */,
 				136747B42101DFD00038B989 /* RecordModel.m */,
+				13C48C91218720AF00F6B07A /* BankCard.h */,
+				13C48C92218720AF00F6B07A /* BankCard.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1751,6 +1771,7 @@
 				138FC05E211D8F5700941414 /* CanGainVerificationToChangeMobileViewController.m in Sources */,
 				13CC5B4A21007F4000229F9F /* BankListTableViewCell.m in Sources */,
 				13EC79C220FCD12E0002C2CB /* RechargeViewController.m in Sources */,
+				13C48C8A2182EB6C00F6B07A /* ProgressHUB.m in Sources */,
 				13DF1F4520F590E200507BF4 /* PWDLoginView.m in Sources */,
 				13D6916121804D5600B86FD4 /* PropertyMsg.m in Sources */,
 				13EC799620FC64910002C2CB /* CCImagePreviewController.m in Sources */,
@@ -1766,6 +1787,7 @@
 				13CC5B37210067C900229F9F /* BaseMessageView.m in Sources */,
 				13DF1F5A20F5DC2C00507BF4 /* PopupAction.m in Sources */,
 				13EC7A0220FEE0F60002C2CB /* PasswordView.m in Sources */,
+				13C48C902186E5A100F6B07A /* NecessaryConditionJudgment.m in Sources */,
 				13EC796820FC44970002C2CB /* UploadIdCardViewController.m in Sources */,
 				1380FA0A21103ED600CAE449 /* HomeViewController.m in Sources */,
 				136747A2210189850038B989 /* BankImageHelper.m in Sources */,
@@ -1785,6 +1807,7 @@
 				13EC793420F6FAA90002C2CB /* HomePageViewController.m in Sources */,
 				138D2857210AEB0F00E91C2C /* BankCardShowTableViewCell.m in Sources */,
 				1380FA0B21103ED600CAE449 /* PCCircle.m in Sources */,
+				13C48C93218720AF00F6B07A /* BankCard.m in Sources */,
 				13CC5B4521007EBD00229F9F /* WithdrawBankListViewController.m in Sources */,
 				13DF1F5120F5B0BD00507BF4 /* TimerButton.m in Sources */,
 				13EC794220F745440002C2CB /* HomePageItemModel.m in Sources */,
@@ -1823,6 +1846,7 @@
 				13DD4AE72108560D005D65AD /* SecuritySettingCollectionViewCell.m in Sources */,
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
 				13D6915E2180499100B86FD4 /* BaseMsg.m in Sources */,
+				13C48C8D2182F05800F6B07A /* RealNameMsg.m in Sources */,
 				1371076D211D75D200940434 /* SettingNicknameViewController.m in Sources */,
 				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,

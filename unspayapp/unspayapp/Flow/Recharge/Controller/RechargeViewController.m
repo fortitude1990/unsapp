@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *remindLabel;
 @property (strong, nonatomic) IBOutlet UIButton *allWithdrawBtn;
 
+@property (strong, nonatomic) NSArray *listArray;
+
 @end
 
 @implementation RechargeViewController
@@ -47,7 +49,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self createUI];
-    
+    [self networking];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -158,6 +160,19 @@
 
 #pragma mark - Methods
 
+- (void)loadData{
+    
+    
+    if (self.listArray.count > 0) {
+        
+    }else{
+        self.bankNameLabel.text = @"";
+        self.bankNoLabel.text = @"";
+        self.bankTypeLabel.text = @"";
+    }
+    
+}
+
 - (void)rechargeType{
     
     PayTypeModel *model = [[PayTypeModel alloc] init];
@@ -208,6 +223,42 @@
     }else{
         [self.nextBtn noResponse];
     }
+    
+}
+
+#pragma mark - Networking
+
+- (void)networking{
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId};
+    
+    [Networking networkingWithHTTPOfPostTo:kBankListUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:nil];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            NSArray *array = jsonDic[@"list"];
+            self.listArray = [NSArray arrayWithArray:array];
+            [self loadData];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+        
+        
+    }];
+    
     
 }
 

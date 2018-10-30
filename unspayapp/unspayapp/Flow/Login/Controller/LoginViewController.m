@@ -133,13 +133,15 @@
     } start:^(BOOL flag, NSString *msg) {
         
         if (flag) {
-            
+            [ProgressHUB show];
         }else{
             [PopupAction alertMsg:msg of:self];
         }
         
         
     } end:^(BOOL flag, NSString *msg) {
+        
+        [ProgressHUB dismiss];
         
         if (flag == YES) {
             

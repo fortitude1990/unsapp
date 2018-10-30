@@ -89,7 +89,11 @@
 }
 
 - (void)setAmount:(NSString *)amount{
-    _amountLabel.text = amount;
+    if (amount.floatValue == 0) {
+        _amountLabel.text = @"0.00";
+    }else{
+        _amountLabel.text = amount;
+    }
     _amount = amount;
 }
 

@@ -39,6 +39,12 @@
     self = [super init];
     if (self) {
         [self createUI];
+        
+       NSString *tel = [[NSUserDefaults standardUserDefaults] objectForKey:kTelKey];
+        if (tel.length > 0) {
+            self.mobileTF.text = tel;
+        }
+        
     }
     return self;
 }

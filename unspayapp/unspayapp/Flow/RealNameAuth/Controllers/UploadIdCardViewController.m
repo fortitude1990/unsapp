@@ -12,6 +12,8 @@
 #import "NextButton.h"
 #import "LiDatePicker.h"
 #import "RealNameAuthStatusViewController.h"
+#import "RealNameMsg.h"
+#import <NSObject+YYModel.h>
 
 @interface UploadIdCardViewController ()<UITextFieldDelegate, LiDatePickerDelegate>
 
@@ -98,9 +100,7 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
-    RealNameAuthStatusViewController *statusVC = [[RealNameAuthStatusViewController alloc] init];
-    statusVC.quitType = QuitTypeDismiss;
-    [self.navigationController pushViewController:statusVC animated:YES];
+    [self networking];
     
 }
 
@@ -160,6 +160,64 @@
              @"20年",
              @"25年",
              @"30年"]];
+}
+
+#pragma mark - Networking
+
+- (void)networking{
+    
+    NSData *positiveImageData = UIImageJPEGRepresentation(self.positiveImage, 0.2);
+    NSString *positiveBase64 = [positiveImageData base64EncodedStringWithOptions:(NSDataBase64Encoding64CharacterLineLength)];
+    NSData *reverseImageData = UIImageJPEGRepresentation(self.reverseImage, 0.2);
+    NSString *reverseBase64 = [reverseImageData base64EncodedStringWithOptions:(NSDataBase64Encoding64CharacterLineLength)];
+    self.realNameMsg.frontFaceOfIdCardPhoto = positiveBase64;
+    self.realNameMsg.reverseSideOfIdCardPhoto = reverseBase64;
+    self.realNameMsg.identityIdValidDate = self.twoView.textField.text;
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    self.realNameMsg.accountId = defaultMessage.accountId;
+    
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"name" : self.realNameMsg.name,
+                             @"identityIdValidDate" : self.realNameMsg.identityIdValidDate,
+                             @"frontFaceOfIdCardPhoto" : self.realNameMsg.frontFaceOfIdCardPhoto,
+                             @"reverseSideOfIdCardPhoto" : self.realNameMsg.reverseSideOfIdCardPhoto,
+                             @"identityId" : self.realNameMsg.identityId
+                             };
+    
+    [Networking networkingWithHTTPOfPostTo:kRealNameUrl params:params backData:^(NSData *data) {
+    
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            defaultMessage.isUpdateBaseMsg = YES;
+            
+            RealNameAuthStatusViewController *statusVC = [[RealNameAuthStatusViewController alloc] init];
+            statusVC.quitType = QuitTypeDismiss;
+            [self.navigationController pushViewController:statusVC animated:YES];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+        
+        
+    }];
+    
+    
+    
+    
+
+    
 }
 
 #pragma mark - UITextFieldDelegate
