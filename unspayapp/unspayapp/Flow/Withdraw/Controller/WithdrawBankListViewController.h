@@ -8,6 +8,13 @@
 
 #import "BaseViewController.h"
 
+@class BankCard;
 @interface WithdrawBankListViewController : BaseViewController
+
+@property (nonatomic, strong) NSArray *listArray;
+
+@property (nonatomic, strong) BankCard *selectBankCard;
+
+- (void)callback: (ReturnBlock)callback;
 
 @end

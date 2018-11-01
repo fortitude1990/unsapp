@@ -31,6 +31,8 @@
 	<string>App需要您的同意, 才能访问媒体资料库</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App需要您的同意, 才能访问相机</string>
+	<key>NSContactsUsageDescription</key>
+	<string>App需要您的同意, 才能访问通讯录</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>App需要您的同意, 才能访问媒体资料库</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

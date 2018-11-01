@@ -172,6 +172,10 @@
 		13EC7A0C20FF03980002C2CB /* Pay_Password_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A0B20FF03980002C2CB /* Pay_Password_ViewController.m */; };
 		13EC7A1520FF194D0002C2CB /* AmplificationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */; };
 		13EC7A1820FF3B7B0002C2CB /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC7A1720FF3B7B0002C2CB /* TriangleView.m */; };
+		13EF5AF821894B8F0069BFD7 /* BankCardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EF5AF721894B8F0069BFD7 /* BankCardUtils.m */; };
+		13EF5AFB218958050069BFD7 /* DateFormatUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EF5AFA218958050069BFD7 /* DateFormatUtils.m */; };
+		13EF5AFE218994370069BFD7 /* ContactsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EF5AFD218994370069BFD7 /* ContactsUtils.m */; };
+		13EF5B022189ABED0069BFD7 /* Deal.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EF5B012189ABED0069BFD7 /* Deal.m */; };
 		13FF1E512110447E00FFBEDC /* PwdGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E4F2110447E00FFBEDC /* PwdGestureViewController.m */; };
 		13FF1E522110447E00FFBEDC /* PwdGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF1E502110447E00FFBEDC /* PwdGestureViewController.xib */; };
 		13FF1E58211054BA00FFBEDC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF1E56211054BA00FFBEDC /* SettingsViewController.m */; };
@@ -500,6 +504,14 @@
 		13EC7A1420FF194D0002C2CB /* AmplificationBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmplificationBtn.m; sourceTree = "<group>"; };
 		13EC7A1620FF3B7B0002C2CB /* TriangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
 		13EC7A1720FF3B7B0002C2CB /* TriangleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
+		13EF5AF621894B8F0069BFD7 /* BankCardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankCardUtils.h; sourceTree = "<group>"; };
+		13EF5AF721894B8F0069BFD7 /* BankCardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankCardUtils.m; sourceTree = "<group>"; };
+		13EF5AF9218958050069BFD7 /* DateFormatUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateFormatUtils.h; sourceTree = "<group>"; };
+		13EF5AFA218958050069BFD7 /* DateFormatUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateFormatUtils.m; sourceTree = "<group>"; };
+		13EF5AFC218994370069BFD7 /* ContactsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsUtils.h; sourceTree = "<group>"; };
+		13EF5AFD218994370069BFD7 /* ContactsUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsUtils.m; sourceTree = "<group>"; };
+		13EF5B002189ABED0069BFD7 /* Deal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deal.h; sourceTree = "<group>"; };
+		13EF5B012189ABED0069BFD7 /* Deal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deal.m; sourceTree = "<group>"; };
 		13FF1E4E2110447E00FFBEDC /* PwdGestureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PwdGestureViewController.h; sourceTree = "<group>"; };
 		13FF1E4F2110447E00FFBEDC /* PwdGestureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PwdGestureViewController.m; sourceTree = "<group>"; };
 		13FF1E502110447E00FFBEDC /* PwdGestureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PwdGestureViewController.xib; sourceTree = "<group>"; };
@@ -563,6 +575,7 @@
 		135CC71821057E4D001F0538 /* TransferAccounts */ = {
 			isa = PBXGroup;
 			children = (
+				13EF5AFF2189AAB40069BFD7 /* Model */,
 				13DD4ADC2106D7EE005D65AD /* View */,
 				135CC71921057E61001F0538 /* Controller */,
 			);
@@ -989,6 +1002,12 @@
 				13C48C892182EB6C00F6B07A /* ProgressHUB.m */,
 				13C48C8E2186E5A100F6B07A /* NecessaryConditionJudgment.h */,
 				13C48C8F2186E5A100F6B07A /* NecessaryConditionJudgment.m */,
+				13EF5AF621894B8F0069BFD7 /* BankCardUtils.h */,
+				13EF5AF721894B8F0069BFD7 /* BankCardUtils.m */,
+				13EF5AF9218958050069BFD7 /* DateFormatUtils.h */,
+				13EF5AFA218958050069BFD7 /* DateFormatUtils.m */,
+				13EF5AFC218994370069BFD7 /* ContactsUtils.h */,
+				13EF5AFD218994370069BFD7 /* ContactsUtils.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -1458,6 +1477,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		13EF5AFF2189AAB40069BFD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13EF5B002189ABED0069BFD7 /* Deal.h */,
+				13EF5B012189ABED0069BFD7 /* Deal.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		13FF1E532110544E00FFBEDC /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -1764,6 +1792,7 @@
 				13DF1F7020F5FFBC00507BF4 /* BackBtn.m in Sources */,
 				13DF1F6D20F5FAB600507BF4 /* NextButton.m in Sources */,
 				13DF1F4220F4B1B600507BF4 /* LoginRadioItemView.m in Sources */,
+				13EF5AF821894B8F0069BFD7 /* BankCardUtils.m in Sources */,
 				136747AD2101C7FC0038B989 /* RechargeRecordViewController.m in Sources */,
 				13EC79FD20FED6290002C2CB /* RechargeNoneBindCardViewController.m in Sources */,
 				13FF1E512110447E00FFBEDC /* PwdGestureViewController.m in Sources */,
@@ -1835,6 +1864,7 @@
 				13EC799120FC64910002C2CB /* CCVideoPreview.m in Sources */,
 				13EC795D20FC27400002C2CB /* RealNameAuthViewController.m in Sources */,
 				13EC796420FC28AC0002C2CB /* AuthItem.m in Sources */,
+				13EF5AFE218994370069BFD7 /* ContactsUtils.m in Sources */,
 				13DF1F5D20F5E35300507BF4 /* ServeForTextField.m in Sources */,
 				13EC799820FC64910002C2CB /* CCMotionManager.m in Sources */,
 				13EC798F20FC64910002C2CB /* CCBaseViewController.m in Sources */,
@@ -1847,6 +1877,7 @@
 				13EC799520FC64910002C2CB /* UIView+CCHUD.m in Sources */,
 				13D6915E2180499100B86FD4 /* BaseMsg.m in Sources */,
 				13C48C8D2182F05800F6B07A /* RealNameMsg.m in Sources */,
+				13EF5B022189ABED0069BFD7 /* Deal.m in Sources */,
 				1371076D211D75D200940434 /* SettingNicknameViewController.m in Sources */,
 				13DD4AF02109D166005D65AD /* AmountShowView.m in Sources */,
 				13DD4ADF2106D827005D65AD /* SwithPayTypeView.m in Sources */,
@@ -1859,6 +1890,7 @@
 				13EC794C20F857B60002C2CB /* MeansView.m in Sources */,
 				13DF1F3C20F4A18E00507BF4 /* LoginIconView.m in Sources */,
 				138D2861210EB00400E91C2C /* PwdLoginFirstViewController.m in Sources */,
+				13EF5AFB218958050069BFD7 /* DateFormatUtils.m in Sources */,
 				138D2853210ADFD000E91C2C /* ShadowView.m in Sources */,
 				13EC79A820FCB7AE0002C2CB /* RealNameAuthSuccessViewController.m in Sources */,
 				13CC5B3421005CF500229F9F /* TotalPropertyView.m in Sources */,

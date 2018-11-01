@@ -132,6 +132,8 @@
         
     } start:^(BOOL flag, NSString *msg) {
         
+        [self.view endEditing:YES];
+        
         if (flag) {
             [ProgressHUB show];
         }else{

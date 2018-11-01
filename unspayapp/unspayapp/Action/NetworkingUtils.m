@@ -8,6 +8,8 @@
 
 #import "NetworkingUtils.h"
 #import "DataBaseUtils.h"
+#import <NSObject+YYModel.h>
+#import "BankCard.h"
 
 @implementation NetworkingUtils
 
@@ -85,6 +87,96 @@
         
         
     }];
+    
+    
+}
+
++ (void)bankListNetworking:(ReturnBlock)callback{
+    
+    if (callback == nil) {
+        return;
+    }
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId};
+    
+    [Networking networkingWithHTTPOfPostTo:kBankListUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            callback(NO, @"无法连接服务器，请稍后重试", nil);
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            NSArray *array = jsonDic[@"list"];
+            
+            if ([array isEqual:[NSNull null]] || array == nil || array.count == 0) {
+                callback(YES, @"成功", array);
+            }else{
+                NSMutableArray *callBackArray = [NSMutableArray array];
+                for (NSDictionary *dic in array) {
+                
+                    BankCard *bankCard = [BankCard modelWithJSON:dic];
+                    [callBackArray addObject:bankCard];
+                    
+                }
+                callback(YES, @"成功", callBackArray);
+            }
+            
+
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            callback(NO, rspMsg, nil);
+        }
+        
+        
+    }];
+    
+    
+    
+}
+
++ (void)verifyPayPwd:(NSString *)pwd networking:(CommonBlock)complete{
+    
+    if (complete == nil || pwd == nil) {
+        return;
+    }
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"payPwd" : pwd
+                             };
+    
+    [Networking networkingWithHTTPOfPostTo:kVerifyPayPwdUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            complete(NO, @"无法连接服务器，请稍后重试");
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            complete(YES, @"密码正确");
+    
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            complete(NO, rspMsg);
+        }
+        
+        
+    }];
+    
     
     
 }

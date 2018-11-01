@@ -7,6 +7,7 @@
 //
 
 #import "WithdrawResultViewController.h"
+#import "DateFormatUtils.h"
 
 @interface WithdrawResultViewController ()
 
@@ -34,6 +35,11 @@
         self.navigationTitleLabel.text = @"转账结果";
     }
     
+    if (self.dealTime) {
+        NSString *dateString = [DateFormatUtils dateString:self.dealTime originalFormat:@"yyyyMMddHHmmss" transferToFormat:@"MM-dd HH:mm"];
+        self.applicationTimeLabel.text = dateString;
+        self.dealTimeLabel.text = dateString;
+    }
     
 }
 

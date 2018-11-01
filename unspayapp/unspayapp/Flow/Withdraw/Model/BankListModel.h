@@ -20,4 +20,6 @@
 
 @property (nonatomic, assign)BOOL isSelected;
 
+@property (nonatomic, strong) id params;
+
 @end

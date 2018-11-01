@@ -25,4 +25,6 @@ typedef NS_ENUM(NSInteger, PayTypeModelType) {
 
 @property (nonatomic, assign)PayTypeModelType type;
 
+@property (nonatomic, strong) id params;
+
 @end

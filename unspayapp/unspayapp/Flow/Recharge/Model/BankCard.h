@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BankCard : NSObject
 
+@property (nonatomic, strong) NSString *bankNo;
+@property (nonatomic, strong) NSString *bankName;
+@property (nonatomic, strong) NSString *bankCode;
+@property (nonatomic, strong) NSString *bankAboutMobile;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *cardType;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

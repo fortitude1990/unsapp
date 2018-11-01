@@ -8,6 +8,7 @@
 
 #import "RechargeSuccessViewController.h"
 #import "RechargeRecordViewController.h"
+#import "BankCard.h"
 
 @interface RechargeSuccessViewController ()
 
@@ -48,7 +49,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self createUI];
-    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +70,9 @@
 
 - (void)createUI{
     
+    self.bankNameLabel.adjustsFontSizeToFitWidth = YES;
+    self.bankNameLabel.minimumScaleFactor = 0.2;
+    
     self.nextBtn.layer.cornerRadius = kAutoScaleNormal(6);
     self.nextBtn.clipsToBounds = YES;
     
@@ -84,6 +88,22 @@
     
     
 }
+
+- (void)loadData{
+    
+    NSString *lastBankNo = [self.bankCard.bankNo substringFromIndex:self.bankCard.bankNo.length - 4];
+    NSString *cardType;
+    if ([self.bankCard.cardType isEqualToString:@"0"]) {
+        cardType = @"储蓄卡";
+    }else{
+        cardType = @"信用卡";
+    }
+    self.bankNameLabel.text = [NSString stringWithFormat:@"%@ %@ (%@)", self.bankCard.bankName, cardType, lastBankNo];
+    self.amountLabel.text = [@"￥" stringByAppendingString:self.amount];
+    
+}
+
+
 
 - (IBAction)rechargeRecordBtnAction:(id)sender {
     

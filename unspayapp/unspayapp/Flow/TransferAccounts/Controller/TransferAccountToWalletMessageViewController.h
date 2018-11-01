@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
+@class Deal;
 @interface TransferAccountToWalletMessageViewController : BaseViewController
+
+@property(nonatomic, strong) Deal *deal;
 
 @end

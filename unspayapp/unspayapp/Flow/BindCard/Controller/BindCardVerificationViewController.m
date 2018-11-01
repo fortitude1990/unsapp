@@ -10,6 +10,7 @@
 #import "AuthItem.h"
 #import "TimerButton.h"
 #import "NextButton.h"
+#import "BankCard.h"
 
 @interface BindCardVerificationViewController ()<UITextFieldDelegate>
 
@@ -60,6 +61,7 @@
     self.mobileItem.textField.textAlignment = NSTextAlignmentLeft;
     self.mobileItem.textField.delegate = self;
     self.mobileItem.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.mobileItem.textField.placeholder = @"请输入预留手机号码";
     
     [self.nextBtn setTitle:@"添加银行卡" forState:UIControlStateNormal];
     
@@ -109,8 +111,67 @@
 }
 - (IBAction)nextBtnAction:(id)sender {
     
+    [self networking];
+}
+
+- (void)networking{
+    
+    self.bankCard.bankAboutMobile = self.mobileItem.textField.text;
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"bankNo" : self.bankCard.bankNo,
+                             @"bankName" : self.bankCard.bankName,
+                             @"bankCode" : self.bankCard.bankCode,
+                             @"bankAboutMobile" : self.bankCard.bankAboutMobile,
+                             @"name" : self.bankCard.name,
+                             @"cardType" : self.bankCard.cardType
+                             };
+    
+    [ProgressHUB show];
+    [Networking networkingWithHTTPOfPostTo:kAddBankCardUrl params:params backData:^(NSData *data) {
+        
+        [ProgressHUB dismiss];
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"银行卡绑定成功" ok:@"确定" cancel:nil okAction:^{
+                
+                [self dismissViewControllerAnimated:YES completion:^{
+                    BaseNavController *navC = (BaseNavController *)self.navigationController;
+                    if (navC.myHandler) {
+                        ReturnBlock callBack = (ReturnBlock)navC.myHandler;
+                        callBack(YES, @"成功", self.bankCard);
+                    }
+                }];
+                
+            } cancelAction:nil of:self];
+            
+
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+        
+        
+    }];
+    
     
 }
+
+
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{

@@ -10,6 +10,7 @@
 #import "AuthItem.h"
 #import "NextButton.h"
 #import "BindCardVerificationViewController.h"
+#import "BankCard.h"
 
 @interface BindCardViewController ()<UITextFieldDelegate>
 
@@ -26,6 +27,9 @@
     // Do any additional setup after loading the view from its nib.
     
     [self createUI];
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    self.oneItem.textField.text = defaultMessage.baseMsg.name;
     
 }
 
@@ -71,8 +75,7 @@
 
 - (IBAction)nextBtnAction:(id)sender {
     
-    BindCardVerificationViewController *verificationVC = [[BindCardVerificationViewController alloc] init];
-    [self.navigationController pushViewController:verificationVC animated:YES];
+    [self networking];
     
 }
 
@@ -90,6 +93,50 @@
     if (self.twoItem.textField.text.length > 0) {
         [self.nextBtn canResponse];
     }
+}
+
+#pragma mark - Networking
+
+- (void)networking{
+    
+    NSString *url = [kCardInfoQueryUrl stringByAppendingString:self.twoItem.textField.text];
+    [ProgressHUB show];
+    [Networking networkingWithHttpOfGetTo:url backData:^(NSData *data) {
+        [ProgressHUB dismiss];
+        
+        if(data.length == 0){
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"retCode"];
+        
+        if ([rspCode isEqualToString:@"Y"]) {
+            
+            NSDictionary *dataDic = jsonDic[@"data"];
+            
+            BankCard *bankCard = [[BankCard alloc] init];
+            bankCard.bankNo = self.twoItem.textField.text;
+            bankCard.name = self.oneItem.textField.text;
+            bankCard.bankCode = dataDic[@"issuerCode"];
+            bankCard.cardType = dataDic[@"cardType"];
+            bankCard.bankName = dataDic[@"issName"];
+            
+            BindCardVerificationViewController *verificationVC = [[BindCardVerificationViewController alloc] init];
+            verificationVC.bankCard = bankCard;
+            [self.navigationController pushViewController:verificationVC animated:YES];
+            
+            
+        }else{
+            NSLog(@"卡bin查询失败");
+            [PopupAction alertMsg:@"卡bin查询失败" of:self];
+        }
+        
+        
+    }];
+    
 }
 
 #pragma mark - UITextFieldDelegate

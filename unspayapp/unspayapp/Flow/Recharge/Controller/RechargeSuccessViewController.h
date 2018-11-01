@@ -13,8 +13,13 @@ typedef NS_ENUM(NSInteger, SuccessType) {
     SuccessTypeTransferAccount,
 };
 
+@class BankCard;
 @interface RechargeSuccessViewController : BaseViewController
 
 @property (nonatomic, assign)SuccessType type;
+
+@property (nonatomic, strong) NSString *amount;
+
+@property (nonatomic, strong) BankCard *bankCard;
 
 @end

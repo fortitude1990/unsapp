@@ -9,9 +9,11 @@
 #import "TransferAccountToWalletViewController.h"
 #import "NextButton.h"
 #import "TransferAccountToWalletMessageViewController.h"
+#import <Contacts/Contacts.h>
+#import <ContactsUI/ContactsUI.h>
+#import "Deal.h"
 
-
-@interface TransferAccountToWalletViewController ()<UITextFieldDelegate>
+@interface TransferAccountToWalletViewController ()<UITextFieldDelegate, CNContactPickerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *mobileTF;
 
@@ -60,13 +62,32 @@
 #pragma mark - BtnActions
 
 - (IBAction)nextBtnAction:(id)sender {
-    
-    TransferAccountToWalletMessageViewController *messageVC = [[TransferAccountToWalletMessageViewController alloc] init];
-    [self.navigationController pushViewController:messageVC animated:YES];
-    
+
+    [self networking];
 }
 
 - (IBAction)contactBtnAction:(id)sender {
+    
+    if (@available(iOS 9.0, *)) {
+       
+    
+        
+        CNContactPickerViewController *contactPickerVC = [[CNContactPickerViewController alloc] init];
+        contactPickerVC.delegate = self;
+        contactPickerVC.displayedPropertyKeys = [NSArray arrayWithObject:CNContactPhoneNumbersKey];
+
+        //不可添加导航器，否则无法正常读取通讯录
+//        BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:contactPickerVC];
+        [self presentViewController:contactPickerVC animated:YES completion:^{
+            
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+    
+
+    
+    
     
 }
 
@@ -85,6 +106,75 @@
     }
     
 }
+
+
+#pragma mark - Networking
+
+- (void)networking{
+    
+    NSString *tel = [self.mobileTF.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSDictionary *params = @{@"tel" : tel};
+    
+    [ProgressHUB show];
+    [Networking networkingWithHTTPOfPostTo:kVerifyTelUrl params:params backData:^(NSData *data) {
+        [ProgressHUB dismiss];
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            Deal *deal = [[Deal alloc] init];
+            deal.toName = jsonDic[@"name"];
+            deal.toAccountId = jsonDic[@"accountId"];
+            deal.toTel = jsonDic[@"tel"];
+            deal.dealType = @"2";
+            deal.transferType = @"1";
+            
+            TransferAccountToWalletMessageViewController *messageVC = [[TransferAccountToWalletMessageViewController alloc] init];
+            messageVC.deal = deal;
+            [self.navigationController pushViewController:messageVC animated:YES];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+            
+        }
+        
+        
+    }];
+    
+}
+
+#pragma mark - CNContactPickerDelegate
+
+
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact API_AVAILABLE(ios(9.0)){
+    NSLog(@"%@", contact);
+    
+    CNLabeledValue *labeledValue = contact.phoneNumbers.firstObject;
+    CNPhoneNumber *phoneNumber = labeledValue.value;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        
+        self.mobileTF.text = [NSString stringWithFormat:@"%@", phoneNumber.stringValue];
+        [self textfieldValueChange];
+        
+    });
+    
+    
+    
+    
+}
+
+
+
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

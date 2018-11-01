@@ -9,6 +9,9 @@
 #import "WithdrawBankListViewController.h"
 #import "BankListTableViewCell.h"
 #import "BindCardViewController.h"
+#import "BankCard.h"
+#import "BankCardUtils.h"
+#import "BankImageHelper.h"
 
 static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdentifier";
 
@@ -18,6 +21,7 @@ static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdent
 
 @property (nonatomic, strong)UITableView *tableView;
 
+@property (nonatomic, copy) ReturnBlock reurnBlock;
 
 @end
 
@@ -76,28 +80,47 @@ static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdent
 }
 
 #pragma mark - Methods
+
+- (BankListModel *)transferToBankListModel:(BankCard *)bankCard{
+    
+    BankListModel *model1 = [[BankListModel alloc] init];
+    model1.bankName = bankCard.bankName;
+    if ([bankCard.cardType isEqualToString:@"0"]) {
+        model1.bankType = @"储蓄卡";
+    }else{
+        model1.bankType = @"信用卡";
+    }
+    model1.bankCardNo = [BankCardUtils reservedLastFourAndNeat:bankCard.bankNo];
+    model1.bankImageName = [BankImageHelper gainRealImageName:bankCard.bankName];
+    
+    if ([self.selectBankCard isEqual:bankCard]) {
+        model1.isSelected = YES;
+    }else{
+        model1.isSelected = NO;
+    }
+    model1.params = bankCard;
+    
+    return model1;
+}
+
 - (void)loadData{
     
     self.dataArray = [NSMutableArray array];
     
-    BankListModel *model1 = [[BankListModel alloc] init];
-    model1.bankName = @"中国工商银行";
-    model1.bankType = @"储蓄卡";
-    model1.bankCardNo = @"1234 1234 1234 1234";
-    model1.bankImageName = @"中国工商银行";
-    model1.isSelected = NO;
     
-    BankListModel *model2 = [[BankListModel alloc] init];
-    model2.bankName = @"中国银行";
-    model2.bankType = @"储蓄卡";
-    model2.bankCardNo = @"1234 1234 1234 1234";
-    model2.bankImageName = @"中国银行";
-    model2.isSelected = NO;
-    
-    [self.dataArray addObject:model1];
-    [self.dataArray addObject:model2];
+    for (BankCard *bankCard in self.listArray){
+        BankListModel *model = [self transferToBankListModel:bankCard];
+        [self.dataArray addObject:model];
+    }
+
     
     [self.tableView reloadData];
+}
+
+- (void)callback:(ReturnBlock)callback{
+    if (callback) {
+        self.reurnBlock = callback;
+    }
 }
 
 #pragma mark - BtnActions
@@ -107,11 +130,30 @@ static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdent
 
 - (void)rightBtnAction{
     
+
+    
     BindCardViewController *bindVC = [[BindCardViewController alloc] init];
     BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:bindVC];
     [self presentViewController:navC animated:YES completion:^{
         
     }];
+    
+    typeof(self) weakSelf = self;
+    ReturnBlock callback = ^(BOOL flag, NSString *message, BankCard *bankCard){
+       
+        if (flag && bankCard) {
+            BankListModel *model = [self transferToBankListModel:bankCard];
+            [weakSelf.dataArray addObject:model];
+            [weakSelf.tableView reloadData];
+            if (weakSelf.reurnBlock) {
+                weakSelf.reurnBlock(YES, @"选择成功", nil);
+            }
+        }
+        
+    };
+    
+    navC.myHandler = callback;
+    
     
 }
 
@@ -139,6 +181,10 @@ static NSString * bankListTableViewCellIdentifier = @"bankListTableViewCellIdent
     model.isSelected = YES;
     [self.dataArray replaceObjectAtIndex:indexPath.row withObject:model];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    if (self.reurnBlock) {
+        self.reurnBlock(NO, @"选择成功", model.params);
+    }
     
     
 }

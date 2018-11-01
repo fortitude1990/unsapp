@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
+@class BankCard;
 @interface BindCardVerificationViewController : BaseViewController
+
+@property (strong, nonatomic) BankCard *bankCard;
 
 @end

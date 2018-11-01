@@ -17,4 +17,6 @@ typedef NS_ENUM(NSInteger, ResultType) {
 
 @property (nonatomic, assign)ResultType resultType;
 
+@property (nonatomic, strong) NSString *dealTime;
+
 @end

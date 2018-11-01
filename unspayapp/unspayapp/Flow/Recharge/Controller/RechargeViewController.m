@@ -15,6 +15,10 @@
 #import "BankImageHelper.h"
 #import "RechargeSuccessViewController.h"
 #import "WithdrawResultViewController.h"
+#import "NetworkingUtils.h"
+#import "BindCardViewController.h"
+#import "BankCard.h"
+#import "BankCardUtils.h"
 
 @interface RechargeViewController ()<UITextFieldDelegate>
 
@@ -28,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet NextButton *nextBtn;
 @property (strong, nonatomic) IBOutlet UILabel *remindLabel;
 @property (strong, nonatomic) IBOutlet UIButton *allWithdrawBtn;
+@property (strong, nonatomic) BankCard *selectBankCard;
 
 @property (strong, nonatomic) NSArray *listArray;
 
@@ -70,6 +75,8 @@
 
 - (void)createUI{
     
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    
     switch (self.tradingType) {
         case TradingTypeRecharge:
             self.navigationItem.title = @"账户充值";
@@ -77,7 +84,7 @@
             break;
         case TradingTypeWithdraw:
             self.navigationItem.title = @"余额提现";
-            self.remindLabel.text = @"可用余额XXXX";
+            self.remindLabel.text = [NSString stringWithFormat:@"可用余额%@元", defaultMessage.propertyMsg.availableProperty];
             break;
         default:
             break;
@@ -97,7 +104,12 @@
 
 - (IBAction)allWithdrawBtnAction:(id)sender {
     
-    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    if ([defaultMessage.propertyMsg.availableProperty floatValue] > 0) {
+        self.amountTF.text = defaultMessage.propertyMsg.availableProperty;
+        [self textFieldValueChange];
+    }
+
 }
 
 - (void)tapGesAction{
@@ -106,10 +118,18 @@
     
     switch (self.tradingType) {
         case TradingTypeRecharge:
-            [self rechargeType];
+            if (![self.listArray isEqual:[NSNull null]] && self.listArray != nil && self.listArray.count > 0) {
+                [self rechargeType];
+            }else{
+                [self toBindBankCard];
+            }
             break;
         case TradingTypeWithdraw:
-            [self withdrawType];
+            if (![self.listArray isEqual:[NSNull null]] && self.listArray != nil && self.listArray.count > 0) {
+                [self withdrawType];
+            }else{
+                [self toBindBankCard];
+            }
             break;
         default:
             break;
@@ -127,6 +147,14 @@
     
     [self.view endEditing:YES];
     
+    if (self.selectBankCard == nil) {
+        [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还未绑定银行卡，是否进行绑卡" ok:@"再看看" cancel:@"去绑定" okAction:nil cancelAction:^{
+            [self toBindBankCard];
+        } of:self];
+        return;
+    }
+    
+    
     PasswordView *passwordView = [[PasswordView alloc] initWithFrame:self.view.bounds];
     [self.navigationController.view addSubview:passwordView];
     
@@ -138,14 +166,12 @@
         switch (weakSelf.tradingType) {
             case TradingTypeRecharge:
             {
-                RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
-                [weakSelf.navigationController pushViewController:successVC animated:YES];
+                [self toRecharge:data];
                 break;
             }
             case TradingTypeWithdraw:
             {
-                WithdrawResultViewController *withdrawResultVc = [[WithdrawResultViewController alloc] init];
-                [weakSelf.navigationController pushViewController:withdrawResultVc animated:YES];
+                [self toWithdraw:data];
                 break;
             }
             default:
@@ -158,35 +184,81 @@
     }];
 }
 
+- (void)toBindBankCard{
+    
+    BindCardViewController *bindVC = [[BindCardViewController alloc] init];
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:bindVC];
+    [self presentViewController:navC animated:YES completion:^{
+        
+    }];
+    
+    ReturnBlock callback = ^(BOOL flag, NSString *message, BankCard *bankCard){
+        [self networking];
+        
+        if(bankCard){
+            [self toSetSelectBankCard:bankCard];
+        }
+        
+    };
+    
+    navC.myHandler = callback;
+    
+    
+}
+
 #pragma mark - Methods
 
-- (void)loadData{
-    
-    
-    if (self.listArray.count > 0) {
-        
-    }else{
+- (void)toSetSelectBankCard: (BankCard *)bankCard{
+
+    if (bankCard == nil) {
         self.bankNameLabel.text = @"";
         self.bankNoLabel.text = @"";
         self.bankTypeLabel.text = @"";
+        self.selectBankCard = nil;
+    }else{
+        
+
+        self.bankNoLabel.text = [BankCardUtils reservedLastFourAndNeat:bankCard.bankNo];
+        
+        self.bankNameLabel.text = bankCard.bankName;
+        if ([bankCard.cardType isEqualToString:@"0"]) {
+            self.bankTypeLabel.text = @"储蓄卡";
+        }else{
+            self.bankTypeLabel.text = @"信用卡";
+        }
+        self.bankImageView.image = [BankImageHelper gainImage:bankCard.bankName];
+        self.selectBankCard = bankCard;
+    }
+
+    
+}
+
+- (void)loadData{
+    
+    if (self.listArray != nil && self.listArray.count > 0) {
+        BankCard *bankCard = self.listArray.firstObject;
+        [self toSetSelectBankCard:bankCard];
+    }else{
+        [self toSetSelectBankCard:nil];
     }
     
 }
 
 - (void)rechargeType{
     
-    PayTypeModel *model = [[PayTypeModel alloc] init];
-    model.title = @"中国工商银行(6442)";
-    model.imageName = [BankImageHelper gainRealImageName:@"中国工商银行"];
-    
-    PayTypeModel *model1 = [[PayTypeModel alloc] init];
-    model1.imageName =[BankImageHelper gainRealImageName:@"上海银行"];
-    model1.title = @"上海银行(9996)";
-    
-    PayTypeModel *model2 = [[PayTypeModel alloc] init];
-    model2.imageName =[BankImageHelper gainRealImageName:@"上海浦东发展银行"];
-    model2.title = @"上海浦东发展银行(9996)";
 
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (BankCard *bankCard in self.listArray) {
+        
+        NSString *lastBankNo = [bankCard.bankNo substringFromIndex:bankCard.bankNo.length - 4];
+        PayTypeModel *model = [[PayTypeModel alloc] init];
+        model.title = [NSString stringWithFormat:@"%@(%@)", bankCard.bankName, lastBankNo];
+        model.imageName = [BankImageHelper gainRealImageName:bankCard.bankName];
+        model.params = bankCard;
+        
+        [array addObject:model];
+    }
     
     PayTypeModel *payType = [[PayTypeModel alloc] init];
     payType.imageName = @"添加新卡";
@@ -194,7 +266,7 @@
     payType.selectImageName = @"右箭头";
     payType.type = PayTypeModelTypeUseNewBank;
     
-    NSArray *array = @[model,model1,model2,payType];
+    [array addObject:payType];
     
     
     PayTypeView *payTypeView = [[PayTypeView alloc] init];
@@ -205,12 +277,31 @@
     }];
     
     [payTypeView show];
+    [payTypeView callBack:^(PayTypeModel *payTypeModel) {
+        
+        if (payTypeModel.type == PayTypeModelTypeUseNewBank) {
+            [self toBindBankCard];
+        }else{
+            [self toSetSelectBankCard:payTypeModel.params];
+        }
+        
+    }];
     
 }
 
 - (void)withdrawType{
     
     WithdrawBankListViewController *bankListVC = [[WithdrawBankListViewController alloc] init];
+    bankListVC.listArray = self.listArray;
+    bankListVC.selectBankCard = self.selectBankCard;
+    [bankListVC callback:^(BOOL isUpdateBankList, NSString *message, BankCard *returnParams) {
+        if (isUpdateBankList) {
+            [self networking];
+        }
+        if (returnParams) {
+            [self toSetSelectBankCard:returnParams];
+        }
+    }];
     [self.navigationController pushViewController:bankListVC animated:YES];
     
     
@@ -226,29 +317,70 @@
     
 }
 
+- (void)toRecharge: (NSString *)pwd{
+    
+    [ProgressHUB show];
+    
+    [self verifyPayPwd:pwd networking:^(BOOL flag, NSString *message) {
+        
+        if (flag) {
+            [self toRechargeNetworking];
+        }else{
+            [ProgressHUB dismiss];
+            [PopupAction alertMsg:message of:self];
+        }
+        
+    }];
+    
+}
+
+- (void)toWithdraw: (NSString *)pwd{
+    
+    [ProgressHUB show];
+    
+    [self verifyPayPwd:pwd networking:^(BOOL flag, NSString *message) {
+        
+        if (flag) {
+            [self toWithdrawNetworking];
+        }else{
+            [ProgressHUB dismiss];
+            [PopupAction alertMsg:message of:self];
+        }
+        
+    }];
+    
+}
+
+
 #pragma mark - Networking
 
-- (void)networking{
+- (void)toWithdrawNetworking{
     
     DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
-    NSDictionary *params = @{@"accountId" : defaultMessage.accountId};
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"toBankNo" : self.selectBankCard.bankNo,
+                             @"amount" : self.amountTF.text,
+                             @"toBankName" : self.selectBankCard.bankName
+                             };
     
-    [Networking networkingWithHTTPOfPostTo:kBankListUrl params:params backData:^(NSData *data) {
+    [Networking networkingWithHTTPOfPostTo:kWithdrawUrl params:params backData:^(NSData *data) {
+        
+        [ProgressHUB dismiss];
         
         if (data.length == 0) {
-            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:nil];
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
             return ;
         }
         
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
         NSString *rspCode = jsonDic[@"rspCode"];
-        
         if ([rspCode isEqualToString:@"0000"]) {
             
-            NSArray *array = jsonDic[@"list"];
-            self.listArray = [NSArray arrayWithArray:array];
-            [self loadData];
+            defaultMessage.isUpdateBaseMsg = YES;
+            WithdrawResultViewController *withdrawResultVc = [[WithdrawResultViewController alloc] init];
+            withdrawResultVc.dealTime = jsonDic[@"dealTime"];
+            [self.navigationController pushViewController:withdrawResultVc animated:YES];
             
         }else{
             NSString *rspMsg = jsonDic[@"rspMsg"];
@@ -257,10 +389,92 @@
         }
         
         
+        
+    }];
+    
+}
+
+- (void)verifyPayPwd: (NSString *)pwd networking:(CommonBlock)complete{
+    
+    [NetworkingUtils verifyPayPwd:pwd networking:^(BOOL flag, NSString *message) {
+        complete(flag, message);
+    }];
+}
+
+- (void)toRechargeNetworking{
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"bankNo" : self.selectBankCard.bankNo,
+                             @"amount" : self.amountTF.text
+                             };
+    
+    [Networking networkingWithHTTPOfPostTo:kRechargeUrl params:params backData:^(NSData *data) {
+        
+        [ProgressHUB dismiss];
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            defaultMessage.isUpdateBaseMsg = YES;
+                RechargeSuccessViewController *successVC = [[RechargeSuccessViewController alloc] init];
+            successVC.amount = self.amountTF.text;
+            successVC.bankCard = self.selectBankCard;
+                [self.navigationController pushViewController:successVC animated:YES];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+        
+        
+        
+    }];
+    
+
+    
+}
+
+
+- (void)networking{
+    
+    [ProgressHUB show];
+    [NetworkingUtils bankListNetworking:^(BOOL flag, NSString *message, NSArray * returnParams) {
+        [ProgressHUB dismiss];
+        
+        if (flag) {
+            
+            if ([returnParams isEqual:[NSNull null]] || returnParams == nil || returnParams.count == 0) {
+                [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还未绑定银行卡，是否进行绑卡" ok:@"再看看" cancel:@"去绑定" okAction:nil cancelAction:^{
+                    [self toBindBankCard];
+                } of:self];
+            }else{
+                self.listArray = [NSArray arrayWithArray:returnParams];
+            }
+            
+            if(!self.selectBankCard){
+                [self loadData];
+            }
+            
+        }else{
+            [PopupAction alertMsg:message of:self];
+        }
+        
     }];
     
     
 }
+
+
+
 
 #pragma mark - UITextFieldDelegate
 

@@ -185,8 +185,12 @@
                              @"identityId" : self.realNameMsg.identityId
                              };
     
+    [ProgressHUB show];
+    
     [Networking networkingWithHTTPOfPostTo:kRealNameUrl params:params backData:^(NSData *data) {
     
+        [ProgressHUB dismiss];
+        
         if (data.length == 0) {
             [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
             return ;
