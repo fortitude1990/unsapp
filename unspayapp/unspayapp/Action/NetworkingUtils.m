@@ -181,5 +181,36 @@
     
 }
 
++ (void)baseMsg:(NSDictionary *)params upateNetworking:(CommonBlock)complete{
+    
+    if (complete == nil || params == nil) {
+        return;
+    }
+    [Networking networkingWithHTTPOfPostTo:kUpdateBaseMsgUrl params:params backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            complete(NO, @"无法连接服务器，请稍后重试");
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            complete(YES, @"修改成功");
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            complete(NO, rspMsg);
+        }
+        
+        
+    }];
+    
+}
+
 
 @end

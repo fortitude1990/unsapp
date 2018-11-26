@@ -10,6 +10,25 @@
 
 @implementation DateFormatUtils
 
+
+
++ (NSString *)nowDate:(NSString *)format{
+    
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    if (format == nil) {
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+    }else{
+        formatter.dateFormat = format;
+    }
+    
+    return [formatter stringFromDate:date];
+    
+    
+}
+
+
 + (NSString *)dateString:(NSString *)dateString originalFormat:(NSString *)originalFormat transferToFormat:(NSString *)transferToFormat{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

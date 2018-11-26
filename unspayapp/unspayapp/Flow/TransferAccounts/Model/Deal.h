@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *toBankName;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *toTel;
+@property (nonatomic, strong) NSString *dealTime;
 
 @end
 

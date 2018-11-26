@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "RecordDetailViewController.h"
 
 @interface RechargeRecordViewController : BaseViewController
+
+@property (nonatomic, assign)RecordType recordType;
 
 @end

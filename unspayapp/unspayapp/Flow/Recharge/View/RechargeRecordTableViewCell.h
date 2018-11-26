@@ -17,4 +17,9 @@ typedef NS_ENUM(NSInteger, RecordListType) {
 
 @property (nonatomic, assign)RecordListType recordListType;
 
+@property (strong, nonatomic)  NSString *title;
+@property (strong, nonatomic)  NSString *date;
+@property (strong, nonatomic)  NSString *amount;
+@property (strong, nonatomic)  NSString *status;
+
 @end

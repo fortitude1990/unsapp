@@ -22,7 +22,7 @@
    [aCoder encodeObject:self.birthday forKey:@"birthday"]; //生日
    [aCoder encodeObject:self.nickname forKey:@"nickname"]; //昵称
    [aCoder encodeObject:self.email forKey:@"email"]; //邮箱
-   [aCoder encodeObject:self.headPortraitImge forKey:@"headPortraitImge"]; //头像
+   [aCoder encodeObject:self.headPortraitImage forKey:@"headPortraitImage"]; //头像
    [aCoder encodeObject:self.constellation forKey:@"constellation"]; //星座
    [aCoder encodeObject:self.height forKey:@"height"]; //身高
    [aCoder encodeObject:self.weight forKey:@"weight"]; //体重
@@ -47,7 +47,7 @@
         self.birthday = [coder decodeObjectForKey:@"birthday"];
         self.nickname = [coder decodeObjectForKey:@"nickname"];
         self.email = [coder decodeObjectForKey:@"email"];
-        self.headPortraitImge = [coder decodeObjectForKey:@"headPortraitImge"];
+        self.headPortraitImage = [coder decodeObjectForKey:@"headPortraitImage"];
         self.constellation = [coder decodeObjectForKey:@"constellation"];
         self.height = [coder decodeObjectForKey:@"height"];
         self.weight = [coder decodeObjectForKey:@"weight"];

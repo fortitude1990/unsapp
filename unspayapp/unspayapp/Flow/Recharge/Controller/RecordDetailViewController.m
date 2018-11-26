@@ -8,14 +8,24 @@
 
 #import "RecordDetailViewController.h"
 #import "RecordModel.h"
+#import "Deal.h"
+#import "BankCardUtils.h"
+#import "DateFormatUtils.h"
 
 @interface RecordDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong)NSMutableArray *dataArray;
+@property (nonatomic, strong)NSArray *dataArray;
 
 @property (nonatomic, strong)UITableView *tableView;
 
 @property (nonatomic, strong)NSArray *titleArray;
+
+@property (nonatomic, strong)UILabel *titleLabel;
+
+@property (nonatomic, strong)UILabel * statusLabel;
+
+@property (nonatomic, strong)UILabel * amountLabel;
+
 
 @end
 
@@ -49,6 +59,10 @@
 #pragma mark - CreateUI
 
 - (void)createUI{
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     
     UIView *headerView = [[UIView alloc] init];
     headerView.backgroundColor = KHexColor(0xf8f8f8);
@@ -85,7 +99,9 @@
     [self.view addSubview:tableView];
     
     self.tableView = tableView;
-    
+    self.titleLabel = titleLabel;
+    self.statusLabel = statusLabel;
+    self.amountLabel = amountLabel;
 }
 
 #pragma mark - Methods
@@ -93,45 +109,82 @@
 - (void)loadData{
     
     
-    RecordModel *model1 = [[RecordModel alloc] init];
-    model1.amount = @"11.22";
-    model1.date = @"2011-22-03 15:22:25";
-    model1.status = @"交易成功";
+    self.amountLabel.text = self.deal.amount;
     
-    self.dataArray = [NSMutableArray array];
-    [self.dataArray addObject:model1];
+    NSString *payType;
+    if ([self.deal.payType isEqualToString:@"0"]) {
+        payType = @"账户余额";
+    }else{
+        payType = [NSString stringWithFormat:@"%@(%@)", self.deal.bankName, [BankCardUtils lastFour:self.deal.bankNo]];
+    }
     
-    [self.tableView reloadData];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
+    NSString *date = [DateFormatUtils dateString:self.deal.dealTime originalFormat:@"yyyyMMddHHmmss" transferToFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     switch (self.recordType) {
         case RecordTypeRecharge:
         {
+            self.navigationItem.title = @"充值详情";
+            NSString *mobile = [[NSUserDefaults standardUserDefaults] objectForKey:kTelKey];
+            self.titleLabel.text = [@"充值账户 " stringByAppendingString:mobile];
+            self.statusLabel.text = @"充值成功";
+            
+            NSString *transferType;
+            transferType = @"充值到钱包账户";
             self.titleArray = @[@"用户名称",
                                 @"支付方式",
                                 @"交易时间",
                                 @"交易单号",
                                 @"商户单号",
                                 @"交易类型"];
-            self.navigationItem.title = @"充值详情";
+            
+            self.dataArray = @[self.deal.name,
+                               payType,
+                               date,
+                               self.deal.orderNo,
+                               self.deal.orderNo,
+                               transferType
+                               ];
+            
             break;
         }
         case RecordTypeTransferAccount:{
+            
+            self.navigationItem.title = @"转账详情";
+            self.statusLabel.text = @"转账成功";
+
+            
+            NSString *transferType;
+            if ([self.deal.transferType isEqualToString:@"0"]) {
+                transferType = @"转账到钱包账户";
+                self.titleLabel.text = [NSString stringWithFormat:@"转账给%@ %@", self.deal.toName, self.deal.toTel];
+
+            }else{
+                transferType = @"转账到银行卡";
+                self.titleLabel.text =  [NSString stringWithFormat:@"转账给%@ %@(%@)", self.deal.toName,self.deal.toBankName, [BankCardUtils lastFour:self.deal.toBankNo]];
+
+            }
+            
             self.titleArray = @[@"姓名",
                                 @"支付方式",
                                 @"交易时间",
                                 @"交易单号",
                                 @"商户单号",
                                 @"交易类型"];
-            self.navigationItem.title = @"转账详情";
+            self.dataArray = @[self.deal.name,
+                               payType,
+                               date,
+                               self.deal.orderNo,
+                               self.deal.orderNo,
+                               transferType
+                               ];
             break;
         }
         default:
             break;
     }
+    
+    [self.tableView reloadData];
+
     
 }
 
@@ -172,7 +225,7 @@
     cell.detailTextLabel.textColor = [UIColor blackColor];
     
     cell.textLabel.text = self.titleArray[indexPath.row];
-    cell.detailTextLabel.text = @"张三疯";
+    cell.detailTextLabel.text = self.dataArray[indexPath.row];
     
     return cell;
     

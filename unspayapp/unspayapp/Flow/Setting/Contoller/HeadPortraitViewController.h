@@ -10,4 +10,7 @@
 
 @interface HeadPortraitViewController : BaseViewController
 
+- (void)callBack:(ReturnBlock)callback;
+
+
 @end

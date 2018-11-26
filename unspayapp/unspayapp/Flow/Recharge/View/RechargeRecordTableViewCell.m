@@ -49,5 +49,23 @@
     }
 }
 
+- (void)setTitle:(NSString *)title{
+    _title = title;
+    self.titleLabel.text = title;
+}
 
+- (void)setAmount:(NSString *)amount{
+    _amount = amount;
+    self.amountLabel.text = amount;
+}
+
+- (void)setDate:(NSString *)date{
+    _date = date;
+    self.dateLabel.text = date;
+}
+
+- (void)setStatus:(NSString *)status{
+    _status = status;
+    self.statusLabel.text = status;
+}
 @end

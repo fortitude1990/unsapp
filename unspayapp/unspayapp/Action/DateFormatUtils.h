@@ -12,7 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DateFormatUtils : NSObject
 
++ (NSString *)nowDate:(NSString *)format;
+
 + (NSString *)dateString: (NSString *)dateString originalFormat:(NSString *)originalFormat transferToFormat:(NSString *)transferToFormat;
+
 @end
 
 NS_ASSUME_NONNULL_END

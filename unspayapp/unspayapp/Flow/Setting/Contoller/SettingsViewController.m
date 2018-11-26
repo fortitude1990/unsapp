@@ -12,6 +12,7 @@
 #import "SettingChangeMobileViewController.h"
 #import "SettingNicknameViewController.h"
 #import "LoginViewController.h"
+#import "BankCardUtils.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -20,6 +21,12 @@
 @end
 
 @implementation SettingsViewController
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self loadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +85,12 @@
     [btn addTarget:self action:@selector(quitBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [backView addSubview:btn];
 }
+#pragma mark - Methods
+
+- (void)loadData{
+    
+}
+
 
 #pragma mark - BtnActions
 
@@ -100,6 +113,15 @@
     
     HeadPortraitViewController *headPortraitVC = [[HeadPortraitViewController alloc] init];
     [self.navigationController pushViewController:headPortraitVC animated:YES];
+    [headPortraitVC callBack:^(BOOL flag, NSString *message, UIImage  *returnParams) {
+        
+        if (flag && returnParams) {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell.imageView.image = returnParams;
+        }
+
+        
+    }];
     
 }
 
@@ -114,7 +136,14 @@
     
     SettingNicknameViewController *nicknameVC = [[SettingNicknameViewController alloc] init];
     [self.navigationController pushViewController:nicknameVC animated:YES];
-    
+    [nicknameVC callBack:^(BOOL flag, NSString *message, id returnParams) {
+        if (flag) {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            UITableViewCell *cell1 = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+            cell1.detailTextLabel.text = returnParams;
+            cell.textLabel.text = returnParams;
+        }
+    }];
 }
 
 
@@ -174,27 +203,53 @@
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    
     if(indexPath.section == 0){
         cell.imageView.image = [UIImage imageNamed:@"默认头像"];
-        cell.textLabel.text = @"沉默的小米";
+        cell.textLabel.text = @"用户";
+
+        if(defaultMessage.baseMsg.nickname.length > 0){
+            cell.textLabel.text = defaultMessage.baseMsg.nickname;
+        }
+        
+        if (defaultMessage.baseMsg.headPortraitImage.length > 0) {
+            UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMessage.baseMsg.headPortraitImage options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+            cell.imageView.image = image;
+        }
+        
+
+//        cell.imageView.layer.cornerRadius = 78.0 / 2.0;
+//        cell.imageView.clipsToBounds = YES;
         cell.textLabel.font = [UIFont systemFontOfSize:16];
-        cell.imageView.layer.cornerRadius = CGRectGetHeight(cell.imageView.frame) / 2.0;
-        cell.imageView.clipsToBounds = YES;
+
+        
     }else{
         cell.textLabel.font = [UIFont systemFontOfSize:15];
 
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = @"昵称";
-                cell.detailTextLabel.text = @"装白";
+                cell.detailTextLabel.text = @"";
+                if(defaultMessage.baseMsg.nickname.length > 0){
+                    cell.detailTextLabel.text = defaultMessage.baseMsg.nickname;
+                    
+                }
                 break;
             case 1:
+            {
                 cell.textLabel.text = @"更换手机";
-                cell.detailTextLabel.text = @"135******123";
+                NSString *tel = [[NSUserDefaults standardUserDefaults] objectForKey:kTelKey];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                cell.detailTextLabel.text = [BankCardUtils recessiveTel:tel];
                 break;
+            }
             case 2:
                 cell.textLabel.text = @"绑定邮箱";
-                cell.detailTextLabel.text = @"lizhijing1209@163.com";
+                cell.detailTextLabel.text = @"";
+                if(defaultMessage.baseMsg.email.length > 0){
+                    cell.detailTextLabel.text = defaultMessage.baseMsg.email;
+                }
                 break;
             case 3:
                 cell.textLabel.text = @"账号安全中心";

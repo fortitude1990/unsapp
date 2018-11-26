@@ -10,4 +10,6 @@
 
 @interface SettingNicknameViewController : BaseViewController
 
+- (void)callBack:(ReturnBlock)callback;
+
 @end

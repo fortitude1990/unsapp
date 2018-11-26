@@ -16,6 +16,9 @@
 #import "PasswordView.h"
 #import "WithdrawResultViewController.h"
 #import "ServeForTextField.h"
+#import "NetworkingUtils.h"
+#import "BankCard.h"
+#import "BankCardUtils.h"
 
 @interface TransferAccountToBankViewController ()<UITextFieldDelegate>
 {
@@ -33,6 +36,9 @@
 @property (strong, nonatomic) IBOutlet UIView *intervalView;
 
 @property (nonatomic, strong)ServeForTextField *server;
+@property (nonatomic, strong) NSMutableArray *listArray;
+@property (nonatomic, strong) BankCard *selectBankCard;
+@property (nonatomic, strong) BankCard *toBankCard;
 
 @end
 
@@ -50,6 +56,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self createUI];
+    [self networking];
     
     self.server = [[ServeForTextField alloc] init];
     [self.server startServeFor:self.view];
@@ -98,7 +105,7 @@
     
     self.bankNameItem.hiddenBottom = YES;
     self.bankNameItem.titleLabel.text = @"银行";
-    self.bankNameItem.textField.text = @"光大银行";
+    self.bankNameItem.textField.text = @"";
     self.bankNameItem.textField.delegate = self;
     self.bankNameItem.textField.placeholder = @"请选择银行";
     
@@ -135,6 +142,14 @@
 
 }
 
+#pragma mark - Get
+
+- (BankCard *)toBankCard{
+    if (!_toBankCard) {
+        _toBankCard = [[BankCard alloc] init];
+    }
+    return _toBankCard;
+}
 
 
 #pragma mark - BtnActions
@@ -142,36 +157,51 @@
 - (void)switchBtnAction{
     
         [self.view endEditing:YES];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (BankCard *bankCard in self.listArray) {
         
         PayTypeModel *model = [[PayTypeModel alloc] init];
-        model.title = @"中国工商银行(6442)";
-        model.imageName = [BankImageHelper gainRealImageName:@"中国工商银行"];
+        model.title = [NSString stringWithFormat:@"%@(%@)", bankCard.bankName, [BankCardUtils lastFour:bankCard.bankNo]];
+        model.imageName = [BankImageHelper gainRealImageName:bankCard.bankName];
+        model.params = bankCard;
+        [array addObject:model];
+    }
+
         
-        PayTypeModel *model1 = [[PayTypeModel alloc] init];
-        model1.imageName =[BankImageHelper gainRealImageName:@"上海银行"];
-        model1.title = @"上海银行(9996)";
-        
-        PayTypeModel *model2 = [[PayTypeModel alloc] init];
-        model2.imageName =[BankImageHelper gainRealImageName:@"上海浦东发展银行"];
-        model2.title = @"上海浦东发展银行(9996)";
+
         
         PayTypeModel *payType = [[PayTypeModel alloc] init];
         payType.imageName = @"添加新卡";
         payType.title = @"使用新银行卡";
         payType.selectImageName = @"右箭头";
         payType.type = PayTypeModelTypeUseNewBank;
-        
+    
+    [array addObject:payType];
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+
+    if ([defaultMessage.propertyMsg.availableProperty floatValue] == 0) {
         PayTypeModel *payType1 = [[PayTypeModel alloc] init];
         payType1.imageName = @"账户余额灰";
         payType1.title = @"账户余额\n可用余额0.00元";
         payType1.type = PayTypeModelTypeBalanceShow;
+        [array addObject:payType1];
+    }else{
         
         PayTypeModel *payType2 = [[PayTypeModel alloc] init];
         payType2.imageName = @"账户余额";
-        payType2.title = @"账户余额\n可用余额3999.30元";
+        payType2.title = [NSString stringWithFormat:@"账户余额\n可用余额%@元", defaultMessage.propertyMsg.availableProperty] ;
         payType2.type = PayTypeModelTypeUseBalance;
+        [array addObject:payType2];
+    }
+    
+
         
-        NSArray *array = @[model,model1,model2,payType,payType1,payType2];
+
+        
+
         
         PayTypeView *payTypeView = [[PayTypeView alloc] init];
         payTypeView.elementsArray = array;
@@ -186,10 +216,10 @@
             
             switch (payTypeModel.type) {
                 case PayTypeModelTypeUseBalance:
-                    [self.switchPayTypeView settingPayType:@"账户余额39.33"];
+                    [self toSetSelectBankCard:nil];
                     break;
                 case PayTypeModelTypeDefault:
-                    [self.switchPayTypeView settingPayType:payTypeModel.title];
+                    [self toSetSelectBankCard:payTypeModel.params];
                     break;
                 case PayTypeModelTypeUseNewBank:
                     [self toBindBankCard];
@@ -203,15 +233,6 @@
     
 }
 
-- (void)toBindBankCard{
-    
-    BindCardViewController *bindVC = [[BindCardViewController alloc] init];
-    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:bindVC];
-    [self presentViewController:navC animated:YES completion:^{
-        
-    }];
-    
-}
 
 - (IBAction)nextBtnAction:(id)sender {
     
@@ -223,9 +244,7 @@
     [passwordView passwordAuthComplete:^(id data) {
         NSLog(@"%@", data);
         
-        WithdrawResultViewController *resultVC = [[WithdrawResultViewController alloc] init];
-        resultVC.resultType = ResultTypeTransferAccount;
-        [weakSelf.navigationController pushViewController:resultVC animated:YES];
+        [weakSelf toTransfer:data];
         
     }];
     
@@ -240,7 +259,197 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - Networking
+
+- (void)cardBinNetworking{
+    
+    NSString *url = [kCardInfoQueryUrl stringByAppendingString:self.bankCardNoItem.textField.text];
+    [Networking networkingWithHttpOfGetTo:url backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"retCode"];
+        
+        if ([rspCode isEqualToString:@"Y"]) {
+            
+            NSDictionary *dataDic = jsonDic[@"data"];
+            self.toBankCard.bankCode = dataDic[@"issuerCode"];
+            self.toBankCard.cardType = dataDic[@"cardType"];
+            self.toBankCard.bankName = dataDic[@"issName"];
+            
+            self.bankNameItem.textField.text = self.toBankCard.bankName;
+            [self showBankName];
+            
+        }else{
+            NSLog(@"卡bin查询失败");
+            [PopupAction alertMsg:@"卡bin查询失败" of:self];
+        }
+        
+    }];
+    
+}
+
+- (void)transferAccountsNetworking{
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSString *payType;
+    if (self.selectBankCard == nil) {
+        payType = @"0";
+    }else{
+        payType = @"1";
+    }
+    
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"transferType" : @"1",
+                             @"toBankNo" : self.bankCardNoItem.textField.text,
+                             @"toBankName" : self.bankNameItem.textField.text,
+                             @"toName" : self.nameItem.textField.text,
+                             @"amount" : self.amountItem.textField.text,
+                             @"payType" : payType
+                             };
+    
+    NSMutableDictionary *nextParams = [[NSMutableDictionary alloc] initWithDictionary:params];
+    if ([payType isEqualToString:@"1"]) {
+        [nextParams setObject:self.selectBankCard.bankNo forKey:@"bankNo"];
+        [nextParams setObject:self.selectBankCard.bankName forKey:@"bankName"];
+    }
+    
+    [Networking networkingWithHTTPOfPostTo:kTransferUrl params:nextParams backData:^(NSData *data) {
+        
+        if (data.length == 0) {
+            [PopupAction alertMsg:@"无法连接服务器，请稍后重试" of:self];
+            return ;
+        }
+        
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *rspCode = jsonDic[@"rspCode"];
+        
+        if ([rspCode isEqualToString:@"0000"]) {
+            
+            defaultMessage.isUpdateBaseMsg = YES;
+            
+            WithdrawResultViewController *resultVC = [[WithdrawResultViewController alloc] init];
+            resultVC.resultType = ResultTypeTransferAccount;
+            resultVC.dealTime = jsonDic[@"dealTime"];
+            [self.navigationController pushViewController:resultVC animated:YES];
+            
+        }else{
+            NSString *rspMsg = jsonDic[@"rspMsg"];
+            NSLog(@"%@", rspMsg);
+            [PopupAction alertMsg:rspMsg of:self];
+        }
+        
+        
+        
+        
+    }];
+    
+    
+    
+}
+
+- (void)verifyPayPwd: (NSString *)pwd networking:(CommonBlock)complete{
+    
+    [NetworkingUtils verifyPayPwd:pwd networking:^(BOOL flag, NSString *message) {
+        complete(flag, message);
+    }];
+}
+
+- (void)networking{
+    
+    [ProgressHUB show];
+    [NetworkingUtils bankListNetworking:^(BOOL flag, NSString *message, NSArray * returnParams) {
+        [ProgressHUB dismiss];
+        
+        if (flag) {
+            
+            if ([returnParams isEqual:[NSNull null]] || returnParams == nil || returnParams.count == 0) {
+                [[PopupAction defaultPopupAction] popupWithTitle:@"温馨提示" message:@"您还未绑定银行卡，是否进行绑卡" ok:@"再看看" cancel:@"去绑定" okAction:nil cancelAction:^{
+                    [self toBindBankCard];
+                } of:self];
+            }else{
+                self.listArray = [NSMutableArray arrayWithArray:returnParams];
+            }
+            
+            if(!self.selectBankCard){
+                [self loadData];
+            }
+            
+        }else{
+            [PopupAction alertMsg:message of:self];
+        }
+        
+    }];
+    
+    
+}
+
 #pragma mark - Methods
+
+- (void)toTransfer:(NSString *)pwd{
+    
+    [self verifyPayPwd:pwd networking:^(BOOL flag, NSString *message) {
+        
+        if (flag) {
+            [self transferAccountsNetworking];
+        }else{
+            [PopupAction alertMsg:message of:self];
+        }
+        
+    }];
+    
+}
+
+- (void)loadData{
+    if (self.listArray.count > 0) {
+        BankCard *bankCard = self.listArray.firstObject;
+        [self toSetSelectBankCard:bankCard];
+    }else{
+        [self toSetSelectBankCard:nil];
+    }
+}
+
+
+- (void)toSetSelectBankCard: (BankCard *)bankCard{
+    
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    if (bankCard == nil) {
+        [self.switchPayTypeView settingPayType:[NSString stringWithFormat:@"账户余额￥%@", defaultMessage.propertyMsg.availableProperty]];
+        self.selectBankCard = nil;
+    }else{
+        NSString *bankNo = [BankCardUtils lastFour:bankCard.bankNo];
+        [self.switchPayTypeView settingPayType:[NSString stringWithFormat:@"%@(%@)",bankCard.bankName, bankNo]];
+        self.selectBankCard = bankCard;
+    }
+    
+}
+
+- (void)toBindBankCard{
+    
+    BindCardViewController *bindVC = [[BindCardViewController alloc] init];
+    BaseNavController *navC = [[BaseNavController alloc] initWithRootViewController:bindVC];
+    [self presentViewController:navC animated:YES completion:^{
+        
+    }];
+    
+    ReturnBlock callback = ^(BOOL flag, NSString *message, BankCard *bankCard){
+        [self networking];
+        
+        if(bankCard){
+            [self toSetSelectBankCard:bankCard];
+        }
+        
+    };
+    
+    navC.myHandler = callback;
+    
+    
+}
 
 
 - (void)textfieldValueChange{
@@ -251,8 +460,8 @@
         [self.nextBtn noResponse];
     }
     
-    if (self.bankCardNoItem.textField.text.length > 5) {
-        [self showBankName];
+    if (self.bankCardNoItem.textField.text.length > 15) {
+        [self cardBinNetworking];
     }else{
         [self hiddenBankName];
     }

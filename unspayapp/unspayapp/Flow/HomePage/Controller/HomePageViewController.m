@@ -24,6 +24,7 @@
 #import "DataBaseUtils.h"
 #import "LoginViewController.h"
 #import "NecessaryConditionJudgment.h"
+#import <UIImageView+YYWebImage.h>
 
 #define kMargin 15
 
@@ -95,6 +96,19 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
             defaultMessage.propertyMsg = propertyMsg;
             defaultMessage.isUpdateBaseMsg = YES;
             
+            if (defaultMessage.baseMsg.nickname.length > 0) {
+                self.nameLabel.text = defaultMessage.baseMsg.nickname;
+            }else{
+                self.nameLabel.text = @"用户";
+            }
+            
+            if (defaultMessage.baseMsg.headPortraitImage.length > 0) {
+                UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMessage.baseMsg.headPortraitImage options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+                self.headImagView.image = image;
+            }else{
+                self.headImagView.image = [UIImage imageNamed:@"默认头像"];
+            }
+            
             
             if (defaultMessage.propertyMsg) {
                 [self.meansView updateData];
@@ -146,15 +160,18 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         [NetworkingUtils baseMsgNetworking:^(BOOL flag, NSString *message) {
             if (flag) {
                 
-                DefaultMessage *defaultMsg = DefaultMessage.shareMessage;
                 
-                if (defaultMsg.baseMsg.nickname.length > 0) {
-                    self.nameLabel.text = defaultMsg.baseMsg.nickname;
+                if (defaultMessage.baseMsg.nickname.length > 0) {
+                    self.nameLabel.text = defaultMessage.baseMsg.nickname;
+                }else{
+                    self.nameLabel.text = @"用户";
                 }
                 
-                if (defaultMsg.baseMsg.headPortraitImge.length > 0) {
-                    UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMsg.baseMsg.headPortraitImge options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+                if (defaultMessage.baseMsg.headPortraitImage.length > 0) {
+                    UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMessage.baseMsg.headPortraitImage options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
                     self.headImagView.image = image;
+                }else{
+                    self.headImagView.image = [UIImage imageNamed:@"默认头像"];
                 }
                 
                 if (![NecessaryConditionJudgment checkIsRealName]) {

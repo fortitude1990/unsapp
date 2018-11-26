@@ -12,6 +12,7 @@ target 'unspayapp' do
   pod 'Masonry'
   pod 'SVProgressHUD'
   pod 'YYKit'
+  pod 'MJRefresh'
  
 
   target 'unspayappTests' do

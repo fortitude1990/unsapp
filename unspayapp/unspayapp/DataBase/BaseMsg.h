@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *birthday; //生日
 @property (nonatomic, strong) NSString *nickname; //昵称
 @property (nonatomic, strong) NSString *email; //邮箱
-@property (nonatomic, strong) NSString *headPortraitImge; //头像
+@property (nonatomic, strong) NSString *headPortraitImage; //头像
 @property (nonatomic, strong) NSString *constellation; //星座
 @property (nonatomic, strong) NSString *height; //身高
 @property (nonatomic, strong) NSString *weight; //体重

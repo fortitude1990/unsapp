@@ -63,7 +63,9 @@
 
 - (IBAction)nextBtnAction:(id)sender {
 
+    [self.view endEditing:YES];
     [self networking];
+    
 }
 
 - (IBAction)contactBtnAction:(id)sender {
@@ -81,6 +83,7 @@
         [self presentViewController:contactPickerVC animated:YES completion:^{
             
         }];
+        
     } else {
         // Fallback on earlier versions
     }
@@ -133,7 +136,7 @@
             deal.toAccountId = jsonDic[@"accountId"];
             deal.toTel = jsonDic[@"tel"];
             deal.dealType = @"2";
-            deal.transferType = @"1";
+            deal.transferType = @"0";
             
             TransferAccountToWalletMessageViewController *messageVC = [[TransferAccountToWalletMessageViewController alloc] init];
             messageVC.deal = deal;
@@ -160,16 +163,24 @@
     CNLabeledValue *labeledValue = contact.phoneNumbers.firstObject;
     CNPhoneNumber *phoneNumber = labeledValue.value;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        
-        self.mobileTF.text = [NSString stringWithFormat:@"%@", phoneNumber.stringValue];
-        [self textfieldValueChange];
-        
-    });
     
     
+    //在iOS11 iPhone5s 上面直接使用[string stringByReplacingOccurrencesOfString:@" " withString:@""], 无法去除空格
+    NSMutableArray *array = [NSMutableArray array];
+    NSUInteger lengthOfString = phoneNumber.stringValue.length;
+    for (NSInteger loopIndex = 0; loopIndex < lengthOfString; loopIndex++) {//只允许数字输入
+        unichar character = [phoneNumber.stringValue characterAtIndex:loopIndex];
+        if (character < 48 || character > 57){
+            [array addObject:[[NSString alloc] initWithCharacters:&character length:1]];
+        }
+    }
+    NSMutableString *string = [NSMutableString stringWithFormat:@"%@", phoneNumber.stringValue];
+    for(NSString *sub in array){
+        string = (NSMutableString *)[string stringByReplacingOccurrencesOfString:sub withString:@""];
+    }
     
+    self.mobileTF.text = string;
+    [self textfieldValueChange];
     
 }
 

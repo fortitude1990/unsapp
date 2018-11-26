@@ -7,11 +7,14 @@
 //
 
 #import "SettingNicknameViewController.h"
+#import "NetworkingUtils.h"
 
 @interface SettingNicknameViewController ()<UITextFieldDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITextField *nicknameTF;
+
+@property (nonatomic, copy) ReturnBlock returnBlock;
 
 @end
 
@@ -57,8 +60,33 @@
 
 - (void)saveNicknameBtnAction{
     
+    [self.view endEditing:YES];
     
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
+                             @"nickname" : self.nicknameTF.text
+                             };
+    [ProgressHUB show];
+    [NetworkingUtils baseMsg:params upateNetworking:^(BOOL flag, NSString *message) {
+        [ProgressHUB dismiss];
+        
+        if (flag) {
+            defaultMessage.isUpdateBaseMsg = YES;
+            if (self.returnBlock) {
+                self.returnBlock(YES, @"修改成功", self.nicknameTF.text);
+            }
+            [PopupAction alertMsg:@"修改成功" of:self];
+        }else{
+            [PopupAction alertMsg:message of:self];
+        }
+    }];
     
+}
+
+- (void)callBack:(ReturnBlock)callback{
+    if (callback) {
+        self.returnBlock = callback;
+    }
 }
 
 #pragma mark - UITextFieldDelegate

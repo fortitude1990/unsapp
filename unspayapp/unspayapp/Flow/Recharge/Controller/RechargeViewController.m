@@ -406,6 +406,7 @@
     DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
     NSDictionary *params = @{@"accountId" : defaultMessage.accountId,
                              @"bankNo" : self.selectBankCard.bankNo,
+                             @"bankName" : self.selectBankCard.bankName,
                              @"amount" : self.amountTF.text
                              };
     

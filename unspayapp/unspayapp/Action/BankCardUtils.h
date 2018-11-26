@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)reservedLastFourAndNeat:(NSString *)bankNo;
 + (NSString *)lastFour:(NSString *)bankNo;
++ (NSString *)recessiveTel:(NSString *)tel;
 
 @end
 

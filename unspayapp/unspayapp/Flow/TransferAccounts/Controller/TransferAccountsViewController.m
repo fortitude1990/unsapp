@@ -85,6 +85,7 @@
 - (void)rightBtnAction{
     
     RechargeRecordViewController *recordVC = [[RechargeRecordViewController alloc] init];
+    recordVC.recordType = RecordTypeTransferAccount;
     [self.navigationController pushViewController:recordVC animated:YES];
     
 }

@@ -26,5 +26,7 @@
 #define kRechargeUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/recharge", kIP] //充值
 #define kWithdrawUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/withdraw", kIP] //提现
 #define kVerifyTelUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/basemsg/verifyTel", kIP] //校验手机号码是否注册
+#define kTransferUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/transfer", kIP] //转账
+#define kQueryDealUrl [NSString stringWithFormat:@"http://%@/unsapp_personal/query/deal", kIP] //交易查询
 
 #endif /* TotalUrls_h */

@@ -8,12 +8,14 @@
 
 #import "HeadPortraitViewController.h"
 #import "ImagePickUtil.h"
+#import "NetworkingUtils.h"
 
 @interface HeadPortraitViewController ()<UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *photoAlbumBtn;
 @property (strong, nonatomic) IBOutlet UIButton *takingPicturesBtn;
+@property (nonatomic, copy) ReturnBlock returnBlock;
 
 @end
 
@@ -58,12 +60,23 @@
     self.navigationItem.title = @"设置个人头像";
     self.navigationItem.leftBarButtonItem = [BackBtn createBackButtonWithAction:@selector(leftBtnAction) target:self];
     
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    if (defaultMessage.baseMsg.headPortraitImage.length > 0) {
+        UIImage *image = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:defaultMessage.baseMsg.headPortraitImage options:(NSDataBase64DecodingIgnoreUnknownCharacters)]];
+        self.imageView.image = image;
+    }
 }
 
 - (void)leftBtnAction{
     
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+- (void)callBack:(ReturnBlock)callback{
+    if (callback) {
+        self.returnBlock = callback;
+    }
 }
 
 
@@ -86,7 +99,31 @@
     
 }
 
+#pragma mark - Networking
+- (void)networking{
+    
+    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.2);
+    NSString *base64 = [imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    DefaultMessage *defaultMessage = [DefaultMessage shareMessage];
+    NSDictionary *params = @{@"accountId" : defaultMessage.accountId, @"headPortraitImage" : base64};
+    [ProgressHUB show];
+    [NetworkingUtils baseMsg:params upateNetworking:^(BOOL flag, NSString *message) {
+        [ProgressHUB dismiss];
+        if (flag) {
+            defaultMessage.isUpdateBaseMsg = YES;
+            self.returnBlock(YES, @"头像更换成功", self.imageView.image);
+            [PopupAction alertMsg:@"头像更换成功" of:self];
+        }else{
+            [PopupAction alertMsg:message of:self];
+
+        }
+    
+    }];
+}
+
+
 #pragma mark - UIImagePickerControllerDelegate
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -96,6 +133,7 @@
     // 源图
     UIImage* chosenImage = [info objectForKey:UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
+    [self networking];
     
 }
 

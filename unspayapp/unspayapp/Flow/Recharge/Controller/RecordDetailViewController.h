@@ -13,8 +13,11 @@ typedef NS_ENUM(NSInteger, RecordType) {
     RecordTypeTransferAccount,
 };
 
+@class Deal;
 @interface RecordDetailViewController : BaseViewController
 
 @property (nonatomic, assign)RecordType recordType;
+
+@property (nonatomic, strong) Deal *deal;
 
 @end

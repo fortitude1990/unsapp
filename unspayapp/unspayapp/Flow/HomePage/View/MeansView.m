@@ -176,17 +176,31 @@
     _incomeYD.amount = defaultMessage.propertyMsg.yesterdayIncome;
     _expendYD.amount = defaultMessage.propertyMsg.yesterdaySpending;
    
-    CGFloat totalmeans = _totalMeans.amount.floatValue;
-    if (totalmeans == 0) {
-        totalmeans = 10000;
-        _totalMeans.percentage = 0.0;
-    }else{
-        _totalMeans.percentage = 1.0;
+    
+    CGFloat total = _totalMeans.amount.floatValue;
+    CGFloat balance = _balance.amount.floatValue;
+    CGFloat incomeyd = _incomeYD.amount.floatValue;
+    CGFloat expendyd = _expendYD.amount.floatValue;
+    
+    CGFloat base = total;
+    if (base < balance) {
+        base = balance;
     }
     
-    _balance.percentage = _balance.amount.floatValue / totalmeans;
-    _incomeYD.percentage = _incomeYD.amount.floatValue / totalmeans;
-    _expendYD.percentage = _expendYD.amount.floatValue / totalmeans;
+    if (base < incomeyd) {
+        base = incomeyd;
+    }
+    
+    if (base < expendyd) {
+        base = expendyd;
+    }
+    
+    base = 10000 + base;
+    
+    _totalMeans.percentage = total / base;
+    _balance.percentage = balance / base;
+    _incomeYD.percentage = incomeyd / base;
+    _expendYD.percentage = expendyd / base;
     
 }
 

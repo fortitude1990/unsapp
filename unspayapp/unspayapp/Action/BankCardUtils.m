@@ -24,7 +24,7 @@
     NSString *bankNo = [aBankNo stringByReplacingCharactersInRange:NSMakeRange(0, aBankNo.length - length) withString:replaceString];
     NSMutableString *newBankNo = [NSMutableString stringWithString:bankNo];
     int j = 0;
-    for (int i = 0; i < bankNo.length - 1; i++) {
+    for (int i = 1; i < bankNo.length; i++) {
         if (i % 4 == 0) {
             [newBankNo insertString:@" " atIndex: i + j];
             j ++;
@@ -40,6 +40,17 @@
     }
     NSString *subString = [bankNo substringFromIndex:bankNo.length - 4];
     return subString;
+}
+
++ (NSString *)recessiveTel:(NSString *)tel{
+    
+    NSMutableString *replaceString = [NSMutableString stringWithString:@"*"];
+    for (int i = 3; i < tel.length - 4; i ++) {
+        replaceString = [NSMutableString stringWithString:[replaceString stringByAppendingString:@"*"]];
+    }
+    NSString *bankNoTel = [tel stringByReplacingCharactersInRange:NSMakeRange(3, tel.length - 7) withString:replaceString];
+    
+    return bankNoTel;
 }
 
 @end

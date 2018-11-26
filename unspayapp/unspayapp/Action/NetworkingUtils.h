@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)propertyNetworking: (CommonBlock) complete;
 + (void)bankListNetworking: (ReturnBlock) callback;
 + (void)verifyPayPwd:(NSString *)pwd networking: (CommonBlock) complete;
++ (void)baseMsg: (NSDictionary *)params upateNetworking: (CommonBlock) complete;
 
 @end
 
