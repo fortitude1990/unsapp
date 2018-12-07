@@ -2,7 +2,7 @@
 支付类APP，有支付、提现、转账功能
 后台使用Java开发
 # 首页动画效果
-<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/%E9%A6%96%E9%A1%B5.gif" width = "100" alt = "首页">
+<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/%E9%A6%96%E9%A1%B5.gif" width = "375" alt = "首页">
 <br>
 <br>
 # 个人中心页效果
