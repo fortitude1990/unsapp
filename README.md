@@ -8,7 +8,7 @@ server地址：[Java源码](https://github.com/fortitude1990/unsapp_server)
 <img src = "https://github.com/fortitude1990/unsapp/blob/master/images/WechatIMG4.jpeg" width = "375" alt = "登录"/>
 
 # 首页动画效果
-<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/2019-01-09 17_28_08.gif" width = "375" alt = "首页"/>
+<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/首页.gif" width = "375" alt = "首页"/>
 <br>
 <br>
 
