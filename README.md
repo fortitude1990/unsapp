@@ -4,7 +4,7 @@
 
 server地址：[Java源码](https://github.com/fortitude1990/unsapp_server)
 
-##局部截图
+## 局部截图
 <div>
 <img style="float:left margin:5" src = "https://github.com/fortitude1990/unsapp/blob/master/images/WechatIMG4.jpeg" width = "25%" alt = "登录"/>
 <img style="float:left margin:5" src = "https://github.com/fortitude1990/unsapp/blob/master/images/首页.gif" width = "25%" alt = "首页"/>
