@@ -5,7 +5,7 @@
 server地址：[Java源码](https://github.com/fortitude1990/unsapp_server)
 
 # 登录
-<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/WechatIMG4.jpeg" width = "375" alt = "登录"/>
+<img src = "https://github.com/fortitude1990/unsapp/blob/master/images/WechatIMG4.jpeg" width = "25%" alt = "登录"/>
 
 # 首页动画效果
 <img src = "https://github.com/fortitude1990/unsapp/blob/master/images/首页.gif" width = "375" alt = "首页"/>
